@@ -2,3 +2,5 @@
 const CertificateContainer = () => {
   return <div></div>;
 };
+
+export default CertificateContainer;

@@ -2,3 +2,5 @@
 const AirplaneContainer = () => {
   return <div></div>;
 };
+
+export default AirplaneContainer;
