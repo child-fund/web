@@ -1,5 +1,26 @@
+import { useNavigate } from "react-router-dom";
+import styled from "styled-components";
+
 const LoginContainer = () => {
-  return <div></div>;
+  const navigate = useNavigate();
+
+  const handleMainClick = () => {
+    navigate("/");
+  };
+
+  const handleFindAccountClick = () => {
+    navigate("/login/find");
+  };
+
+  return (
+    <Container>
+      로그인
+      <button onClick={handleFindAccountClick}>아이디/비밀번호 찾기</button>
+      <button onClick={handleMainClick}>기부 동참하러 가기</button>
+    </Container>
+  );
 };
+
+const Container = styled.div``;
 
 export default LoginContainer;
