@@ -33,7 +33,7 @@ const GlobalStyle = createGlobalStyle`
 }
 
 html {
-    min-height: 100%;
+    height: 100%;
 }
 
 body {
@@ -43,7 +43,6 @@ body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
       "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
       sans-serif;
-    font-size: 1.6rem;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
