@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 const id = 123;
 
-const HistoryContainer = () => {
+const DonationHistoryContainer = () => {
   const navigate = useNavigate();
 
   const handleDetailClick = () => {
@@ -20,4 +20,4 @@ const HistoryContainer = () => {
 
 const Container = styled.div``;
 
-export default HistoryContainer;
+export default DonationHistoryContainer;

@@ -1,8 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
-// TODO: 여기 작명을 이렇게 하는게 맞을까? "airplane"
-const AirplaneContainer = () => {
+const SelectAirplaneContainer = () => {
   const navigate = useNavigate();
 
   const handleMainClick = () => {
@@ -10,8 +9,7 @@ const AirplaneContainer = () => {
   };
 
   const handleWriteClick = () => {
-    navigate("/airplane/write");
-    // TODO: 왜 이동을 안하지?
+    navigate("/writedream");
   };
 
   return (
@@ -25,4 +23,4 @@ const AirplaneContainer = () => {
 
 const Container = styled.div``;
 
-export default AirplaneContainer;
+export default SelectAirplaneContainer;

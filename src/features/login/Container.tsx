@@ -9,7 +9,7 @@ const LoginContainer = () => {
   };
 
   const handleFindAccountClick = () => {
-    navigate("/login/find");
+    navigate("/findaccount");
   };
 
   return (

@@ -1,11 +1,11 @@
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
-const WritingDreamContainer = () => {
+const WriteDreamContainer = () => {
   const navigate = useNavigate();
 
   const handleSubmitClick = () => {
-    navigate("/airplane/certificate");
+    navigate("/certificate");
   };
 
   return (
@@ -18,4 +18,4 @@ const WritingDreamContainer = () => {
 
 const Container = styled.div``;
 
-export default WritingDreamContainer;
+export default WriteDreamContainer;

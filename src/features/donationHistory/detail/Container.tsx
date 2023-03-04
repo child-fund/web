@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
-const HistoryDetailContainer = () => {
+const DonationHistoryDetailContainer = () => {
   const navigate = useNavigate();
 
   const handleBackClick = () => {
@@ -18,4 +18,4 @@ const HistoryDetailContainer = () => {
 
 const Container = styled.div``;
 
-export default HistoryDetailContainer;
+export default DonationHistoryDetailContainer;
