@@ -32,12 +32,11 @@ const GlobalStyle = createGlobalStyle`
     word-break: keep-all;
 }
 
-html {
+html, body, #root {
     height: 100%;
 }
 
 body {
-    min-height: 100vh;
     margin: 0;
     padding: 0;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
@@ -45,6 +44,14 @@ body {
       sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-y: scroll;
+    width: 100%;
 }
 
 
