@@ -1,5 +1,6 @@
 import { useEffect, useRef } from "react";
 import styled from "styled-components";
+import colors from "colors";
 
 export enum ToastTheme {
   GRAY = "gray",
@@ -71,9 +72,9 @@ export const Container = styled.div`
   width: 90%;
   padding: 1.6rem;
   border-radius: 1rem;
-  background-color: rgb(69 69 69);
+  background-color: ${colors.gray700};
   opacity: 1;
-  color: rgb(255 255 255);
+  color: ${colors.white};
   font-size: 1.4rem;
   line-height: 1.8rem;
   text-align: center;

@@ -5,6 +5,7 @@ export const ToastContext = createContext({
   showToast(message: string, theme: ToastTheme) {},
 });
 
+// TODO: 이것의 위치는?
 const ToastProvider = ({ children }: PropsWithChildren) => {
   const [isVisible, setIsVisible] = useState(false);
   const [theme, setTheme] = useState<ToastTheme>(ToastTheme.GRAY);

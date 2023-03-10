@@ -1,5 +1,6 @@
 import { useState } from "react";
 import styled from "styled-components";
+import colors from "colors";
 
 interface InputProps {
   className?: string;
@@ -48,11 +49,7 @@ const Container = styled.div`
 
 const Title = styled.span<{ isFocused: boolean; wrongInput: boolean }>`
   color: ${({ isFocused, wrongInput }) =>
-    wrongInput
-      ? "rgb(230 21 3)"
-      : isFocused
-      ? "rgb(23 204 16)"
-      : "rgb(139 149 161)"};
+    wrongInput ? colors.red : isFocused ? colors.green500 : colors.gray500};
   font-size: 1.2rem;
   line-height: 1.6rem;
 `;
@@ -60,22 +57,22 @@ const Title = styled.span<{ isFocused: boolean; wrongInput: boolean }>`
 const InputField = styled.input<{ wrongInput: boolean }>`
   padding: 1rem;
   border: 1px solid
-    ${({ wrongInput }) => (wrongInput ? "rgb(230 21 3)" : "rgb(219 219 219)")};
+    ${({ wrongInput }) => (wrongInput ? colors.red : colors.gray300)};
   border-radius: 0.5rem;
-  color: rgb(25 31 40);
+  color: ${colors.gray900};
   font-size: 1.2rem;
 
   ::placeholder {
-    color: rgb(209 214 219);
+    color: ${colors.gray400};
   }
 
   :focus {
-    border: 1px solid rgb(23 204 16);
+    border: 1px solid ${colors.green500};
   }
 `;
 
 const WarningMessage = styled.p`
-  color: rgb(230 21 3);
+  color: ${colors.red};
 `;
 
 export default Input;

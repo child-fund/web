@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import colors from "colors";
 
 // TODO: 이것만 디렉토리가 생겼는데, 다른 컴포넌트도 형태를 맞춰야 하나
 
@@ -13,7 +14,7 @@ const AnnouncementButton = (props: AnnouncementButtonProps) => {
 
 const Container = styled.button`
   display: inline;
-  color: rgb(23 204 16);
+  color: ${colors.green500};
   font-size: 1.2rem;
   text-decoration: underline;
 `;

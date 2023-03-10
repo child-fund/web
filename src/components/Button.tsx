@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import colors from "colors";
 
 export enum ButtonTheme {
   DARK = "dark",
@@ -31,10 +32,10 @@ const Container = styled.button<{ theme: ButtonTheme }>`
 
   ${({ theme }) =>
     theme === ButtonTheme.DARK
-      ? `background-color: rgb(23 204 16);
-         color: rgb(255 255 255);`
-      : `background-color: rgb(247 253 242);
-         color: rgb(23 204 16);`}
+      ? `background-color: ${colors.green500};
+         color: ${colors.white};`
+      : `background-color: ${colors.green100};
+         color: ${colors.green500};`}
 `;
 
 export default Button;

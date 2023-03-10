@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import colors from "colors";
 
 interface AnnouncementTextProps {
   className?: string;
@@ -12,7 +13,7 @@ const AnnouncementText = (props: AnnouncementTextProps) => {
 
 const Container = styled.p`
   display: inline;
-  color: rgb(139 149 161);
+  color: ${colors.gray500};
   font-size: 1.2rem;
 `;
 

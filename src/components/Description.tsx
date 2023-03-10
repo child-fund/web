@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import colors from "colors";
 
 interface DescriptionProps {
   className?: string;
@@ -10,7 +11,7 @@ const Description = (props: DescriptionProps) => {
 };
 
 const Container = styled.p`
-  color: rgb(139 149 161);
+  color: ${colors.gray500};
   font-size: 1.2rem;
   line-height: 1.6rem;
 `;

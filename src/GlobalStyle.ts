@@ -1,4 +1,5 @@
 import { createGlobalStyle } from "styled-components";
+import colors from "colors";
 
 const GlobalStyle = createGlobalStyle`
 /***
@@ -28,6 +29,7 @@ const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
     -webkit-overflow-scrolling: touch;
     -webkit-tap-highlight-color: transparent;
+    color:${colors.gray900};
     font-size: 62.5%;
     word-break: keep-all;
 }
