@@ -1,35 +1,13 @@
-import { useContext, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
-import { ToastContext } from "components/Toast/ToastProvider";
+import useMain from "./hooks/useMain";
 
 import Button, { ButtonTheme } from "components/Button";
 import Description from "components/Description";
 import Title, { Align } from "components/Title";
-import { ToastTheme } from "components/Toast";
 
 const MainContainer = () => {
-  const { showToast } = useContext(ToastContext);
-
-  useEffect(() => {
-    showToast("Toast!", ToastTheme.GRAY);
-  }, []);
-
-  // TODO: hooks로 다 빼기
-  const navigate = useNavigate();
-
-  const handleJoinClick = () => {
-    navigate("/join");
-  };
-
-  const handleHistoryClick = () => {
-    navigate("/history");
-  };
-
-  const handleDonateClick = () => {
-    navigate("/selectairplane");
-  };
+  const { handleJoinClick, handleHistoryClick, handleDonateClick } = useMain();
 
   return (
     <Container>
