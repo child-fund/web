@@ -22,6 +22,7 @@ export const Container = styled.div`
   }
 
   @media (max-height: 915px) {
+    height: 100%;
     align-self: flex-start;
   }
 `;
