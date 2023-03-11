@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 import styled from "styled-components";
-import colors from "colors";
+import colors from "assets/colors";
 
 export enum ToastTheme {
   GRAY = "gray",

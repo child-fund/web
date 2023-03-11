@@ -1,5 +1,5 @@
 import { createGlobalStyle } from "styled-components";
-import colors from "colors";
+import colors from "assets/colors";
 
 const GlobalStyle = createGlobalStyle`
 /***
@@ -29,6 +29,7 @@ const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
     -webkit-overflow-scrolling: touch;
     -webkit-tap-highlight-color: transparent;
+    font-family: "Pretendard", Gothic, sans-serif;
     color:${colors.gray900};
     font-size: 62.5%;
     word-break: keep-all;

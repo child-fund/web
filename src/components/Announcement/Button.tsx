@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import colors from "colors";
+import colors from "assets/colors";
 
 // TODO: 이것만 디렉토리가 생겼는데, 다른 컴포넌트도 형태를 맞춰야 하나
 

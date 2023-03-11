@@ -20,6 +20,7 @@ const Title = (props: TitleProps) => {
 };
 
 const Container = styled.p<{ align: Align }>`
+  font-weight: bold;
   font-size: 2.4rem;
   line-height: 3.2rem;
   white-space: pre-line;

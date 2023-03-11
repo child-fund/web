@@ -1,6 +1,6 @@
 import { useState } from "react";
 import styled from "styled-components";
-import colors from "colors";
+import colors from "assets/colors";
 
 interface InputProps {
   className?: string;
