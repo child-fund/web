@@ -6,15 +6,6 @@ const FindAccountContainer = () => {
 
   const handleLoginClick = () => {
     navigate("/login");
-    // TODO: 경로를 상수화하기
-    //     type Pathname ="login" | "main"
-
-    // const getPath = (pathname:Pathname, detail:any) => {
-    // switch (pathname){
-    //   case 'login':
-    //     return "/login"
-    // }
-    // }
   };
 
   const handleJoinClick = () => {

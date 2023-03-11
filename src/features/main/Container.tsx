@@ -9,8 +9,6 @@ import Description from "components/Description";
 import Title, { Align } from "components/Title";
 import { ToastTheme } from "components/Toast";
 
-// TODO: 컴포넌트 명 이렇게 하는게 맞는지
-// TODO: 컨테이너 시작이 대문자?
 const MainContainer = () => {
   const { showToast } = useContext(ToastContext);
 
