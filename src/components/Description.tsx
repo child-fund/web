@@ -13,7 +13,7 @@ const Description = (props: DescriptionProps) => {
 const Container = styled.p`
   color: ${colors.gray500};
   font-size: 1.2rem;
-  line-height: 1.6rem;
+  line-height: 1.33;
 `;
 
 export default Description;

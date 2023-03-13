@@ -2,17 +2,10 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   position: relative;
-  overflow-x: hidden;
-  overflow-y: scroll;
-
-  ::-webkit-scrollbar {
-    display: none;
-  }
-
+  overflow: hidden;
   width: 41.2rem;
   height: 91.5rem;
   background: white;
-
   border: 1px solid #dee2e6;
 
   @media (max-width: 412px) {
@@ -21,7 +14,7 @@ export const Container = styled.div`
     border: none;
   }
 
-  @media (max-height: 915px) {
+  @media (max-height: 914px) {
     height: 100%;
     align-self: flex-start;
   }
