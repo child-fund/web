@@ -27,7 +27,8 @@ export const InputField = styled.input<{ wrongInput: boolean }>`
   }
 
   :focus {
-    border: 1px solid ${colors.green500};
+    border: 1px solid
+      ${({ wrongInput }) => (wrongInput ? colors.red : colors.green500)};
   }
 `;
 

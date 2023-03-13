@@ -5,11 +5,16 @@ import colors from "assets/colors";
 
 interface AnnouncementButtonProps {
   className?: string;
+  onButtonClick: () => void;
   text: string;
 }
 
 const AnnouncementButton = (props: AnnouncementButtonProps) => {
-  return <Container className={props.className}>{props.text}</Container>;
+  return (
+    <Container className={props.className} onClick={props.onButtonClick}>
+      {props.text}
+    </Container>
+  );
 };
 
 const Container = styled.button`

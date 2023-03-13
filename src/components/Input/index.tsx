@@ -1,10 +1,16 @@
+import { ChangeEvent } from "react";
 import useInput from "./hooks/useInput";
 import { Container, Title, InputField, WarningMessage } from "./index.style";
 
+type InputType = "password";
+
 interface InputProps {
   className?: string;
+  onValueChange: (e: ChangeEvent<HTMLInputElement>) => void;
   placeholder?: string;
   title: string;
+  type?: InputType;
+  value: string;
   warningMessage?: string;
   wrongInput: boolean;
 }
@@ -19,10 +25,12 @@ const Input = (props: InputProps) => {
         {props.title}
       </Title>
       <InputField
-        id="input"
         placeholder={` ${props.placeholder}`}
         onBlur={handleInputFieldBlur}
+        onChange={props.onValueChange}
         onFocus={handleInputFieldFocus}
+        value={props.value}
+        type={props.type}
         wrongInput={props.wrongInput}
       />
       {props.wrongInput && (
