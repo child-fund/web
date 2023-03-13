@@ -1,6 +1,5 @@
 import { useEffect, useRef } from "react";
-import styled from "styled-components";
-import colors from "assets/colors";
+import { Container } from "./index.style";
 
 export enum ToastTheme {
   GRAY = "gray",
@@ -62,24 +61,5 @@ const Toast = (props: ToastProps) => {
     </Container>
   );
 };
-
-export const Container = styled.div`
-  position: absolute;
-  bottom: -100%;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 999;
-  width: 90%;
-  padding: 1.6rem;
-  border-radius: 1rem;
-  background-color: ${colors.gray700};
-  opacity: 1;
-  color: ${colors.white};
-  font-size: 1.4rem;
-  line-height: 1.8rem;
-  text-align: center;
-  white-space: pre-line;
-  transition: bottom 1.5s ease-in-out, opacity 0.8s ease-in-out;
-`;
 
 export default Toast;

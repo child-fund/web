@@ -23,6 +23,7 @@ import escalPrintLogo from "assets/imgs/escalPrintLogo.svg";
 const MainContainer = () => {
   const {
     loginStatus,
+    handleNoticeClick,
     handleShareClick,
     handleJoinClick,
     handleHistoryClick,
@@ -62,7 +63,8 @@ const MainContainer = () => {
         </li>
         <li>
           {`👀 후원 기부내역은 `}
-          <button>공지사항 확인하기</button>를 클릭하여 확인 가능해요.
+          <button onClick={handleNoticeClick}>공지사항 확인하기</button>를
+          클릭하여 확인 가능해요.
         </li>
         <li>
           🔐 여러분의 꿈은

@@ -1,6 +1,6 @@
 // TODO: hook 네이밍, useMain or useMainContainer?
 
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import { ToastContext } from "components/Toast/ToastProvider";
@@ -11,11 +11,15 @@ const useMain = () => {
   const { showToast } = useContext(ToastContext);
   const [loginStatus, setLoginStatus] = useState(false);
 
-  useEffect(() => {
-    showToast("Toast!", ToastTheme.GRAY);
-  }, []);
-
   const navigate = useNavigate();
+
+  const handleNoticeClick = () => {
+    showToast(
+      `아직 서비스를 준비하고 있어요!
+    1일 12시간 36분 뒤에 만나기로 해요!`,
+      ToastTheme.GRAY
+    );
+  };
 
   const handleShareClick = () => {};
 
@@ -32,6 +36,7 @@ const useMain = () => {
   };
   return {
     loginStatus,
+    handleNoticeClick,
     handleShareClick,
     handleJoinClick,
     handleHistoryClick,
