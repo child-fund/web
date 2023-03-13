@@ -1,18 +1,23 @@
 // TODO: hook 네이밍, useMain or useMainContainer?
 
-import { ToastTheme } from "components/Toast";
-import { ToastContext } from "components/Toast/ToastProvider";
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+
+import { ToastContext } from "components/Toast/ToastProvider";
+
+import { ToastTheme } from "components/Toast";
 
 const useMain = () => {
   const { showToast } = useContext(ToastContext);
+  const [loginStatus, setLoginStatus] = useState(false);
 
   useEffect(() => {
     showToast("Toast!", ToastTheme.GRAY);
   }, []);
 
   const navigate = useNavigate();
+
+  const handleShareClick = () => {};
 
   const handleJoinClick = () => {
     navigate("/join");
@@ -25,7 +30,13 @@ const useMain = () => {
   const handleDonateClick = () => {
     navigate("/selectairplane");
   };
-  return { handleJoinClick, handleHistoryClick, handleDonateClick };
+  return {
+    loginStatus,
+    handleShareClick,
+    handleJoinClick,
+    handleHistoryClick,
+    handleDonateClick,
+  };
 };
 
 export default useMain;
