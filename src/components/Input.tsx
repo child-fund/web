@@ -60,7 +60,7 @@ const InputField = styled.input<{ wrongInput: boolean }>`
     ${({ wrongInput }) => (wrongInput ? colors.red : colors.gray300)};
   border-radius: 0.5rem;
   color: ${colors.gray900};
-  font-size: 1.2rem;
+  font-size: 1.4rem;
 
   ::placeholder {
     color: ${colors.gray400};
