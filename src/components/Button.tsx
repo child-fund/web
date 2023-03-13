@@ -29,6 +29,8 @@ const Container = styled.button<{ theme: ButtonTheme }>`
   padding: 1.4rem;
   border-radius: 1rem;
   font-size: 1.2rem;
+  font-weight: bold;
+  text-align: center;
 
   ${({ theme }) =>
     theme === ButtonTheme.DARK

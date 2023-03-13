@@ -37,6 +37,7 @@ const GlobalStyle = createGlobalStyle`
 
 html, body, #root {
     height: 100%;
+    overflow: hidden;
 }
 
 body {
@@ -53,7 +54,6 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    overflow-y: scroll;
     width: 100%;
 }
 

@@ -1,7 +1,7 @@
 const colors = {
   white: "rgb(255 255 255)",
   green100: "rgb(247 253 242)",
-  green500: "rgb(23 204 16)",
+  green500: "rgb(23 204 16)", // #17cc10
   red: "rgb(230 21 3)",
   gray300: "rgb(219 219 219)",
   gray400: "rgb(209 214 219)",
