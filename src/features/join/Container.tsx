@@ -2,16 +2,16 @@ import useJoin from "./hooks/useJoin";
 
 import AnnouncementButton from "components/Announcement/Button";
 import AnnouncementText from "components/Announcement/Text";
+import Button, { ButtonTheme } from "components/Button";
+import InputArea from "components/InputArea";
+import Input from "components/Input";
 
 import {
   Container,
   StyledTitle,
   StyledDescription,
-  InputArea,
   AnnouncementArea,
 } from "./Container.style";
-import Input from "components/Input";
-import Button, { ButtonTheme } from "components/Button";
 
 const JoinContainer = () => {
   const {

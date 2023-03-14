@@ -1,12 +1,10 @@
 import { ChangeEvent } from "react";
 
 import { ButtonTheme } from "components/Button";
+import InputArea from "components/InputArea";
 import Input from "components/Input";
 
-import {
-  InputArea,
-  StyledButton,
-} from "features/findAccount/components/FindPasswordTabContents/index.style";
+import { StyledButton } from "features/findAccount/components/FindPasswordTabContents/index.style";
 
 interface FindPasswordInputProps {
   onSearchPasswordClick: () => void;
