@@ -41,7 +41,7 @@ const FindPasswordInput = (props: FindPasswordInputProps) => {
       </InputArea>
       {props.nickname && !props.nicknameWrongInput && (
         <StyledButton
-          onClickButton={props.onSearchPasswordClick}
+          onButtonClick={props.onSearchPasswordClick}
           text="비밀번호 찾아보기"
           theme={ButtonTheme.DARK}
         />

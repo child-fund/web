@@ -57,7 +57,7 @@ export const CountingArea = styled.div`
 
 export const CountTitle = styled.p`
   margin-bottom: 1rem;
-  color: #333d4b;
+  color: ${colors.gray800};
   font-size: 1.2rem;
 
   > span {

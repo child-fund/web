@@ -29,7 +29,7 @@ const FindIdInput = (props: FindIdContentsInputProps) => {
       </InputArea>
       {props.nickname && !props.nicknameWrongInput && (
         <StyledButton
-          onClickButton={props.onSearchIdClick}
+          onButtonClick={props.onSearchIdClick}
           text="아이디 찾아보기"
           theme={ButtonTheme.DARK}
         />
