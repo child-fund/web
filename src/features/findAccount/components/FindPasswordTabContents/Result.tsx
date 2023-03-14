@@ -27,7 +27,7 @@ const FindPasswordResult = (props: FindPasswordResultProps) => {
       </ResultSentence>
       <PsNote>{`Ps. 다음엔 잊지 않기로 해요! 우린 또 하나의 가족이니까 >.<`}</PsNote>
       <StyledButton
-        onClickButton={props.onLoginClick}
+        onButtonClick={props.onLoginClick}
         text="로그인하러 가기"
         theme={ButtonTheme.DARK}
       />

@@ -66,7 +66,7 @@ const LoginContainer = () => {
       </FindAccountAnnouncementArea>
       {canSubmit && (
         <Button
-          onClickButton={handleSubmitClick}
+          onButtonClick={handleSubmitClick}
           text="로그인하고 내 꿈 확인하기"
           theme={ButtonTheme.DARK}
         />

@@ -8,7 +8,7 @@ export enum ButtonTheme {
 
 interface ButtonProps {
   className?: string;
-  onClickButton: () => void;
+  onButtonClick: () => void;
   text: string;
   theme: ButtonTheme;
 }
@@ -17,7 +17,7 @@ const Button = (props: ButtonProps) => {
   return (
     <Container
       className={props.className}
-      onClick={props.onClickButton}
+      onClick={props.onButtonClick}
       theme={props.theme}
     >
       {props.text}

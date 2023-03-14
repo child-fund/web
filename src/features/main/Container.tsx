@@ -75,12 +75,12 @@ const MainContainer = () => {
         {loginStatus ? (
           <>
             <Button
-              onClickButton={handleHistoryClick}
+              onButtonClick={handleHistoryClick}
               text={"내 꿈 기부내역 보기"}
               theme={ButtonTheme.LIGHT}
             />
             <Button
-              onClickButton={handleDonateClick}
+              onButtonClick={handleDonateClick}
               text={"내 꿈으로 기부하러 가기"}
               theme={ButtonTheme.DARK}
             />
@@ -88,12 +88,12 @@ const MainContainer = () => {
         ) : (
           <>
             <Button
-              onClickButton={handleShareClick}
+              onButtonClick={handleShareClick}
               text={"친구랑 함께하기"}
               theme={ButtonTheme.LIGHT}
             />
             <Button
-              onClickButton={handleJoinClick}
+              onButtonClick={handleJoinClick}
               text={"회원가입하고 동참하기"}
               theme={ButtonTheme.DARK}
             />

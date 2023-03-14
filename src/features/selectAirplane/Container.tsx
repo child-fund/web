@@ -55,12 +55,12 @@ const SelectAirplaneContainer = () => {
         </AirplaneSlider>
         <ButtonArea>
           <Button
-            onClickButton={handleMainClick}
+            onButtonClick={handleMainClick}
             text="홈으로 이동하기"
             theme={ButtonTheme.LIGHT}
           />
           <Button
-            onClickButton={handleWriteClick}
+            onButtonClick={handleWriteClick}
             text="꿈 작성하기"
             theme={ButtonTheme.DARK}
           />

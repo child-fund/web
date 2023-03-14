@@ -82,7 +82,7 @@ const JoinContainer = () => {
       </InputArea>
       {canSubmit && (
         <Button
-          onClickButton={handleSubmitClick}
+          onButtonClick={handleSubmitClick}
           text="기부 동참하러 가기"
           theme={ButtonTheme.DARK}
         />
