@@ -5,10 +5,10 @@ const colors = {
   red: "rgb(230 21 3)",
   gray300: "rgb(219 219 219)",
   gray400: "rgb(209 214 219)",
-  gray500: "rgb(139 149 161)",
+  gray500: "rgb(139 149 161)", // #8b95a1
   gray700: "rgb(69 69 69)",
   gray800: "rgb(51 61 75)",
-  gray900: "rgb(25 31 40)",
+  gray900: "rgb(25 31 40)", // #191f28
 };
 
 export default colors;
