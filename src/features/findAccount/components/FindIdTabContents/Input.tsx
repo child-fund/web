@@ -1,8 +1,9 @@
-import Input from "components/Input";
-import Button, { ButtonTheme } from "components/Button";
-
-import { InputArea } from "./index.style";
 import { ChangeEvent } from "react";
+
+import { ButtonTheme } from "components/Button";
+import Input from "components/Input";
+
+import { InputArea, StyledButton } from "./index.style";
 
 interface FindIdContentsInputProps {
   onSearchIdClick: () => void;
@@ -26,7 +27,7 @@ const FindIdInput = (props: FindIdContentsInputProps) => {
         />
       </InputArea>
       {props.nickname && !props.nicknameWrongInput && (
-        <Button
+        <StyledButton
           onClickButton={props.onSearchIdClick}
           text="아이디 찾아보기"
           theme={ButtonTheme.DARK}

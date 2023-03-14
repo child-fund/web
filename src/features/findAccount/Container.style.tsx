@@ -40,20 +40,20 @@ export const TabList = styled.div`
   }
 `;
 
-export const FindIdTab = styled.button`
+export const TabItem = styled.button<{ selected: boolean }>`
   padding-top: 0.9rem;
   padding-bottom: 3.3rem;
   border-radius: 1rem;
-  background-color: ${colors.green500};
-  color: ${colors.white};
   font-size: 1.4rem;
   font-weight: bold;
   text-align: center;
-`;
 
-export const FindPasswordTab = styled(FindIdTab)`
-  background-color: ${colors.green100};
-  color: ${colors.green500};
+  ${({ selected }) =>
+    selected
+      ? `background-color: ${colors.green500};
+         color: ${colors.white};`
+      : `background-color: ${colors.green100};
+         color: ${colors.green500};`}
 `;
 
 export const TabContentsPaper = styled.div`

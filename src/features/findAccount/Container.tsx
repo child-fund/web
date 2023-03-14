@@ -2,6 +2,8 @@ import useFindAccount from "./hooks/useFindAccount";
 
 import AnnouncementButton from "components/Announcement/Button";
 import AnnouncementText from "components/Announcement/Text";
+import FindIdTabContents from "features/findAccount/components/FindIdTabContents";
+import FindPasswordTabContents from "./components/FindPasswordTabContents";
 
 import {
   Container,
@@ -9,15 +11,13 @@ import {
   StyledDescription,
   TabArea,
   JoinAnnouncementArea,
-  FindIdTab,
-  FindPasswordTab,
+  TabItem,
   TabContentsPaper,
   TabList,
 } from "./Container.style";
-import FindIdTabContents from "features/findAccount/components/FindIdContents";
 
 const FindAccountContainer = () => {
-  const { handleLoginClick, handleJoinClick } = useFindAccount();
+  const { handleJoinClick, handleTabClick, selectedTab } = useFindAccount();
 
   return (
     <Container>
@@ -28,11 +28,25 @@ const FindAccountContainer = () => {
       <StyledDescription text="빠르게 찾을 수 있게 도와줄게요" />
       <TabArea>
         <TabList>
-          <FindIdTab>아이디 찾기</FindIdTab>
-          <FindPasswordTab>비밀번호 찾기</FindPasswordTab>
+          <TabItem
+            onClick={() => handleTabClick("Id")}
+            selected={selectedTab === "Id"}
+          >
+            아이디 찾기
+          </TabItem>
+          <TabItem
+            onClick={() => handleTabClick("Password")}
+            selected={selectedTab === "Password"}
+          >
+            비밀번호 찾기
+          </TabItem>
         </TabList>
         <TabContentsPaper>
-          <FindIdTabContents />
+          {selectedTab === "Id" ? (
+            <FindIdTabContents />
+          ) : (
+            <FindPasswordTabContents />
+          )}
         </TabContentsPaper>
       </TabArea>
       <JoinAnnouncementArea>
