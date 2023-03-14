@@ -32,7 +32,13 @@ export const InputArea = styled.div`
   margin-bottom: 2rem;
 `;
 
-export const AnnouncementArea = styled.div`
+export const FindAccountAnnouncementArea = styled.div`
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+`;
+
+export const JoinAnnouncementArea = styled.div`
   position: absolute;
   left: 50%;
   bottom: 2rem;

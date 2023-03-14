@@ -21,6 +21,7 @@ const Container = styled.button`
   display: inline;
   color: ${colors.green500};
   font-size: 1.2rem;
+  font-weight: 600;
   white-space: pre;
   text-decoration: underline;
 `;
