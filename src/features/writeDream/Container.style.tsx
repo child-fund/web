@@ -60,16 +60,22 @@ export const WritingText = styled.textarea`
   color: ${colors.gray700};
   font-size: 1.8rem;
   font-weight: 600;
+  overflow-wrap: break-word;
 
   ::placeholder {
     color: #c7c7c7;
   }
 `;
 
-export const LetterCounter = styled.span`
+export const LetterCounter = styled.p<{ overwritten: boolean }>`
   position: absolute;
   right: 0;
   bottom: 0;
   color: #c7c7c7;
   font-size: 1.4rem;
+
+  > span {
+    color: ${({ overwritten }) => (overwritten ? colors.red : "inherit")};
+    font-size: inherit;
+  }
 `;

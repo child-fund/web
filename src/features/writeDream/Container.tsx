@@ -30,8 +30,11 @@ const WriteDreamContainer = () => {
         <WritingText
           placeholder="이루고 싶은 꿈이나 소원을 적어주세요."
           onChange={handleTextChange}
+          wrap="soft"
         />
-        <LetterCounter>{`${dream.length}/300`}</LetterCounter>
+        <LetterCounter overwritten={dream.length > 300}>
+          <span>{dream.length}</span>/300
+        </LetterCounter>
       </WritingArea>
     </Container>
   );
