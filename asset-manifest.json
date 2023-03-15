@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.js": "/web/static/js/main.7e6e74e5.js",
+    "static/js/787.319da3e8.chunk.js": "/web/static/js/787.319da3e8.chunk.js",
+    "static/media/paperAirplanePink.png": "/web/static/media/paperAirplanePink.f81b8244683e04e4cbcf.png",
+    "static/media/paperAirplaneOrange.png": "/web/static/media/paperAirplaneOrange.691edcb2d5de1d39f350.png",
+    "static/media/paperAirplaneRed.png": "/web/static/media/paperAirplaneRed.e949f31b9f06d2461750.png",
+    "static/media/paperAirplanePurple.png": "/web/static/media/paperAirplanePurple.e215789d009ae3be33b3.png",
+    "static/media/paperAirplaneYellowGreen.png": "/web/static/media/paperAirplaneYellowGreen.88ea1cdf79c99bca7451.png",
+    "static/media/paperAirplaneGreen.png": "/web/static/media/paperAirplaneGreen.ee9f9d999fe5845f27e9.png",
+    "static/media/paperAirplaneBeige.png": "/web/static/media/paperAirplaneBeige.bfe1673bfff86447ff6f.png",
+    "static/media/paperAirplaneSky.png": "/web/static/media/paperAirplaneSky.c1fe54970cf3725911c5.png",
+    "static/media/holdPaperAirplane.png": "/web/static/media/holdPaperAirplane.c7bfad9509d6e9da7017.png",
+    "static/media/escalPrintLogo.svg": "/web/static/media/escalPrintLogo.84da46d863d51c62c9c2288f981a1db1.svg",
+    "index.html": "/web/index.html",
+    "main.7e6e74e5.js.map": "/web/static/js/main.7e6e74e5.js.map",
+    "787.319da3e8.chunk.js.map": "/web/static/js/787.319da3e8.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.7e6e74e5.js"
+  ]
+}
