@@ -94,7 +94,6 @@ export const CorporationLogos = styled.div`
 
 export const ButtonArea = styled.div`
   display: flex;
-  justify-content: space-between;
   gap: 0.5rem;
   width: 100%;
   margin-bottom: 1.4rem;
