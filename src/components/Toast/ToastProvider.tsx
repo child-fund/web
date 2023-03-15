@@ -2,7 +2,7 @@ import { createContext, PropsWithChildren, useRef, useState } from "react";
 import Toast, { ToastTheme } from "components/Toast";
 
 export const ToastContext = createContext({
-  showToast(message: string, theme: ToastTheme) {},
+  showToast(message: string, theme?: ToastTheme) {},
 });
 
 // TODO: 이것의 위치는?
@@ -12,8 +12,8 @@ const ToastProvider = ({ children }: PropsWithChildren) => {
   const [message, setMessage] = useState("");
   const showTimer = useRef<NodeJS.Timeout | null>(null);
 
-  const showToast = (message: string, theme: ToastTheme) => {
-    setTheme(theme);
+  const showToast = (message: string, theme?: ToastTheme) => {
+    setTheme(theme || ToastTheme.GRAY);
     setMessage(message);
     setIsVisible(true);
 

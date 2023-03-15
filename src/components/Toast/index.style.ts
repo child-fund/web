@@ -18,5 +18,5 @@ export const Container = styled.div`
   line-height: 1.8rem;
   text-align: center;
   white-space: pre-line;
-  transition: bottom 1.5s ease-in-out, opacity 0.8s ease-in-out;
+  transition: bottom 0.5s, opacity 0.8s ease-in-out;
 `;
