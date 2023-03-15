@@ -16,8 +16,8 @@ export const Container = styled.div`
   flex-direction: column;
   align-items: center;
   height: 100%;
+  padding: 2rem;
   padding-top: 2.5rem;
-  padding-bottom: 2rem;
 `;
 
 export const StyledTitle = styled(Title)`
@@ -85,7 +85,6 @@ export const EscalPrintLogo = styled.img`
 export const NoticeArea = styled.ul`
   width: 100%;
   margin-bottom: 2.4rem;
-  padding-left: 2rem;
 
   > li {
     line-height: 1.8rem;
@@ -107,7 +106,6 @@ export const ButtonArea = styled.div`
   justify-content: space-between;
   gap: 0.5rem;
   width: 100%;
-  padding: 0rem 2rem;
 
   > button {
     flex-grow: 1;
