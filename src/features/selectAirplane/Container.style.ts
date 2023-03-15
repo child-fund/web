@@ -129,7 +129,6 @@ export const AirplaneOption = styled.div<{ selected: boolean }>`
 
 export const ButtonArea = styled.div`
   display: flex;
-  justify-content: space-between;
   gap: 0.5rem;
 
   > button {
