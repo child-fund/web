@@ -1,21 +1,43 @@
-import { useNavigate } from "react-router-dom";
-import styled from "styled-components";
+import useWriteDream from "./hooks/useWriteDream";
+
+import {
+  Container,
+  StyledTitle,
+  StyledDescription,
+  SubtitleArea,
+  Subtitle,
+  SubmitButton,
+  WritingArea,
+  LetterCounter,
+  WritingText,
+} from "./Container.style";
 
 const WriteDreamContainer = () => {
-  const navigate = useNavigate();
-
-  const handleSubmitClick = () => {
-    navigate("/certificate");
-  };
+  const { dream, handleTextChange, handleSubmitClick } = useWriteDream();
 
   return (
     <Container>
-      꿈 작성하기
-      <button onClick={handleSubmitClick}>저장</button>
+      <StyledTitle
+        text={`종이비행기에 들어갈
+        여러분의 꿈을 적어주세요!`}
+      />
+      <StyledDescription text="여러분의 꿈은 구름 속에서 안전하게 보관되니 걱정하지 마세요" />
+      <SubtitleArea>
+        <Subtitle>꿈 작성하기</Subtitle>
+        <SubmitButton onClick={handleSubmitClick}>기부하러 가기</SubmitButton>
+      </SubtitleArea>
+      <WritingArea>
+        <WritingText
+          placeholder="이루고 싶은 꿈이나 소원을 적어주세요."
+          onChange={handleTextChange}
+          wrap="soft"
+        />
+        <LetterCounter overwritten={dream.length > 300}>
+          <span>{dream.length}</span>/300
+        </LetterCounter>
+      </WritingArea>
     </Container>
   );
 };
-
-const Container = styled.div``;
 
 export default WriteDreamContainer;
