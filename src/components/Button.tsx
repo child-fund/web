@@ -4,6 +4,7 @@ import colors from "assets/colors";
 export enum ButtonTheme {
   DARK = "dark",
   LIGHT = "light",
+  WHITE = "white",
 }
 
 interface ButtonProps {
@@ -32,12 +33,16 @@ const Container = styled.button<{ theme: ButtonTheme }>`
   font-weight: bold;
   text-align: center;
 
-  ${({ theme }) =>
-    theme === ButtonTheme.DARK
-      ? `background-color: ${colors.green500};
-         color: ${colors.white};`
-      : `background-color: ${colors.green100};
-         color: ${colors.green500};`}
+  ${({ theme }) => {
+    switch (theme) {
+      case ButtonTheme.DARK:
+        return `background-color: ${colors.green500};
+         color: ${colors.white};`;
+      default:
+        return `background-color: ${colors.green100};
+         color: ${colors.green500};`;
+    }
+  }}
 `;
 
 export default Button;

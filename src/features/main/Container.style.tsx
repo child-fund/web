@@ -103,7 +103,6 @@ export const NoticeArea = styled.ul`
 
 export const ButtonArea = styled.div`
   display: flex;
-  justify-content: space-between;
   gap: 0.5rem;
   width: 100%;
 
