@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.js": "/web/static/js/main.a4acf18b.js",
+    "main.js": "/web/static/js/main.edda3ab1.js",
     "static/js/787.319da3e8.chunk.js": "/web/static/js/787.319da3e8.chunk.js",
     "static/media/paperAirplanePink.png": "/web/static/media/paperAirplanePink.f81b8244683e04e4cbcf.png",
     "static/media/paperAirplaneOrange.png": "/web/static/media/paperAirplaneOrange.691edcb2d5de1d39f350.png",
@@ -13,10 +13,10 @@
     "static/media/holdPaperAirplane.png": "/web/static/media/holdPaperAirplane.c7bfad9509d6e9da7017.png",
     "static/media/escalPrintLogo.svg": "/web/static/media/escalPrintLogo.84da46d863d51c62c9c2288f981a1db1.svg",
     "index.html": "/web/index.html",
-    "main.a4acf18b.js.map": "/web/static/js/main.a4acf18b.js.map",
+    "main.edda3ab1.js.map": "/web/static/js/main.edda3ab1.js.map",
     "787.319da3e8.chunk.js.map": "/web/static/js/787.319da3e8.chunk.js.map"
   },
   "entrypoints": [
-    "static/js/main.a4acf18b.js"
+    "static/js/main.edda3ab1.js"
   ]
 }
