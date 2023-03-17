@@ -25,7 +25,9 @@ const DonationItem = (props: { item: DummyData }) => {
         <img src={props.item.image} alt="paperAirplane" />
       </TextSection>
       <ButtonSection>
-        <DetailButton onClick={handleDetailClick}>내 꿈 보러가기</DetailButton>
+        <DetailButton onClick={() => handleDetailClick(props.item)}>
+          내 꿈 보러가기
+        </DetailButton>
         <CertificateButton onClick={handleCertificateClick}>
           내 후원증서 확인하기
         </CertificateButton>
