@@ -11,6 +11,10 @@
 # production
 /build
 
+# TODO: 이거 해줘야하나?
+# env
+.env
+
 # misc
 .DS_Store
 .env.local
