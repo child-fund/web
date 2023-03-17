@@ -1,34 +1,28 @@
 import useDonationHistory from "./hooks/useDonationHistory";
 
+import NavigationBar from "shared/components/NavigationBar/Container";
+import DonationItem from "features/donationHistory/components/DonationItem/Container";
+import Announcement from "shared/components/Announcement/Container";
+
 import {
   Container,
   ContentContainer,
   DonationList,
   DonationTotal,
   LoadMoreButton,
-  NavigationBar,
   StyledDescription,
   StyledTitle,
   Subtitle,
   SubtitleArea,
 } from "./Container.style";
-import Announcement from "shared/components/Announcement/Container";
-import caretLeft from "shared/assets/imgs/caretLeft.png";
-import DonationItem from "./components/DonationItem";
 import dummyData from "./dummyData";
 
 const DonationHistoryContainer = () => {
-  const { handleGoBackClick, handleLoadMoreClick, handleNoticeClick } =
-    useDonationHistory();
+  const { handleLoadMoreClick, handleNoticeClick } = useDonationHistory();
 
   return (
     <Container>
-      <NavigationBar>
-        <button onClick={handleGoBackClick}>
-          <img src={caretLeft} alt="caretLeft" />
-        </button>
-        <span>나의 꿈 기부내역</span>
-      </NavigationBar>
+      <NavigationBar title="나의 꿈 기부내역" />
       <ContentContainer>
         <StyledTitle
           text={`영원한 꿈 기부천사!

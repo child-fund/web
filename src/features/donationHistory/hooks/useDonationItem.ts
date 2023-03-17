@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import { DummyData } from "../dummyData";
 
 const id = 123;
 
@@ -9,8 +10,8 @@ const useDonationItem = () => {
     navigate(`/certificate`);
   };
 
-  const handleDetailClick = () => {
-    navigate(`/history/${id}`);
+  const handleDetailClick = (item: DummyData) => {
+    navigate(`/history/${id}`, { state: { item } });
   };
   return {
     handleCertificateClick,

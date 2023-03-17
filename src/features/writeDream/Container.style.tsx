@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 import Title from "shared/components/Title/Container";
 import Description from "shared/components/Description/Container";
+import SubtitleBar from "shared/components/SubtitleBar/Container";
 
 import colors from "shared/assets/colors";
 
@@ -27,26 +28,10 @@ export const StyledDescription = styled(Description)`
   margin-bottom: 3.6rem;
 `;
 
-export const SubtitleArea = styled.div`
-  display: flex;
-  justify-content: space-between;
+export const StyledSubtitleBar = styled(SubtitleBar)`
   width: calc(100% + 4rem);
   margin-left: -2rem;
   margin-bottom: 2rem;
-  padding: 1.6rem 2rem;
-  box-shadow: 0 0.3rem 0.6rem 0 rgba(83, 214, 138, 0.12);
-`;
-
-export const Subtitle = styled.span`
-  color: #191919;
-  font-size: 1.4rem;
-  font-weight: 600;
-`;
-
-export const SubmitButton = styled.button`
-  color: ${colors.green500};
-  font-size: 1.4rem;
-  font-weight: 600;
 `;
 
 export const WritingArea = styled.div`
@@ -55,13 +40,18 @@ export const WritingArea = styled.div`
 `;
 
 export const WritingText = styled.textarea`
+  overflow-x: hidden;
+  overflow-y: scroll;
+  ::-webkit-scrollbar {
+    display: none;
+  }
   width: 100%;
   height: 100%;
   caret-color: #55ad1e;
   color: ${colors.gray700};
   font-size: 1.8rem;
   font-weight: 600;
-  overflow-wrap: break-word;
+  word-break: break-all;
 
   ::placeholder {
     color: #c7c7c7;

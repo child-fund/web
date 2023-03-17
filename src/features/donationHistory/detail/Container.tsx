@@ -1,21 +1,26 @@
-import { useNavigate } from "react-router-dom";
-import styled from "styled-components";
+import { useEffect } from "react";
+import NavigationBar from "shared/components/NavigationBar/Container";
+import SubtitleBar from "shared/components/SubtitleBar/Container";
+
+import { Container, ContentContainer, DreamText } from "./Container.style";
+import useDonationHistoryDetail from "../hooks/useDonationHistoryDetail";
 
 const DonationHistoryDetailContainer = () => {
-  const navigate = useNavigate();
+  const { data } = useDonationHistoryDetail();
 
-  const handleBackClick = () => {
-    navigate(-1);
-  };
+  if (!data) {
+    return null;
+  }
 
   return (
     <Container>
-      기부상세
-      <button onClick={handleBackClick}>확인완료</button>
+      <NavigationBar title="나의 꿈 기부내역" />
+      <ContentContainer>
+        <SubtitleBar subtitle={`${data.date} 나의 꿈`} />
+        <DreamText>{data.text}</DreamText>
+      </ContentContainer>
     </Container>
   );
 };
-
-const Container = styled.div``;
 
 export default DonationHistoryDetailContainer;
