@@ -11,6 +11,7 @@ export const Title = styled.span<{ isFocused: boolean; wrongInput: boolean }>`
   color: ${({ isFocused, wrongInput }) =>
     wrongInput ? colors.red : isFocused ? colors.green500 : colors.gray500};
   font-size: 1.2rem;
+  font-weight: 600;
   line-height: 1.6rem;
 `;
 

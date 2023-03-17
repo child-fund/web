@@ -10,7 +10,7 @@ import { ToastContext } from "shared/components/Toast/ToastProvider";
 import { ToastTheme } from "shared/components/Toast/Container";
 
 const total = 1000;
-const isParticipated = true;
+const isParticipated = false;
 
 const useMain = () => {
   const navigate = useNavigate();
@@ -47,8 +47,9 @@ const useMain = () => {
   };
 
   const checkDonationAvailability = () => {
-    const today = new Date();
+    const today = new Date(2023, 3, 15); // TODO: 나중에 빈값으로 수정해줘야함
     const eventStartDate = new Date(2023, 3, 10);
+    const eventEndDate = new Date(2023, 3, 30);
 
     const timeDifference = eventStartDate.getTime() - today.getTime();
 
@@ -69,7 +70,7 @@ const useMain = () => {
       return false;
     }
 
-    if (today > eventStartDate) {
+    if (today > eventEndDate) {
       showToast(
         `지금은 참여기간이 아니에요!
         다음 참여기간에 만나도록 해요!`,
