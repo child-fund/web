@@ -1,5 +1,5 @@
-import { DummyData } from "../dummyData";
-import useDonationItem from "../hooks/useDonationItem";
+import { DummyData } from "features/donationHistory/dummyData";
+import useDonationItem from "features/donationHistory/hooks/useDonationItem";
 import {
   DetailButton,
   CertificateButton,
@@ -9,7 +9,7 @@ import {
   Purpose,
   Quarter,
   TextSection,
-} from "./DonationItem.style";
+} from "./Container.style";
 
 const DonationItem = (props: { item: DummyData }) => {
   const { handleDetailClick, handleCertificateClick } = useDonationItem();
