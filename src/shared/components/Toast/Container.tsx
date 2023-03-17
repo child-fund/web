@@ -17,7 +17,7 @@ const Toast = (props: ToastProps) => {
   const { toastRef } = useToast({ isVisible: props.isVisible });
 
   return (
-    <Container className={props.className} ref={toastRef}>
+    <Container className={props.className} ref={toastRef} theme={props.theme}>
       {props.message}
     </Container>
   );
