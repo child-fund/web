@@ -16,10 +16,9 @@ const useMain = () => {
   const navigate = useNavigate();
 
   const handleNoticeClick = () => {
-    showToast(
-      `아직 서비스를 준비하고 있어요!
-    1일 12시간 36분 뒤에 만나기로 해요!`,
-      ToastTheme.GRAY
+    // TODO: 이런 url은 어떻게 관리하는 것이 좋을까
+    window.open(
+      "https://escal-print.notion.site/X-25392410e8b04c10b17b66d7cd413b54"
     );
   };
 
