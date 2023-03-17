@@ -36,7 +36,7 @@ const MainContainer = () => {
         따뜻한 기부에 동참하시겠어요?`}
       />
       <StyledDescription text="꿈이 적힌 종이비행기 1개당 100원씩 에스칼프린트가 기부해요." />
-      <Period>참여 기간 - 2023.04.01 ~ 2023.04.30</Period>
+      <Period>참여 기간 - 2023.04.10 ~ 2023.04.30</Period>
       <HoldPaperAirplaneImage src={holdPaperAirplane} alt="holdPaperAirplane" />
       <CountingArea>
         <CountTitle>
