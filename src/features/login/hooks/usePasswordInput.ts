@@ -19,7 +19,6 @@ const usePasswordInput = () => {
   };
 
   const checkValidity = (value: string) => {
-    // TODO: api 들어갈 자리
     const pattern =
       /^(?!((?:[A-Za-z]+)|(?:[~!@#$%^&*()_+=]+)|(?:[0-9]+))$)[A-Za-z\d~!@#$%^&*()_+=]{8,19}$/;
     return pattern.test(value);

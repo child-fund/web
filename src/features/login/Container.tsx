@@ -1,17 +1,15 @@
 import useLogin from "./hooks/useLogin";
 
-import AnnouncementButton from "components/Announcement/Button";
-import AnnouncementText from "components/Announcement/Text";
-import Button, { ButtonTheme } from "components/Button";
-import InputArea from "components/InputArea";
-import Input from "components/Input";
+import Button, { ButtonTheme } from "shared/components/Button/Container";
+import InputArea from "shared/components/InputArea/Container";
+import Input from "shared/components/Input/Container";
 
 import {
   Container,
   StyledTitle,
   StyledDescription,
-  FindAccountAnnouncementArea,
-  JoinAnnouncementArea,
+  FindAccountAnnouncement,
+  JoinAnnouncement,
 } from "./Container.style";
 
 const LoginContainer = () => {
@@ -56,14 +54,12 @@ const LoginContainer = () => {
           wrongInput={passwordWrongInput}
         />
       </InputArea>
-      <FindAccountAnnouncementArea>
-        <AnnouncementText text="혹시나 아이디/비밀번호를 잊었다면? " />
-        <AnnouncementButton
-          text="여기"
-          onButtonClick={handleFindAccountClick}
-        />
-        <AnnouncementText text="를 클릭해주세요!" />
-      </FindAccountAnnouncementArea>
+      <FindAccountAnnouncement
+        buttonText="여기"
+        leftText="혹시나 아이디/비밀번호를 잊었다면? "
+        onButtonClick={handleFindAccountClick}
+        rightText="를 클릭해주세요!"
+      />
       {canSubmit && (
         <Button
           onButtonClick={handleSubmitClick}
@@ -71,14 +67,12 @@ const LoginContainer = () => {
           theme={ButtonTheme.DARK}
         />
       )}
-      <JoinAnnouncementArea>
-        <AnnouncementText text="처음이라면 " />
-        <AnnouncementButton
-          text="회원가입 하러가기"
-          onButtonClick={handleJoinClick}
-        />
-        <AnnouncementText text="를 클릭해주세요!" />
-      </JoinAnnouncementArea>
+      <JoinAnnouncement
+        buttonText="회원가입 하러가기"
+        leftText="처음이라면 "
+        onButtonClick={handleJoinClick}
+        rightText="를 클릭해주세요!"
+      />
     </Container>
   );
 };

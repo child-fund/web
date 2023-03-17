@@ -1,9 +1,9 @@
 import styled from "styled-components";
 
-import Description from "components/Description";
-import Title from "components/Title";
+import Description from "shared/components/Description/Container";
+import Title from "shared/components/Title/Container";
 
-import colors from "assets/colors";
+import colors from "shared/assets/colors";
 
 export const Container = styled.div`
   position: relative;

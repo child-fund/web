@@ -1,6 +1,6 @@
 import useDonationCertificate from "./hooks/useDonationCertificate";
 
-import Button, { ButtonTheme } from "components/Button";
+import Button, { ButtonTheme } from "shared/components/Button/Container";
 
 import {
   AirplaneImage,
@@ -15,10 +15,10 @@ import {
   Signature,
   Title,
 } from "./Container.style";
-import escalPrintSeal from "assets/imgs/escalPrintSeal.png";
-import escalPrintLogo from "assets/imgs/escalPrintLogo.svg";
-import childFundLogo from "assets/imgs/childFundLogo.png";
-import paperAirplaneGreen from "assets/imgs/paperAirplaneGreen.png";
+import escalPrintSeal from "shared/assets/imgs/escalPrintSeal.png";
+import escalPrintLogo from "shared/assets/imgs/escalPrintLogo.svg";
+import childFundLogo from "shared/assets/imgs/childFundLogo.png";
+import paperAirplaneGreen from "shared/assets/imgs/paperAirplaneGreen.png";
 
 const DonationCertificateContainer = () => {
   const {

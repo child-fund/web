@@ -1,7 +1,8 @@
 import styled from "styled-components";
 
-import Title from "components/Title";
-import Description from "components/Description";
+import Title from "shared/components/Title/Container";
+import Description from "shared/components/Description/Container";
+import Announcement from "shared/components/Announcement/Container";
 
 export const Container = styled.div`
   position: relative;
@@ -25,10 +26,9 @@ export const StyledDescription = styled(Description)`
   margin-bottom: 3.6rem;
 `;
 
-export const AnnouncementArea = styled.div`
+export const StyledAnnouncement = styled(Announcement)`
   position: absolute;
   left: 50%;
   bottom: 2rem;
   transform: translateX(-50%);
-  display: flex;
 `;

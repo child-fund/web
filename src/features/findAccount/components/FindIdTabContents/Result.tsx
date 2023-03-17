@@ -1,4 +1,4 @@
-import { ButtonTheme } from "components/Button";
+import { ButtonTheme } from "shared/components/Button/Container";
 
 import {
   Nickname,
@@ -6,7 +6,7 @@ import {
   ResultValue,
   PsNote,
   StyledButton,
-} from "./index.style";
+} from "./Container.style";
 
 interface FindIdResultProps {
   onLoginClick: () => void;

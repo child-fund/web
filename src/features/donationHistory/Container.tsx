@@ -1,7 +1,6 @@
 import useDonationHistory from "./hooks/useDonationHistory";
 
 import {
-  AnnouncementArea,
   Container,
   ContentContainer,
   DonationList,
@@ -13,9 +12,8 @@ import {
   Subtitle,
   SubtitleArea,
 } from "./Container.style";
-import AnnouncementText from "components/Announcement/Text";
-import AnnouncementButton from "components/Announcement/Button";
-import caretLeft from "assets/imgs/caretLeft.png";
+import Announcement from "shared/components/Announcement/Container";
+import caretLeft from "shared/assets/imgs/caretLeft.png";
 import DonationItem from "./components/DonationItem";
 import dummyData from "./dummyData";
 
@@ -55,11 +53,12 @@ const DonationHistoryContainer = () => {
         </DonationList>
         <LoadMoreButton onClick={handleLoadMoreClick}>더보기</LoadMoreButton>
       </ContentContainer>
-      <AnnouncementArea>
-        <AnnouncementText text="각종 공지사항은 " />
-        <AnnouncementButton onButtonClick={handleNoticeClick} text="여기" />
-        <AnnouncementText text="에서 확인하실 수 있어요!" />
-      </AnnouncementArea>
+      <Announcement
+        buttonText="여기"
+        leftText="각종 공지사항은 "
+        onButtonClick={handleNoticeClick}
+        rightText="에서 확인하실 수 있어요!"
+      />
     </Container>
   );
 };

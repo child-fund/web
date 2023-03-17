@@ -1,8 +1,8 @@
-// TODO: style 분리를 이렇게 하는게 맞나
-
 import styled from "styled-components";
-import Button from "components/Button";
-import colors from "assets/colors";
+
+import Button from "shared/components/Button/Container";
+
+import colors from "shared/assets/colors";
 
 export const ResultSentence = styled.div`
   display: flex;

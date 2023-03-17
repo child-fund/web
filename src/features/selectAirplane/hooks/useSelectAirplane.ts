@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-import AirplaneKey from "../constants/AirplaneKey";
+import AirplaneKey from "../types/airplaneKey";
 import airplaneList from "../constants/airplaneList";
 
 const useSelectAirplane = () => {

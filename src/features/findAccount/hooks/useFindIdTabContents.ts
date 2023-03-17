@@ -4,8 +4,8 @@ import { useNavigate } from "react-router-dom";
 const useFindIdTabContents = () => {
   const navigate = useNavigate();
   const [showResult, setShowResult] = useState(false);
-  const [id, setId] = useState("찾기 결과"); // TODO: 초기값 비워야함
-  const [nickname, setNickname] = useState("닉네임"); // TODO: 초기값 비워야함
+  const [id, setId] = useState("");
+  const [nickname, setNickname] = useState("");
   const [nicknameWrongInput, setNicknameWrongInput] = useState(false);
   const [nicknameWarningMessage, setNicknameWarningMessage] = useState("");
 
@@ -23,7 +23,6 @@ const useFindIdTabContents = () => {
   };
 
   const checkValidity = (value: string) => {
-    // TODO: api 들어갈 자리
     const pattern = /^[ㄱ-ㅎㅏ-ㅣ가-힣a-zA-Z]{1,16}$/;
     return pattern.test(value);
   };

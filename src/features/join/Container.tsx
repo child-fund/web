@@ -1,16 +1,14 @@
 import useJoin from "./hooks/useJoin";
 
-import AnnouncementButton from "components/Announcement/Button";
-import AnnouncementText from "components/Announcement/Text";
-import Button, { ButtonTheme } from "components/Button";
-import InputArea from "components/InputArea";
-import Input from "components/Input";
+import Button, { ButtonTheme } from "shared/components/Button/Container";
+import InputArea from "shared/components/InputArea/Container";
+import Input from "shared/components/Input/Container";
 
 import {
   Container,
   StyledTitle,
   StyledDescription,
-  AnnouncementArea,
+  StyledAnnouncement,
 } from "./Container.style";
 
 const JoinContainer = () => {
@@ -87,14 +85,12 @@ const JoinContainer = () => {
           theme={ButtonTheme.DARK}
         />
       )}
-      <AnnouncementArea>
-        <AnnouncementText text="이미 가입했다면? " />
-        <AnnouncementButton
-          text="로그인 하러가기"
-          onButtonClick={handleLoginClick}
-        />
-        <AnnouncementText text="를 클릭해주세요!" />
-      </AnnouncementArea>
+      <StyledAnnouncement
+        buttonText="로그인 하러가기"
+        leftText="이미 가입했다면? "
+        onButtonClick={handleLoginClick}
+        rightText="를 클릭해주세요!"
+      />
     </Container>
   );
 };

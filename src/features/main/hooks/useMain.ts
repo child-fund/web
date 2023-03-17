@@ -1,11 +1,9 @@
-// TODO: hook 네이밍, useMain or useMainContainer?
-
 import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-import { ToastContext } from "components/Toast/ToastProvider";
+import { ToastContext } from "shared/components/Toast/ToastProvider";
 
-import { ToastTheme } from "components/Toast";
+import { ToastTheme } from "shared/components/Toast/Container";
 
 const useMain = () => {
   const { showToast } = useContext(ToastContext);

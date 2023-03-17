@@ -4,11 +4,11 @@ import { useNavigate } from "react-router-dom";
 const useFindPasswordTabContents = () => {
   const navigate = useNavigate();
   const [showResult, setShowResult] = useState(false);
-  const [password, setPassword] = useState("찾기 결과"); // TODO: 초기값 비워야함
-  const [nickname, setNickname] = useState("닉네임"); // TODO: 초기값 비워야함
+  const [password, setPassword] = useState("");
+  const [nickname, setNickname] = useState("");
   const [nicknameWrongInput, setNicknameWrongInput] = useState(false);
   const [nicknameWarningMessage, setNicknameWarningMessage] = useState("");
-  const [id, setId] = useState("아이디"); // TODO: 초기값 비워야함
+  const [id, setId] = useState("");
   const [idWrongInput, setIdWrongInput] = useState(false);
   const [idWarningMessage, setIdWarningMessage] = useState("");
 
@@ -26,7 +26,6 @@ const useFindPasswordTabContents = () => {
   };
 
   const checkValidity = (value: string) => {
-    // TODO: api 들어갈 자리
     const pattern = /^[ㄱ-ㅎㅏ-ㅣ가-힣a-zA-Z]{1,16}$/;
     return pattern.test(value);
   };

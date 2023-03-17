@@ -1,9 +1,9 @@
 import styled from "styled-components";
 
-import Title from "components/Title";
-import Description from "components/Description";
+import Title from "shared/components/Title/Container";
+import Description from "shared/components/Description/Container";
 
-import colors from "assets/colors";
+import colors from "shared/assets/colors";
 
 export const Container = styled.div<{ backgroundColor: string }>`
   position: relative;

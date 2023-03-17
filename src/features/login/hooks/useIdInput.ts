@@ -19,7 +19,6 @@ const useIdInput = () => {
   };
 
   const checkValidity = (value: string) => {
-    // TODO: api 들어갈 자리
     const pattern = /^[a-zA-Z]{1,20}$/;
     return pattern.test(value);
   };

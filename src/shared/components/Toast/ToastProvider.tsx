@@ -1,11 +1,10 @@
 import { createContext, PropsWithChildren, useRef, useState } from "react";
-import Toast, { ToastTheme } from "components/Toast";
+import Toast, { ToastTheme } from "shared/components/Toast/Container";
 
 export const ToastContext = createContext({
   showToast(message: string, theme?: ToastTheme) {},
 });
 
-// TODO: 이것의 위치는?
 const ToastProvider = ({ children }: PropsWithChildren) => {
   const [isVisible, setIsVisible] = useState(false);
   const [theme, setTheme] = useState<ToastTheme>(ToastTheme.GRAY);

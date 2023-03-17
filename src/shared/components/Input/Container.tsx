@@ -1,6 +1,13 @@
 import { ChangeEvent } from "react";
+
 import useInput from "./hooks/useInput";
-import { Container, Title, InputField, WarningMessage } from "./index.style";
+
+import {
+  Container,
+  Title,
+  InputField,
+  WarningMessage,
+} from "./Container.style";
 
 type InputType = "password";
 
@@ -20,7 +27,6 @@ const Input = (props: InputProps) => {
 
   return (
     <Container className={props.className}>
-      {/* TODO: 컴포넌트 내부의 요소는 풀네임으로 안써줘도 되나요? */}
       <Title isFocused={isFocused} wrongInput={props.wrongInput}>
         {props.title}
       </Title>

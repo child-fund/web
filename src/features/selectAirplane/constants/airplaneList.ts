@@ -1,14 +1,15 @@
-import AirplaneKey from "./AirplaneKey";
+// TODO: 이건 이 위치에 있는게 맞을지
+import AirplaneKey from "../types/airplaneKey";
 
-import colors from "assets/colors";
-import paperAirplaneGreen from "assets/imgs/paperAirplaneGreen.png";
-import paperAirplaneBeige from "assets/imgs/paperAirplaneBeige.png";
-import paperAirplaneSky from "assets/imgs/paperAirplaneSky.png";
-import paperAirplanePink from "assets/imgs/paperAirplanePink.png";
-import paperAirplanePurple from "assets/imgs/paperAirplanePurple.png";
-import paperAirplaneYellowGreen from "assets/imgs/paperAirplaneYellowGreen.png";
-import paperAirplaneRed from "assets/imgs/paperAirplaneRed.png";
-import paperAirplaneOrange from "assets/imgs/paperAirplaneOrange.png";
+import colors from "shared/assets/colors";
+import paperAirplaneGreen from "shared/assets/imgs/paperAirplaneGreen.png";
+import paperAirplaneBeige from "shared/assets/imgs/paperAirplaneBeige.png";
+import paperAirplaneSky from "shared/assets/imgs/paperAirplaneSky.png";
+import paperAirplanePink from "shared/assets/imgs/paperAirplanePink.png";
+import paperAirplanePurple from "shared/assets/imgs/paperAirplanePurple.png";
+import paperAirplaneYellowGreen from "shared/assets/imgs/paperAirplaneYellowGreen.png";
+import paperAirplaneRed from "shared/assets/imgs/paperAirplaneRed.png";
+import paperAirplaneOrange from "shared/assets/imgs/paperAirplaneOrange.png";
 
 interface Airplane {
   key: AirplaneKey;

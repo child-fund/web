@@ -1,6 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 
-import ToastProvider from "components/Toast/ToastProvider";
+import ToastProvider from "shared/components/Toast/ToastProvider";
 
 import HomeContainer from "features/main/Container";
 import JoinContainer from "features/join/Container";

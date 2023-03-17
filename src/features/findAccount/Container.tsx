@@ -1,8 +1,6 @@
 import useFindAccount from "./hooks/useFindAccount";
 
-import AnnouncementButton from "components/Announcement/Button";
-import AnnouncementText from "components/Announcement/Text";
-import FindIdTabContents from "features/findAccount/components/FindIdTabContents";
+import FindIdTabContents from "features/findAccount/components/FindIdTabContents/Container";
 import FindPasswordTabContents from "./components/FindPasswordTabContents";
 
 import {
@@ -10,7 +8,7 @@ import {
   StyledTitle,
   StyledDescription,
   TabArea,
-  JoinAnnouncementArea,
+  StyledAnnouncement,
   TabItem,
   TabContentsPaper,
   TabList,
@@ -49,14 +47,12 @@ const FindAccountContainer = () => {
           )}
         </TabContentsPaper>
       </TabArea>
-      <JoinAnnouncementArea>
-        <AnnouncementText text="처음이라면 " />
-        <AnnouncementButton
-          text="회원가입 하러가기"
-          onButtonClick={handleJoinClick}
-        />
-        <AnnouncementText text="를 클릭해주세요!" />
-      </JoinAnnouncementArea>
+      <StyledAnnouncement
+        buttonText="회원가입 하러가기"
+        leftText="처음이라면 "
+        onButtonClick={handleJoinClick}
+        rightText="를 클릭해주세요!"
+      />
     </Container>
   );
 };

@@ -1,8 +1,7 @@
 import useMain from "./hooks/useMain";
 
-import Button, { ButtonTheme } from "components/Button";
+import Button, { ButtonTheme } from "shared/components/Button/Container";
 
-// TODO: 이걸 줄일 수 있는 방법은?
 import {
   Container,
   StyledTitle,
@@ -17,8 +16,8 @@ import {
   NoticeArea,
   ButtonArea,
 } from "./Container.style";
-import holdPaperAirplane from "assets/imgs/holdPaperAirplane.png";
-import escalPrintLogo from "assets/imgs/escalPrintLogo.svg";
+import holdPaperAirplane from "shared/assets/imgs/holdPaperAirplane.png";
+import escalPrintLogo from "shared/assets/imgs/escalPrintLogo.svg";
 
 const MainContainer = () => {
   const {

@@ -1,4 +1,4 @@
-import { Container } from "./index.style";
+import { Container } from "./Container.style";
 import useToast from "./hooks/useToast";
 
 export enum ToastTheme {

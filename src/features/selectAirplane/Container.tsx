@@ -1,6 +1,6 @@
 import useSelectAirplane from "./hooks/useSelectAirplane";
 
-import Button, { ButtonTheme } from "components/Button";
+import Button, { ButtonTheme } from "shared/components/Button/Container";
 
 import airplaneList from "./constants/airplaneList";
 

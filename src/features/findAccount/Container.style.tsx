@@ -1,9 +1,10 @@
 import styled from "styled-components";
 
-import Title from "components/Title";
-import Description from "components/Description";
+import Title from "shared/components/Title/Container";
+import Description from "shared/components/Description/Container";
+import Announcement from "shared/components/Announcement/Container";
 
-import colors from "assets/colors";
+import colors from "shared/assets/colors";
 
 export const Container = styled.div`
   position: relative;
@@ -67,10 +68,9 @@ export const TabContentsPaper = styled.div`
   background-color: ${colors.white};
 `;
 
-export const JoinAnnouncementArea = styled.div`
+export const StyledAnnouncement = styled(Announcement)`
   position: absolute;
   left: 50%;
   bottom: 2rem;
   transform: translateX(-50%);
-  display: flex;
 `;

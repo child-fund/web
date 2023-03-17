@@ -1,4 +1,4 @@
-import { ButtonTheme } from "components/Button";
+import { ButtonTheme } from "shared/components/Button/Container";
 
 import {
   ResultSentence,

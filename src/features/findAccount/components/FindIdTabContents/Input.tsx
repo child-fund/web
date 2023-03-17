@@ -1,10 +1,10 @@
 import { ChangeEvent } from "react";
 
-import { ButtonTheme } from "components/Button";
-import InputArea from "components/InputArea";
-import Input from "components/Input";
+import { ButtonTheme } from "shared/components/Button/Container";
+import InputArea from "shared/components/InputArea/Container";
+import Input from "shared/components/Input/Container";
 
-import { StyledButton } from "./index.style";
+import { StyledButton } from "./Container.style";
 
 interface FindIdContentsInputProps {
   onSearchIdClick: () => void;

@@ -1,4 +1,4 @@
-import paperAirplaneGreen from "assets/imgs/paperAirplaneGreen.png";
+import paperAirplaneGreen from "shared/assets/imgs/paperAirplaneGreen.png";
 
 export interface DummyData {
   quarter: string;

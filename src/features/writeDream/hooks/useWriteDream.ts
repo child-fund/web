@@ -1,7 +1,7 @@
 import { ChangeEvent, useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-import { ToastContext } from "components/Toast/ToastProvider";
+import { ToastContext } from "shared/components/Toast/ToastProvider";
 
 const useWriteDream = () => {
   const navigate = useNavigate();

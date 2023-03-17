@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import colors from "assets/colors";
+import colors from "shared/assets/colors";
 
 export const Container = styled.div`
   padding: 1.4rem 0rem 1.6rem 0rem;

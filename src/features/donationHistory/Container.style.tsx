@@ -1,8 +1,10 @@
 import styled from "styled-components";
 
-import Title from "components/Title";
-import Description from "components/Description";
-import colors from "assets/colors";
+import Title from "shared/components/Title/Container";
+import Description from "shared/components/Description/Container";
+import Announcement from "shared/components/Announcement/Container";
+
+import colors from "shared/assets/colors";
 
 export const Container = styled.div`
   position: relative;
@@ -115,10 +117,9 @@ export const LoadMoreButton = styled.button`
   color: ${colors.white};
 `;
 
-export const AnnouncementArea = styled.div`
+export const StyledAnnouncement = styled(Announcement)`
   position: absolute;
   left: 50%;
   bottom: 2rem;
   transform: translateX(-50%);
-  display: flex;
 `;
