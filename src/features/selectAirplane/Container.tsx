@@ -1,20 +1,19 @@
 import useSelectAirplane from "./hooks/useSelectAirplane";
 
 import Button, { ButtonTheme } from "shared/components/Button/Container";
+import AirplaneSlider from "./components/AirplaneSlider/Container";
 
 import airplaneList from "./constants/airplaneList";
 
 import {
+  AirplanePreview,
+  BoardTitle,
+  ButtonArea,
   Container,
+  Division,
   StyledTitle,
   StyledDescription,
-  AirplanePreview,
   WhiteBoard,
-  BoardTitle,
-  Division,
-  AirplaneSlider,
-  AirplaneOption,
-  ButtonArea,
 } from "./Container.style";
 
 const SelectAirplaneContainer = () => {
@@ -23,7 +22,6 @@ const SelectAirplaneContainer = () => {
     handleMainClick,
     handleWriteClick,
     selectedAirplane,
-    selectedAirplaneKey,
   } = useSelectAirplane();
 
   return (
@@ -42,17 +40,11 @@ const SelectAirplaneContainer = () => {
       <WhiteBoard>
         <BoardTitle>종이비행기 고르기</BoardTitle>
         <Division />
-        <AirplaneSlider>
-          {airplaneList.map((item) => (
-            <AirplaneOption
-              key={item.key}
-              onClick={() => handleAirplaneClick(item.key)}
-              selected={item.key === selectedAirplaneKey}
-            >
-              <img src={item.image} alt={`${item.key} airplane`} />
-            </AirplaneOption>
-          ))}
-        </AirplaneSlider>
+        <AirplaneSlider
+          list={airplaneList}
+          onAirplaneClick={handleAirplaneClick}
+          selectedAirplaneKey={selectedAirplane.key}
+        />
         <ButtonArea>
           <Button
             onButtonClick={handleMainClick}

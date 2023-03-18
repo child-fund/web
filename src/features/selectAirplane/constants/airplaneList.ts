@@ -11,7 +11,7 @@ import paperAirplaneYellowGreen from "shared/assets/imgs/paperAirplaneYellowGree
 import paperAirplaneRed from "shared/assets/imgs/paperAirplaneRed.png";
 import paperAirplaneOrange from "shared/assets/imgs/paperAirplaneOrange.png";
 
-interface Airplane {
+export interface Airplane {
   key: AirplaneKey;
   containerBackground: string;
   previewBorder: string;

@@ -29,7 +29,6 @@ const useSelectAirplane = () => {
     handleMainClick,
     handleWriteClick,
     selectedAirplane,
-    selectedAirplaneKey,
   };
 };
 
