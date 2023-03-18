@@ -28,15 +28,14 @@ export const StyledDescription = styled(Description)`
 `;
 
 export const AirplanePreview = styled.div<{
-  backgroundColor: string;
   borderColor: string;
 }>`
   align-self: center;
   min-width: 27rem;
   min-height: 27rem;
   margin-bottom: 5rem;
-  background-image: ${({ backgroundColor, borderColor }) =>
-    `${backgroundColor},${borderColor}`};
+  background-image: ${({ borderColor }) =>
+    `linear-gradient(#fff, #fff),${borderColor}`};
   background-origin: border-box;
   background-clip: content-box, border-box;
   border: 0.5rem solid transparent;

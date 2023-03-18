@@ -28,10 +28,7 @@ const SelectAirplaneContainer = () => {
     <Container backgroundColor={selectedAirplane.containerBackground}>
       <StyledTitle text="종이비행기를 선택해주세요!" />
       <StyledDescription text="내가 선택한 종이비행기에 꿈을 적을 수 있어요 :)" />
-      <AirplanePreview
-        backgroundColor={selectedAirplane.previewBackground}
-        borderColor={selectedAirplane.previewBorder}
-      >
+      <AirplanePreview borderColor={selectedAirplane.previewBorder}>
         <img
           src={selectedAirplane.image}
           alt={`${selectedAirplane.key} airplane`}
