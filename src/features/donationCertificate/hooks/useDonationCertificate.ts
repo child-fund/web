@@ -1,9 +1,16 @@
-import { useRef, useState } from "react";
+import { useContext, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import * as htmlToImage from "html-to-image";
 
+import { ToastTheme } from "shared/components/Toast/Container";
+import { ToastContext } from "shared/components/Toast/ToastProvider";
+import copyImageByClipboardApi from "shared/utils/copyImageByClipboardApi";
+import copyImageByExecCommand from "shared/utils/copyImageByExecCommand";
+import shareUrlByWebShareApi from "shared/utils/shareUrlByWebShareApi";
+
 const useDonationCertificate = () => {
   const navigate = useNavigate();
+  const { showToast } = useContext(ToastContext);
   const certificateAreaRef = useRef<HTMLDivElement>(null);
   const [nickname, setNickname] = useState("");
 
@@ -17,18 +24,27 @@ const useDonationCertificate = () => {
 
   const handleShareClick = async () => {
     const imageUrl = await convertHtmlToImage();
+    if (!imageUrl) {
+      return;
+    }
 
-    if (navigator.share && imageUrl) {
-      try {
-        await navigator.share({
-          title: "기부 인증서",
-          url: imageUrl,
-        });
-      } catch (e) {
-        console.error(e);
+    const firstTrial = shareUrlByWebShareApi({
+      title: "에스칼프린트x초록우산 종이비행기 기부인증서",
+      url: imageUrl,
+    });
+
+    if (!firstTrial) {
+      const secondTrial = await copyImageByClipboardApi(imageUrl);
+      if (secondTrial) {
+        showToast("인증서가 클립보드에 저장되었어요!", ToastTheme.GREEN);
+      } else {
+        const lastTrial = await copyImageByExecCommand(imageUrl);
+        if (lastTrial) {
+          showToast("인증서가 클립보드에 저장되었어요!", ToastTheme.GREEN);
+        } else {
+          showToast("공유하기가 지원되지 않는 환경입니다.");
+        }
       }
-    } else {
-      console.log("Web Share API is not supported in your browser.");
     }
   };
 
@@ -47,6 +63,7 @@ const useDonationCertificate = () => {
   };
 
   return {
+    certificateAreaRef,
     handleBackToMainClick,
     handleSaveImageClick,
     handleHistoryClick,

@@ -1,8 +1,8 @@
-const shareByExecCommand = () => {
+const copyTextByExecCommand = () => {
   const el = document.createElement("textarea");
 
   el.value = window.location.href;
-  el.setAttribute("readonly", ""); // TODO: ??
+  el.setAttribute("readonly", "");
   document.body.appendChild(el);
   el.select();
 
@@ -12,4 +12,4 @@ const shareByExecCommand = () => {
   return result;
 };
 
-export default shareByExecCommand;
+export default copyTextByExecCommand;
