@@ -20,7 +20,32 @@ const useDonationCertificate = () => {
     navigate("/history");
   };
 
-  const handleSaveImageClick = () => {};
+  const handleSaveImageClick = async () => {
+    if (!certificateAreaRef.current) return;
+
+    const images = certificateAreaRef.current.querySelectorAll("img");
+    const imagesLoadedPromise = Promise.all(
+      Array.from(images).map(
+        (img) =>
+          new Promise((resolve) => {
+            if (img.complete) {
+              resolve(null);
+            } else {
+              img.addEventListener("load", () => resolve(null));
+              img.addEventListener("error", () => resolve(null));
+            }
+          })
+      )
+    );
+
+    await imagesLoadedPromise;
+
+    const image = await htmlToImage.toPng(certificateAreaRef.current);
+    const link = document.createElement("a");
+    link.href = image;
+    link.download = "donation-certificate.png";
+    link.click();
+  };
 
   const handleShareClick = async () => {
     const imageUrl = await convertHtmlToImage();
