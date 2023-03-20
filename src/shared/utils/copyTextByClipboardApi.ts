@@ -1,4 +1,4 @@
-const shareByClipboardApi = () => {
+const copyTextByClipboardApi = () => {
   if (navigator.clipboard) {
     try {
       navigator.clipboard.writeText(window.location.href);
@@ -12,4 +12,4 @@ const shareByClipboardApi = () => {
   }
 };
 
-export default shareByClipboardApi;
+export default copyTextByClipboardApi;

@@ -17,7 +17,7 @@ import {
   ButtonArea,
 } from "./Container.style";
 import holdPaperAirplane from "shared/assets/imgs/holdPaperAirplane.png";
-import escalPrintLogo from "shared/assets/imgs/escalPrintLogo.svg";
+import escalPrintLogo from "shared/assets/imgs/escalPrintLogo.png";
 
 const MainContainer = () => {
   const {

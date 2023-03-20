@@ -1,9 +1,9 @@
 import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-import shareByWebShareApi from "../utils/shareByWebShareApi";
-import shareByClipboardApi from "../utils/shareByClipboardApi";
-import shareByExecCommand from "../utils/shareByExecCommand";
+import shareUrlByWebShareApi from "../../../shared/utils/shareUrlByWebShareApi";
+import copyTextByClipboardApi from "../../../shared/utils/copyTextByClipboardApi";
+import copyTextByExecCommand from "../../../shared/utils/copyTextByExecCommand";
 
 import { ToastContext } from "shared/components/Toast/ToastProvider";
 
@@ -27,20 +27,23 @@ const useMain = () => {
   const handleShareClick = () => {
     // TODO: 이 함수를 더 잘 짤 수 있을까욤
     // TODO: 이런 함수들은 utils 에 넣는게 맞을까욤
-    const firstTrial = shareByWebShareApi();
+    const firstTrial = shareUrlByWebShareApi({
+      title: "에스칼프린트x초록우산 종이비행기 기부이벤트",
+      url: window.location.href,
+    });
 
     if (!firstTrial) {
-      const secondTrial = shareByClipboardApi();
+      const secondTrial = copyTextByClipboardApi();
 
       if (secondTrial) {
         showToast(`링크가 복사되었어요!`, ToastTheme.GREEN);
       } else {
-        const lastTrial = shareByExecCommand();
+        const lastTrial = copyTextByExecCommand();
 
         if (lastTrial) {
           showToast(`링크가 복사되었어요!`, ToastTheme.GREEN);
         } else {
-          alert("공유하기가 지원되지 않는 환경입니다.");
+          showToast("공유하기가 지원되지 않는 환경입니다.");
         }
       }
     }
