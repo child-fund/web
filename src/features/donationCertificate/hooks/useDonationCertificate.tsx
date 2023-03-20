@@ -1,6 +1,6 @@
 import { useContext, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import * as htmlToImage from "html-to-image";
+import html2canvas from "html2canvas";
 
 import { ToastTheme } from "shared/components/Toast/Container";
 import { ToastContext } from "shared/components/Toast/ToastProvider";
@@ -40,9 +40,9 @@ const useDonationCertificate = () => {
 
     await imagesLoadedPromise;
 
-    const image = await htmlToImage.toPng(certificateAreaRef.current);
+    const imageElement = await html2canvas(certificateAreaRef.current);
     const link = document.createElement("a");
-    link.href = image;
+    link.href = imageElement.toDataURL();
     link.download = "donation-certificate.png";
     link.click();
   };
@@ -78,8 +78,8 @@ const useDonationCertificate = () => {
 
     if (certificateArea) {
       try {
-        const dataURL = await htmlToImage.toPng(certificateArea);
-        return dataURL;
+        const imageElement = await html2canvas(certificateAreaRef.current);
+        return imageElement.toDataURL();
       } catch (e) {
         console.error(e);
         return undefined;
