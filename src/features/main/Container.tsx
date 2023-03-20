@@ -18,6 +18,7 @@ import {
 } from "./Container.style";
 import holdPaperAirplane from "shared/assets/imgs/holdPaperAirplane.png";
 import escalPrintLogo from "shared/assets/imgs/escalPrintLogo.png";
+import NumberCards from "./Components/NumberCards/Container";
 
 const MainContainer = () => {
   const {
@@ -39,16 +40,28 @@ const MainContainer = () => {
       <Period>참여 기간 - 2023.04.10 ~ 2023.04.30</Period>
       <HoldPaperAirplaneImage src={holdPaperAirplane} alt="holdPaperAirplane" />
       <CountingArea>
-        <CountTitle>
-          {`지금까지 모인 `}
-          <span>종이비행기 개수</span>
-        </CountTitle>
-        <FlippingArea1></FlippingArea1>
-        <CountTitle>
-          {`지금까지 모인 `}
-          <span>누적 후원금</span>
-        </CountTitle>
-        <FlippingArea2></FlippingArea2>
+        <div>
+          <CountTitle>
+            {`지금까지 모인 `}
+            <span>종이비행기 개수</span>
+          </CountTitle>
+          <NumberCards
+            minNumberOfDigits={6}
+            number={12201}
+            upperColor={"#55ad1e"}
+          />
+        </div>
+        <div>
+          <CountTitle>
+            {`지금까지 모인 `}
+            <span>누적 후원금</span>
+          </CountTitle>
+          <NumberCards
+            minNumberOfDigits={7}
+            number={122010}
+            upperColor={"#23b000"}
+          />
+        </div>
         <EscalPrintLogo src={escalPrintLogo} alt="escalPrintLogo" />
       </CountingArea>
       <NoticeArea>
