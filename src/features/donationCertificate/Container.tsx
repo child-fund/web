@@ -1,5 +1,4 @@
 import useDonationCertificate from "./hooks/useDonationCertificate";
-import useImageCache, { createImageElement } from "./hooks/useImageCache";
 
 import Button, { ButtonTheme } from "shared/components/Button/Container";
 
@@ -17,18 +16,11 @@ import {
   Title,
 } from "./Container.style";
 import escalPrintSeal from "shared/assets/imgs/escalPrintSeal.png";
-import escalPrintLogo from "shared/assets/imgs/escalPrintLogo.svg";
+import escalPrintLogo from "shared/assets/imgs/escalPrintLogo.png";
 import childFundLogo from "shared/assets/imgs/childFundLogo.png";
 import paperAirplaneGreen from "shared/assets/imgs/paperAirplaneGreen.png";
 
 const DonationCertificateContainer = () => {
-  const imageSources = {
-    paperAirplaneGreen,
-    escalPrintSeal,
-    escalPrintLogo,
-    childFundLogo,
-  };
-
   const {
     certificateAreaRef,
     handleBackToMainClick,
@@ -37,9 +29,6 @@ const DonationCertificateContainer = () => {
     handleShareClick,
     nickname,
   } = useDonationCertificate();
-
-  // TODO: 이것도 useDonationCertificate 안에 넣어서 사용..?
-  const imageCache = useImageCache(imageSources);
 
   return (
     <Container>
@@ -53,11 +42,11 @@ const DonationCertificateContainer = () => {
         <Phrase>위 자는 저소득층 기부에 동참하였음을 인증합니다.</Phrase>
         <Signature>
           <span>에스칼디렉션 대표인</span>
-          {createImageElement(escalPrintSeal, "escalPrintSeal", imageCache)}
+          <img src={escalPrintSeal} alt="escalPrintSeal" />
         </Signature>
         <CorporationLogos>
-          {createImageElement(escalPrintLogo, "escalPrintLogo", imageCache)}
-          {createImageElement(childFundLogo, "childFundLogo", imageCache)}
+          <img src={escalPrintLogo} alt="escalPrintLogo" />
+          <img src={childFundLogo} alt="childFundLogo" />
         </CorporationLogos>
       </CertificateArea>
       <ButtonArea>
