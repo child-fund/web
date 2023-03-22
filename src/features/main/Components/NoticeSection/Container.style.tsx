@@ -3,7 +3,6 @@ import colors from "shared/assets/colors";
 
 export const Container = styled.ul`
   width: 100%;
-  margin-bottom: 2.4rem;
 
   > li {
     line-height: 1.8rem;

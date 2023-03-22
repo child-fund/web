@@ -12,10 +12,17 @@ export const Container = styled.div`
   }
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   align-items: center;
   height: 100%;
-  padding: 2rem;
-  padding-top: 2.5rem;
+  padding: 2.5rem 2rem 0rem 2rem;
+`;
+
+export const ContentAreaContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
 `;
 
 export const StyledTitle = styled(Title)`

@@ -9,7 +9,7 @@ interface CountingAreaContainerProps {
   donationAmount: number;
 }
 
-const CountingAreaContainer = (props: CountingAreaContainerProps) => {
+const CountingSectionContainer = (props: CountingAreaContainerProps) => {
   return (
     <Container>
       <div>
@@ -39,4 +39,4 @@ const CountingAreaContainer = (props: CountingAreaContainerProps) => {
   );
 };
 
-export default CountingAreaContainer;
+export default CountingSectionContainer;

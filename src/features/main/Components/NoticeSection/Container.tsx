@@ -4,7 +4,7 @@ interface NoticeAreaContainerProps {
   onNoticeClick: () => void;
 }
 
-const NoticeAreaContainer = (props: NoticeAreaContainerProps) => {
+const NoticeSectionContainer = (props: NoticeAreaContainerProps) => {
   return (
     <Container>
       <li>
@@ -28,4 +28,4 @@ const NoticeAreaContainer = (props: NoticeAreaContainerProps) => {
   );
 };
 
-export default NoticeAreaContainer;
+export default NoticeSectionContainer;
