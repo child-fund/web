@@ -1,7 +1,10 @@
 import useMain from "./hooks/useMain";
 
+import ScrollableContainer from "shared/components/ScrollableContainer/Container";
+import CountingSectionContainer from "./Components/CountingSection/Container";
+import NoticeSectionContainer from "./Components/NoticeSection/Container";
+
 import {
-  Container,
   ContentAreaContainer,
   StyledTitle,
   StyledDescription,
@@ -9,9 +12,6 @@ import {
   HoldPaperAirplaneImage,
 } from "./Container.style";
 import holdPaperAirplane from "shared/assets/imgs/holdPaperAirplane.png";
-import NoticeSectionContainer from "./Components/NoticeSection/Container";
-import ButtonAreaContainer from "./Components/ButtonArea/Container";
-import CountingSectionContainer from "./Components/CountingSection/Container";
 
 const MainContainer = () => {
   const {
@@ -24,7 +24,23 @@ const MainContainer = () => {
   } = useMain();
 
   return (
-    <Container>
+    <ScrollableContainer
+      bottomButtons={
+        loginStatus
+          ? {
+              leftButtonText: "내 꿈 기부내역 보기",
+              onLeftButtonClick: handleHistoryClick,
+              rightButtonText: "내 꿈으로 기부하러 가기",
+              onRightButtonClick: handleDonateClick,
+            }
+          : {
+              leftButtonText: "친구랑 함께하기",
+              onLeftButtonClick: handleShareClick,
+              rightButtonText: "회원가입하고 동참하기",
+              onRightButtonClick: handleJoinClick,
+            }
+      }
+    >
       <ContentAreaContainer>
         <StyledTitle
           text={`여러분의 소중한 꿈으로
@@ -42,14 +58,7 @@ const MainContainer = () => {
         />
         <NoticeSectionContainer onNoticeClick={handleNoticeClick} />
       </ContentAreaContainer>
-      <ButtonAreaContainer
-        loginStatus={loginStatus}
-        onDonateClick={handleDonateClick}
-        onHistoryClick={handleHistoryClick}
-        onJoinClick={handleJoinClick}
-        onShareClick={handleShareClick}
-      />
-    </Container>
+    </ScrollableContainer>
   );
 };
 

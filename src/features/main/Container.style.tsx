@@ -3,21 +3,6 @@ import styled from "styled-components";
 import Description from "shared/components/Description/Container";
 import Title from "shared/components/Title/Container";
 
-export const Container = styled.div`
-  position: relative;
-  overflow-x: hidden;
-  overflow-y: scroll;
-  ::-webkit-scrollbar {
-    display: none;
-  }
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  height: 100%;
-  padding: 2.5rem 2rem 0rem 2rem;
-`;
-
 export const ContentAreaContainer = styled.div`
   display: flex;
   flex-direction: column;

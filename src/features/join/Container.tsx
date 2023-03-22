@@ -1,16 +1,14 @@
 import useJoin from "./hooks/useJoin";
 
+import ScrollableContainer from "shared/components/ScrollableContainer/Container";
 import Button, { ButtonTheme } from "shared/components/Button/Container";
 import InputArea from "shared/components/InputArea/Container";
 import Input from "shared/components/Input/Container";
-import Announcement from "shared/components/Announcement/Container";
 
 import {
-  Container,
   StyledTitle,
   StyledDescription,
   ContentAreaContainer,
-  AnnouncementAreaContainer,
 } from "./Container.style";
 
 const JoinContainer = () => {
@@ -37,7 +35,14 @@ const JoinContainer = () => {
   } = useJoin();
 
   return (
-    <Container>
+    <ScrollableContainer
+      bottomAnnouncement={{
+        buttonText: "로그인 하러가기",
+        leftText: "이미 가입했다면? ",
+        onButtonClick: handleLoginClick,
+        rightText: "를 클릭해주세요!",
+      }}
+    >
       <ContentAreaContainer>
         <StyledTitle
           text={`1분만 시간내어서
@@ -89,15 +94,7 @@ const JoinContainer = () => {
           />
         )}
       </ContentAreaContainer>
-      <AnnouncementAreaContainer>
-        <Announcement
-          buttonText="로그인 하러가기"
-          leftText="이미 가입했다면? "
-          onButtonClick={handleLoginClick}
-          rightText="를 클릭해주세요!"
-        />
-      </AnnouncementAreaContainer>
-    </Container>
+    </ScrollableContainer>
   );
 };
 
