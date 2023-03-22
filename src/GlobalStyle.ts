@@ -117,6 +117,10 @@ input {
     }
 }
 
+textarea, p {
+    overflow-wrap: break-word;
+}
+
 /* revert the 'white-space' property for textarea elements on Safari */
 textarea {
     appearance: none;

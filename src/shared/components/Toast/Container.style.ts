@@ -1,7 +1,8 @@
 import styled from "styled-components";
 import colors from "shared/assets/colors";
+import { ToastTheme } from "./Container";
 
-export const Container = styled.div`
+export const Container = styled.div<{ theme: ToastTheme }>`
   position: absolute;
   bottom: -100%;
   left: 50%;
@@ -10,7 +11,8 @@ export const Container = styled.div`
   width: 90%;
   padding: 1.6rem;
   border-radius: 1rem;
-  background-color: ${colors.gray700};
+  background-color: ${({ theme }) =>
+    theme === ToastTheme.GRAY ? colors.gray700 : "#00b300"};
   opacity: 1;
   color: ${colors.white};
   font-size: 1.4rem;

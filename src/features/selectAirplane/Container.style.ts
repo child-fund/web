@@ -28,15 +28,14 @@ export const StyledDescription = styled(Description)`
 `;
 
 export const AirplanePreview = styled.div<{
-  backgroundColor: string;
   borderColor: string;
 }>`
   align-self: center;
   min-width: 27rem;
   min-height: 27rem;
   margin-bottom: 5rem;
-  background-image: ${({ backgroundColor, borderColor }) =>
-    `${backgroundColor},${borderColor}`};
+  background-image: ${({ borderColor }) =>
+    `linear-gradient(#fff, #fff),${borderColor}`};
   background-origin: border-box;
   background-clip: content-box, border-box;
   border: 0.5rem solid transparent;
@@ -72,59 +71,6 @@ export const Division = styled.hr`
   margin-bottom: 2.8rem;
   background-color: #ededed;
   border-radius: 0.05rem;
-`;
-
-export const AirplaneSlider = styled.div`
-  display: flex;
-  gap: 0.8rem;
-  width: calc(100% + 4rem);
-  min-height: 11.6rem;
-  overflow-x: scroll;
-  margin-left: -2rem;
-  margin-bottom: 3rem;
-
-  ::-webkit-scrollbar {
-    width: 5rem;
-    height: 0.3rem;
-    border-radius: 0.15rem;
-    background-color: #f2f2f2;
-  }
-
-  ::-webkit-scrollbar-thumb {
-    border-radius: 0.15rem;
-    background-color: ${colors.green500};
-  }
-
-  > div:first-of-type {
-    margin-left: 2rem;
-  }
-
-  > div:last-of-type {
-    :after {
-      content: "";
-      position: absolute;
-      top: 0;
-      right: -2rem;
-      width: 2rem;
-      height: 1rem;
-    }
-  }
-`;
-
-export const AirplaneOption = styled.div<{ selected: boolean }>`
-  position: relative;
-  min-width: 11.6rem;
-  min-height: 11.6rem;
-  margin-bottom: 1.4rem;
-  border: 0.2rem solid
-    ${({ selected }) => (selected ? colors.green500 : "#ededed")};
-  border-radius: 1rem;
-  background-color: ${colors.white};
-  line-height: 0;
-
-  > img {
-    width: 11.6rem;
-  }
 `;
 
 export const ButtonArea = styled.div`
