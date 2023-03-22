@@ -28,7 +28,7 @@ interface ScrollableContainerProps {
 
 const ScrollableContainer = (props: ScrollableContainerProps) => {
   return (
-    <Container>
+    <Container className={props.className}>
       {props.children}
       {props.bottomButtons && (
         <ButtonAreaContainer>
