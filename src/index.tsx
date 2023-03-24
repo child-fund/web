@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter, HashRouter } from "react-router-dom";
 import reportWebVitals from "reportWebVitals";
 
 import App from "App";
@@ -13,10 +13,12 @@ const root = ReactDOM.createRoot(
 
 root.render(
   <React.StrictMode>
-    <BrowserRouter basename={process.env.PUBLIC_URL}>
+    {/* <BrowserRouter basename={process.env.PUBLIC_URL}> */}
+    <HashRouter>
       <App />
       <GlobalStyle />
-    </BrowserRouter>
+    </HashRouter>
+    {/* </BrowserRouter> */}
   </React.StrictMode>
 );
 
