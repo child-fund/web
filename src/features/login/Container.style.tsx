@@ -4,18 +4,10 @@ import Title from "shared/components/Title/Container";
 import Description from "shared/components/Description/Container";
 import Announcement from "shared/components/Announcement/Container";
 
-export const Container = styled.div`
-  position: relative;
-  overflow-x: hidden;
-  overflow-y: scroll;
-  ::-webkit-scrollbar {
-    display: none;
-  }
+export const ContentContainer = styled.div`
   display: flex;
   flex-direction: column;
-  height: 100%;
-  padding: 2rem;
-  padding-top: 2.5rem;
+  width: 100%;
 `;
 
 export const StyledTitle = styled(Title)`
@@ -29,11 +21,4 @@ export const StyledDescription = styled(Description)`
 export const FindAccountAnnouncement = styled(Announcement)`
   justify-content: center;
   margin-bottom: 2rem;
-`;
-
-export const JoinAnnouncement = styled(Announcement)`
-  position: absolute;
-  left: 50%;
-  bottom: 2rem;
-  transform: translateX(-50%);
 `;

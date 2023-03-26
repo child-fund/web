@@ -3,6 +3,7 @@ import colors from "shared/assets/colors";
 
 export const Container = styled.div`
   display: flex;
+  justify-content: center;
 
   > span {
     display: inline;

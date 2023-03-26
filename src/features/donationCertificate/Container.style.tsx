@@ -1,19 +1,19 @@
-import colors from "shared/assets/colors";
 import styled from "styled-components";
 
-export const Container = styled.div`
-  position: relative;
-  overflow-x: hidden;
-  overflow-y: scroll;
-  ::-webkit-scrollbar {
-    display: none;
-  }
+import ScrollableContainer from "shared/components/ScrollableContainer/Container";
+
+import colors from "shared/assets/colors";
+
+export const Container = styled(ScrollableContainer)`
+  padding-top: 2rem;
+  background-image: linear-gradient(205deg, #38cc5f, #27e24b);
+`;
+
+export const ContentContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 100%;
-  padding: 2rem;
-  background-image: linear-gradient(205deg, #38cc5f, #27e24b);
+  width: 100%;
 `;
 
 export const ShareButton = styled.button`
@@ -90,6 +90,16 @@ export const CorporationLogos = styled.div`
   > img {
     width: 5rem;
   }
+`;
+
+export const ButtonContainer = styled.div`
+  position: sticky;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 2.4rem 0rem 2rem 0rem;
 `;
 
 export const ButtonArea = styled.div`
