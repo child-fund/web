@@ -14,7 +14,9 @@ const useDonationCertificate = () => {
   const certificateAreaRef = useRef<HTMLDivElement>(null);
   const [nickname, setNickname] = useState("");
 
-  const handleBackToMainClick = () => {};
+  const handleBackToMainClick = () => {
+    navigate("/");
+  };
 
   const handleHistoryClick = () => {
     navigate("/history");
