@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import NavigationBar from "shared/components/NavigationBar/Container";
 import SubtitleBar from "shared/components/SubtitleBar/Container";
 
