@@ -4,7 +4,7 @@ import Title from "shared/components/Title/Container";
 import Description from "shared/components/Description/Container";
 import Announcement from "shared/components/Announcement/Container";
 
-export const ContentAreaContainer = styled.div`
+export const ContentContainer = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;

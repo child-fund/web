@@ -6,7 +6,7 @@ import InputArea from "shared/components/InputArea/Container";
 import Input from "shared/components/Input/Container";
 
 import {
-  ContentAreaContainer,
+  ContentContainer,
   StyledTitle,
   StyledDescription,
   FindAccountAnnouncement,
@@ -37,7 +37,7 @@ const LoginContainer = () => {
         rightText: "를 클릭해주세요!",
       }}
     >
-      <ContentAreaContainer>
+      <ContentContainer>
         <StyledTitle
           text={`다시 만나서 반가워요 :)
         로그인 후에 이용할 수 있어요!`}
@@ -75,7 +75,7 @@ const LoginContainer = () => {
             theme={ButtonTheme.DARK}
           />
         )}
-      </ContentAreaContainer>
+      </ContentContainer>
     </ScrollableContainer>
   );
 };

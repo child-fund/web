@@ -5,7 +5,7 @@ import CountingSectionContainer from "./Components/CountingSection/Container";
 import NoticeSectionContainer from "./Components/NoticeSection/Container";
 
 import {
-  ContentAreaContainer,
+  ContentContainer,
   StyledTitle,
   StyledDescription,
   Period,
@@ -41,7 +41,7 @@ const MainContainer = () => {
             }
       }
     >
-      <ContentAreaContainer>
+      <ContentContainer>
         <StyledTitle
           text={`여러분의 소중한 꿈으로
         따뜻한 기부에 동참하시겠어요?`}
@@ -57,7 +57,7 @@ const MainContainer = () => {
           donationAmount={122010}
         />
         <NoticeSectionContainer onNoticeClick={handleNoticeClick} />
-      </ContentAreaContainer>
+      </ContentContainer>
     </ScrollableContainer>
   );
 };

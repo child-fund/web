@@ -5,7 +5,7 @@ import Description from "shared/components/Description/Container";
 
 import colors from "shared/assets/colors";
 
-export const ContentAreaContainer = styled.div`
+export const ContentContainer = styled.div`
   width: 100%;
 `;
 

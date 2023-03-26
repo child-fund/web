@@ -4,7 +4,7 @@ import FindIdTabContents from "features/findAccount/components/FindIdTabContents
 import FindPasswordTabContents from "./components/FindPasswordTabContents";
 
 import {
-  ContentAreaContainer,
+  ContentContainer,
   StyledTitle,
   StyledDescription,
   TabArea,
@@ -26,7 +26,7 @@ const FindAccountContainer = () => {
         rightText: "를 클릭해주세요!",
       }}
     >
-      <ContentAreaContainer>
+      <ContentContainer>
         <StyledTitle
           text={`깜-빡 잊었어도 괜찮아요
         우리가 찾아줄거니까!`}
@@ -55,7 +55,7 @@ const FindAccountContainer = () => {
             )}
           </TabContentsPaper>
         </TabArea>
-      </ContentAreaContainer>
+      </ContentContainer>
     </ScrollableContainer>
   );
 };

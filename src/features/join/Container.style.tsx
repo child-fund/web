@@ -3,7 +3,7 @@ import styled from "styled-components";
 import Title from "shared/components/Title/Container";
 import Description from "shared/components/Description/Container";
 
-export const ContentAreaContainer = styled.div`
+export const ContentContainer = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;

@@ -8,7 +8,7 @@ import Input from "shared/components/Input/Container";
 import {
   StyledTitle,
   StyledDescription,
-  ContentAreaContainer,
+  ContentContainer,
 } from "./Container.style";
 
 const JoinContainer = () => {
@@ -43,7 +43,7 @@ const JoinContainer = () => {
         rightText: "를 클릭해주세요!",
       }}
     >
-      <ContentAreaContainer>
+      <ContentContainer>
         <StyledTitle
           text={`1분만 시간내어서
         회원가입을 부탁드려요`}
@@ -93,7 +93,7 @@ const JoinContainer = () => {
             theme={ButtonTheme.DARK}
           />
         )}
-      </ContentAreaContainer>
+      </ContentContainer>
     </ScrollableContainer>
   );
 };
