@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 import Title from "shared/components/Title/Container";
 import Description from "shared/components/Description/Container";
-import Announcement from "shared/components/Announcement/Container";
+import { AnnouncementAreaContainer } from "shared/components/ScrollableContainer/Container.style";
 
 import colors from "shared/assets/colors";
 
@@ -89,9 +89,6 @@ export const LoadMoreButton = styled.button`
   color: ${colors.white};
 `;
 
-export const StyledAnnouncement = styled(Announcement)`
-  position: absolute;
-  left: 50%;
-  bottom: 2rem;
-  transform: translateX(-50%);
+export const AnnouncementContainer = styled(AnnouncementAreaContainer)`
+  width: 100%;
 `;
