@@ -4674,11 +4674,6 @@ flatted@^3.1.0:
   resolved "https://registry.yarnpkg.com/flatted/-/flatted-3.2.7.tgz#609f39207cb614b89d0765b477cb2d437fbf9787"
   integrity sha512-5nqDSxl8nn5BSNxyR3n4I6eDmbolI6WT+QqR547RwxQapgjQBmtktdP+HTBb/a/zLsbzERTONyUB5pefh5TtjQ==
 
-flipdown@^0.3.2:
-  version "0.3.2"
-  resolved "https://registry.yarnpkg.com/flipdown/-/flipdown-0.3.2.tgz#1358653857b68a364713772c01cce0010d4bb4a9"
-  integrity sha512-WR+NS6iAHcz8F3McMrxydkGVKE7y2H77STSVUa84czj3uwqjcB2EPM6v9XA98eFr8YU1FEfqqYitdl89pMZnJw==
-
 follow-redirects@^1.0.0:
   version "1.15.2"
   resolved "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.15.2.tgz#b460864144ba63f2681096f274c4e57026da2c13"
