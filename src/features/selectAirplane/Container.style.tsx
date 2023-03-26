@@ -5,7 +5,7 @@ import Description from "shared/components/Description/Container";
 
 import colors from "shared/assets/colors";
 
-export const Container = styled.div<{ backgroundColor: string }>`
+export const Container = styled.div`
   position: relative;
   overflow-x: hidden;
   overflow-y: scroll;
@@ -14,7 +14,15 @@ export const Container = styled.div<{ backgroundColor: string }>`
   }
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   height: 100%;
+  background-color: ${colors.white};
+`;
+
+export const ContentContainer = styled.div<{ backgroundColor: string }>`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
   padding: 2.5rem 2rem 0rem 2rem;
   background-image: ${({ backgroundColor }) => backgroundColor};
 `;
@@ -73,10 +81,22 @@ export const Division = styled.hr`
   border-radius: 0.05rem;
 `;
 
-export const ButtonArea = styled.div`
+export const ButtonContainer = styled.div`
+  position: sticky;
+  /* position: fixed;
+  width: 41.2rem;
+  @media (max-width: 412px) {
+    width: 100%;
+  } */
+  bottom: 0;
   display: flex;
   gap: 0.5rem;
-
+  padding: 2.4rem 2rem 2rem 2rem;
+  background-image: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0) 6%,
+    ${colors.white} 20%
+  );
   > button {
     flex-grow: 1;
   }

@@ -52,6 +52,7 @@ export const WritingText = styled.textarea`
   font-size: 1.8rem;
   font-weight: 600;
   word-break: break-all;
+  line-height: 2.6rem;
 
   ::placeholder {
     color: #c7c7c7;

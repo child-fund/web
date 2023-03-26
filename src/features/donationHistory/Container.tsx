@@ -15,6 +15,7 @@ import {
   Subtitle,
   SubtitleArea,
 } from "./Container.style";
+import { AnnouncementAreaContainer } from "shared/components/ScrollableContainer/Container.style";
 import dummyData from "./dummyData";
 
 const DonationHistoryContainer = () => {
@@ -47,12 +48,14 @@ const DonationHistoryContainer = () => {
         </DonationList>
         <LoadMoreButton onClick={handleLoadMoreClick}>더보기</LoadMoreButton>
       </ContentContainer>
-      <Announcement
-        buttonText="여기"
-        leftText="각종 공지사항은 "
-        onButtonClick={handleNoticeClick}
-        rightText="에서 확인하실 수 있어요!"
-      />
+      <AnnouncementAreaContainer>
+        <Announcement
+          buttonText="여기"
+          leftText="각종 공지사항은 "
+          onButtonClick={handleNoticeClick}
+          rightText="에서 확인하실 수 있어요!"
+        />
+      </AnnouncementAreaContainer>
     </Container>
   );
 };
