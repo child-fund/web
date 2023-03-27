@@ -28,7 +28,7 @@ export const CertificateArea = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 15rem;
+  margin-bottom: 13.5rem;
   padding: 3.6rem 3.4rem 1.6rem 3.4rem;
   border: 0.2rem solid #36e017;
   border-radius: 2rem;
@@ -61,6 +61,7 @@ export const AirplaneImage = styled.img`
 export const Phrase = styled.p`
   margin-bottom: 0.8rem;
   color: ${colors.gray500};
+  font-size: 1rem;
 `;
 
 export const Signature = styled.div`

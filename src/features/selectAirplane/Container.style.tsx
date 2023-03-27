@@ -1,8 +1,5 @@
 import styled from "styled-components";
 
-import Title from "shared/components/Title/Container";
-import Description from "shared/components/Description/Container";
-
 import colors from "shared/assets/colors";
 
 export const Container = styled.div`
@@ -14,24 +11,24 @@ export const Container = styled.div`
   }
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   height: 100%;
   background-color: ${colors.white};
 `;
 
 export const ContentContainer = styled.div<{ backgroundColor: string }>`
+  flex-grow: 1;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   width: 100%;
   padding: 2.5rem 2rem 0rem 2rem;
   background-image: ${({ backgroundColor }) => backgroundColor};
 `;
 
-export const StyledTitle = styled(Title)`
-  margin-bottom: 1.2rem;
-`;
-
-export const StyledDescription = styled(Description)`
+export const TitleArea = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
   margin-bottom: 3.6rem;
 `;
 
@@ -56,11 +53,9 @@ export const AirplanePreview = styled.div<{
 `;
 
 export const WhiteBoard = styled.div`
-  flex-grow: 1;
   display: flex;
   flex-direction: column;
   width: calc(100% + 4rem);
-  height: 10rem;
   margin-left: -2rem;
   padding: 2rem;
   padding-top: 2.6rem;
