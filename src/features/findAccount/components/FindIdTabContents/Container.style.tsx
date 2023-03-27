@@ -29,6 +29,7 @@ export const ResultValue = styled.span`
 export const PsNote = styled.p`
   margin-bottom: 1.2rem;
   color: ${colors.gray500};
+  font-size: 1rem;
 `;
 
 export const StyledButton = styled(Button)`
