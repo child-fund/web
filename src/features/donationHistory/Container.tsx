@@ -1,6 +1,5 @@
 import useDonationHistory from "./hooks/useDonationHistory";
 
-import NavigationBar from "shared/components/NavigationBar/Container";
 import DonationItem from "features/donationHistory/components/DonationItem/Container";
 import Announcement from "shared/components/Announcement/Container";
 
@@ -12,6 +11,7 @@ import {
   DonationTotal,
   LoadMoreButton,
   StyledDescription,
+  StyledNavigationBar,
   StyledTitle,
   Subtitle,
   SubtitleArea,
@@ -23,8 +23,8 @@ const DonationHistoryContainer = () => {
 
   return (
     <Container>
-      <NavigationBar title="나의 꿈 기부내역" />
       <ContentContainer>
+        <StyledNavigationBar title="나의 꿈 기부내역" />
         <StyledTitle
           text={`영원한 꿈 기부천사!
         ${"물에젖은꼬지모"}님 반가워요 :)`}
