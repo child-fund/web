@@ -61,6 +61,7 @@ export const AirplaneImage = styled.img`
 export const Phrase = styled.p`
   margin-bottom: 0.8rem;
   color: ${colors.gray500};
+  font-size: 1rem;
 `;
 
 export const Signature = styled.div`
