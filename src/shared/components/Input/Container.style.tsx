@@ -35,4 +35,5 @@ export const InputField = styled.input<{ wrongInput: boolean }>`
 
 export const WarningMessage = styled.p`
   color: ${colors.red};
+  font-size: 1rem;
 `;

@@ -1,19 +1,20 @@
 import useSelectAirplane from "./hooks/useSelectAirplane";
 
-import Button, { ButtonTheme } from "shared/components/Button/Container";
-import AirplaneSlider from "./components/AirplaneSlider/Container";
-
 import airplaneList from "./constants/airplaneList";
+
+import Title from "shared/components/Title/Container";
+import Description from "shared/components/Description/Container";
+import AirplaneSlider from "./components/AirplaneSlider/Container";
+import Button, { ButtonTheme } from "shared/components/Button/Container";
 
 import {
   AirplanePreview,
-  BoardTitle,
   ButtonContainer,
+  BoardTitle,
   Container,
   ContentContainer,
   Division,
-  StyledTitle,
-  StyledDescription,
+  TitleArea,
   WhiteBoard,
 } from "./Container.style";
 
@@ -28,8 +29,10 @@ const SelectAirplaneContainer = () => {
   return (
     <Container>
       <ContentContainer backgroundColor={selectedAirplane.containerBackground}>
-        <StyledTitle text="종이비행기를 선택해주세요!" />
-        <StyledDescription text="내가 선택한 종이비행기에 꿈을 적을 수 있어요 :)" />
+        <TitleArea>
+          <Title text="종이비행기를 선택해주세요!" />
+          <Description text="내가 선택한 종이비행기에 꿈을 적을 수 있어요 :)" />
+        </TitleArea>
         <AirplanePreview borderColor={selectedAirplane.previewBorder}>
           <img
             src={selectedAirplane.image}

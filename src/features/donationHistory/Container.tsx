@@ -1,21 +1,21 @@
 import useDonationHistory from "./hooks/useDonationHistory";
 
-import NavigationBar from "shared/components/NavigationBar/Container";
 import DonationItem from "features/donationHistory/components/DonationItem/Container";
 import Announcement from "shared/components/Announcement/Container";
 
 import {
+  AnnouncementContainer,
   Container,
   ContentContainer,
   DonationList,
   DonationTotal,
   LoadMoreButton,
   StyledDescription,
+  StyledNavigationBar,
   StyledTitle,
   Subtitle,
   SubtitleArea,
 } from "./Container.style";
-import { AnnouncementAreaContainer } from "shared/components/ScrollableContainer/Container.style";
 import dummyData from "./dummyData";
 
 const DonationHistoryContainer = () => {
@@ -23,8 +23,8 @@ const DonationHistoryContainer = () => {
 
   return (
     <Container>
-      <NavigationBar title="나의 꿈 기부내역" />
       <ContentContainer>
+        <StyledNavigationBar title="나의 꿈 기부내역" />
         <StyledTitle
           text={`영원한 꿈 기부천사!
         ${"물에젖은꼬지모"}님 반가워요 :)`}
@@ -48,14 +48,14 @@ const DonationHistoryContainer = () => {
         </DonationList>
         <LoadMoreButton onClick={handleLoadMoreClick}>더보기</LoadMoreButton>
       </ContentContainer>
-      <AnnouncementAreaContainer>
+      <AnnouncementContainer>
         <Announcement
           buttonText="여기"
           leftText="각종 공지사항은 "
           onButtonClick={handleNoticeClick}
           rightText="에서 확인하실 수 있어요!"
         />
-      </AnnouncementAreaContainer>
+      </AnnouncementContainer>
     </Container>
   );
 };
