@@ -3,13 +3,12 @@ interface ShareByWebShareApiProps {
   url: string;
 }
 
-const shareUrlByWebShareApi = (props: ShareByWebShareApiProps) => {
+const shareUrlByWebShareApi = async (props: ShareByWebShareApiProps) => {
   if (navigator.share) {
     try {
-      navigator.share(props);
+      await navigator.share(props);
       return true;
     } catch (e) {
-      console.log(e);
       return false;
     }
   } else {
