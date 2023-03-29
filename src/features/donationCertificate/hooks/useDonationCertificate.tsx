@@ -1,4 +1,4 @@
-import { useContext, useEffect, useRef, useState } from "react";
+import { useContext, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import html2canvas from "html2canvas";
 
@@ -13,11 +13,6 @@ const useDonationCertificate = () => {
   const { showToast } = useContext(ToastContext);
   const certificateAreaRef = useRef<HTMLDivElement>(null);
   const [nickname, setNickname] = useState("");
-  const [imageUrl, setImageUrl] = useState<ClipboardItem>();
-
-  useEffect(() => {
-    convertHtmlToImage();
-  }, []);
 
   const handleBackToMainClick = () => {
     navigate("/");
@@ -55,46 +50,29 @@ const useDonationCertificate = () => {
   };
 
   const handleShareClick = async () => {
-    console.log("handleShareClick", navigator.clipboard, imageUrl);
-    // if (!imageUrl) {
-    //   return;
-    // }
-
-    // const firstTrial = await shareUrlByWebShareApi({
-    //   title: "에스칼프린트x초록우산 종이비행기 기부인증서",
-    //   url: imageUrl,
-    // });
-
-    // if (firstTrial) {
-    //   return;
-    // }
-
-    if (navigator.clipboard && imageUrl) {
-      try {
-        await navigator.clipboard.write([imageUrl]);
-        showToast("인증서가 클립보드에 저장되었어요!", ToastTheme.GREEN);
-        return true;
-      } catch (e) {
-        console.log(e);
-        return false;
-      }
-    } else {
-      return false;
+    const imageUrl = await convertHtmlToImage();
+    if (!imageUrl) {
+      return;
     }
 
-    // const secondTrial = await copyImageByClipboardApi(imageUrl);
-    // if (secondTrial) {
-    //   showToast("인증서가 클립보드에 저장되었어요!", ToastTheme.GREEN);
-    //   return;
-    // }
+    const firstTrial = shareUrlByWebShareApi({
+      title: "에스칼프린트x초록우산 종이비행기 기부인증서",
+      url: imageUrl,
+    });
 
-    // const lastTrial = await copyImageByExecCommand(imageUrl);
-    // if (lastTrial) {
-    //   showToast("인증서가 클립보드에 저장되었어요!", ToastTheme.GREEN);
-    //   return;
-    // }
-
-    // showToast("공유하기가 지원되지 않는 환경입니다.");
+    if (!firstTrial) {
+      const secondTrial = await copyImageByClipboardApi(imageUrl);
+      if (secondTrial) {
+        showToast("인증서가 클립보드에 저장되었어요!", ToastTheme.GREEN);
+      } else {
+        const lastTrial = await copyImageByExecCommand(imageUrl);
+        if (lastTrial) {
+          showToast("인증서가 클립보드에 저장되었어요!", ToastTheme.GREEN);
+        } else {
+          showToast("공유하기가 지원되지 않는 환경입니다.");
+        }
+      }
+    }
   };
 
   const convertHtmlToImage = async () => {
@@ -103,13 +81,7 @@ const useDonationCertificate = () => {
     if (certificateArea) {
       try {
         const imageElement = await html2canvas(certificateAreaRef.current);
-        const imageUrl = imageElement.toDataURL();
-
-        const response = await fetch(imageUrl || "");
-        const blob = await response.blob();
-        const item = new ClipboardItem({ [blob.type]: blob });
-        setImageUrl(item);
-        return;
+        return imageElement.toDataURL();
       } catch (e) {
         console.error(e);
         return undefined;
