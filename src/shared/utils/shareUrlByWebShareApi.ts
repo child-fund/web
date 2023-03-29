@@ -1,6 +1,7 @@
 interface ShareByWebShareApiProps {
   title: string;
-  url: string;
+  files?: File[];
+  url?: string;
 }
 
 const shareUrlByWebShareApi = async (props: ShareByWebShareApiProps) => {
@@ -9,6 +10,7 @@ const shareUrlByWebShareApi = async (props: ShareByWebShareApiProps) => {
       await navigator.share(props);
       return true;
     } catch (e) {
+      console.log(e);
       return false;
     }
   } else {
