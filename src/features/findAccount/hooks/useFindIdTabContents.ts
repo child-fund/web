@@ -1,6 +1,8 @@
 import { ChangeEvent, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
+import findIdFetcher from "../fetchers/findIdFetcher";
+
 const useFindIdTabContents = () => {
   const navigate = useNavigate();
   const [showResult, setShowResult] = useState(false);
@@ -10,25 +12,22 @@ const useFindIdTabContents = () => {
   const [nicknameWarningMessage, setNicknameWarningMessage] = useState("");
 
   const handleNicknameChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setNicknameWrongInput(false);
     setNickname(e.target.value);
+  };
 
-    const result = checkValidity(e.target.value);
+  const handleFindIdClick = async () => {
+    const { result, data } = await findIdFetcher({ nickname });
 
-    if (result) {
-      setNicknameWrongInput(false);
-    } else {
-      setNicknameWrongInput(true);
-      setNicknameWarningMessage("이 닉네임으로 가입된 계정은 없어요 :(");
+    if (result && data) {
+      setId(data.accountId);
+      // TODO: id값으로 showresult 퉁칠 수 있지 않을까
+      setShowResult(true);
+      return;
     }
-  };
 
-  const checkValidity = (value: string) => {
-    const pattern = /^[ㄱ-ㅎㅏ-ㅣ가-힣a-zA-Z]{1,16}$/;
-    return pattern.test(value);
-  };
-
-  const handleFindIdClick = () => {
-    setShowResult(true);
+    setNicknameWrongInput(true);
+    setNicknameWarningMessage("이 닉네임으로 가입된 계정은 없어요 :(");
   };
 
   const handleLoginClick = () => {
