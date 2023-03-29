@@ -55,24 +55,32 @@ const useDonationCertificate = () => {
       return;
     }
 
-    const firstTrial = shareUrlByWebShareApi({
-      title: "에스칼프린트x초록우산 종이비행기 기부인증서",
-      url: imageUrl,
-    });
+    fetch(imageUrl)
+      .then((response) => response.blob())
+      .then((blob) => {
+        const file = new File([blob], "your-image-name.png", {
+          type: "image/png",
+        });
+        shareUrlByWebShareApi({
+          title: "에스칼프린트x초록우산 종이비행기 기부인증서",
+          files: [file],
+        });
+        console.log(file);
+      });
 
-    if (!firstTrial) {
-      const secondTrial = await copyImageByClipboardApi(imageUrl);
-      if (secondTrial) {
-        showToast("인증서가 클립보드에 저장되었어요!", ToastTheme.GREEN);
-      } else {
-        const lastTrial = await copyImageByExecCommand(imageUrl);
-        if (lastTrial) {
-          showToast("인증서가 클립보드에 저장되었어요!", ToastTheme.GREEN);
-        } else {
-          showToast("공유하기가 지원되지 않는 환경입니다.");
-        }
-      }
-    }
+    // if (!firstTrial) {
+    //   const secondTrial = await copyImageByClipboardApi(imageUrl);
+    //   if (secondTrial) {
+    //     showToast("인증서가 클립보드에 저장되었어요!", ToastTheme.GREEN);
+    //   } else {
+    //     const lastTrial = await copyImageByExecCommand(imageUrl);
+    //     if (lastTrial) {
+    //       showToast("인증서가 클립보드에 저장되었어요!", ToastTheme.GREEN);
+    //     } else {
+    //       showToast("공유하기가 지원되지 않는 환경입니다.");
+    //     }
+    //   }
+    // }
   };
 
   const convertHtmlToImage = async () => {
@@ -81,7 +89,9 @@ const useDonationCertificate = () => {
     if (certificateArea) {
       try {
         const imageElement = await html2canvas(certificateAreaRef.current);
-        return imageElement.toDataURL();
+        const dataURL = imageElement.toDataURL();
+
+        return dataURL;
       } catch (e) {
         console.error(e);
         return undefined;
