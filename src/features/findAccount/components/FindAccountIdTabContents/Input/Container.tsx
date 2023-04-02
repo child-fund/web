@@ -4,7 +4,7 @@ import { ButtonTheme } from "shared/components/Button/Container";
 import InputArea from "shared/components/InputArea/Container";
 import Input from "shared/components/Input/Container";
 
-import { StyledButton } from "./Container.style";
+import { StyledButton } from "../Result/Container.style";
 
 interface FindIdContentsInputProps {
   onSearchIdClick: () => void;

@@ -1,23 +1,21 @@
 import useFindPasswordTabContents from "features/findAccount/hooks/useFindPasswordTabContents";
 
-import FindPasswordInput from "./Input";
-import FindPasswordResult from "./Result";
+import FindPasswordInput from "./Input/Container";
+import FindPasswordResult from "./Result/Container";
 
 const FindPasswordTabContents = () => {
   const {
+    accountId,
+    handleAccountIdChange,
     handleFindPasswordClick,
     handleLoginClick,
-    password,
-    showResult,
     handleNicknameChange,
+    password,
     nickname,
-    nicknameWarningMessage,
-    handleIdChange,
-    id,
-    idWarningMessage,
+    warningMessage,
   } = useFindPasswordTabContents();
 
-  return showResult ? (
+  return password ? (
     <FindPasswordResult
       onLoginClick={handleLoginClick}
       nickname={nickname}
@@ -25,13 +23,13 @@ const FindPasswordTabContents = () => {
     />
   ) : (
     <FindPasswordInput
-      onSearchPasswordClick={handleFindPasswordClick}
-      onNicknameChange={handleNicknameChange}
+      accountId={accountId}
+      accountIdWarningMessage={warningMessage}
       nickname={nickname}
-      nicknameWarningMessage={nicknameWarningMessage}
-      onIdChange={handleIdChange}
-      id={id}
-      idWarningMessage={idWarningMessage}
+      nicknameWarningMessage={warningMessage}
+      onIdChange={handleAccountIdChange}
+      onNicknameChange={handleNicknameChange}
+      onSearchPasswordClick={handleFindPasswordClick}
     />
   );
 };

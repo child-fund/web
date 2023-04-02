@@ -4,7 +4,7 @@ import { ButtonTheme } from "shared/components/Button/Container";
 import InputArea from "shared/components/InputArea/Container";
 import Input from "shared/components/Input/Container";
 
-import { StyledButton } from "features/findAccount/components/FindPasswordTabContents/index.style";
+import { StyledButton } from "features/findAccount/components/FindPasswordTabContents/Result/Container.style";
 
 interface FindPasswordInputProps {
   onSearchPasswordClick: () => void;
@@ -12,8 +12,8 @@ interface FindPasswordInputProps {
   nickname: string;
   nicknameWarningMessage?: string;
   onIdChange: (e: ChangeEvent<HTMLInputElement>) => void;
-  id: string;
-  idWarningMessage?: string;
+  accountId: string;
+  accountIdWarningMessage?: string;
 }
 
 const FindPasswordInput = (props: FindPasswordInputProps) => {
@@ -31,8 +31,8 @@ const FindPasswordInput = (props: FindPasswordInputProps) => {
           onValueChange={props.onIdChange}
           placeholder="가입 시 설명했던 아이디를 입력해주세요!"
           title="아이디"
-          value={props.id}
-          warningMessage={props.idWarningMessage}
+          value={props.accountId}
+          warningMessage={props.accountIdWarningMessage}
         />
       </InputArea>
       {props.nickname && !props.nicknameWarningMessage && (
