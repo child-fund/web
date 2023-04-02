@@ -1,25 +1,36 @@
 import { ChangeEvent, useState } from "react";
 
+import getIsAccountIdDuplicate from "shared/apis/getIsAccountIdDuplicate";
+import useDebouncedCallback from "shared/utils/useDebouncedCallback";
+
 const useAccountIdInput = () => {
   const [accountId, setAccountId] = useState("");
   const [accountIdWarningMessage, setAccountIdWarningMessage] = useState("");
 
-  const handleAccountIdChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setAccountId(e.target.value);
+  const handleAccountIdChange = async (e: ChangeEvent<HTMLInputElement>) => {
+    const inputValue = e.target.value;
+    setAccountId(inputValue);
 
-    const result = checkValidity(e.target.value);
+    debouncedCheckDuplication(inputValue);
+  };
 
-    if (result) {
+  const checkIsDuplicate = async (inputValue: string) => {
+    const { result, data } = await getIsAccountIdDuplicate({
+      accountId: inputValue,
+    });
+
+    if (!result || !data) {
+      return;
+    }
+
+    if (data.isDuplicate) {
       setAccountIdWarningMessage("");
     } else {
       setAccountIdWarningMessage("이 아이디가 아닌거 같아요 :(");
     }
   };
 
-  const checkValidity = (value: string) => {
-    const pattern = /^[a-zA-Z]{1,20}$/;
-    return pattern.test(value);
-  };
+  const debouncedCheckDuplication = useDebouncedCallback(checkIsDuplicate, 225);
 
   return {
     handleAccountIdChange,

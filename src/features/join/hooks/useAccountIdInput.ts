@@ -1,7 +1,7 @@
 import { ChangeEvent, useContext, useState } from "react";
 
 import useDebouncedCallback from "shared/utils/useDebouncedCallback";
-import getIsAccountIdDuplicate from "../fetchers/getIsAccountIdDuplicate";
+import getIsAccountIdDuplicate from "../../../shared/apis/getIsAccountIdDuplicate";
 import { ToastContext } from "shared/components/Toast/ToastProvider";
 
 const useAccountIdInput = () => {
