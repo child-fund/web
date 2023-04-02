@@ -4,14 +4,14 @@ import { useNavigate } from "react-router-dom";
 import { ToastContext } from "shared/components/Toast/ToastProvider";
 import postSignIn from "../fetchers/postSignIn";
 
-import useIdInput from "./useIdInput";
+import useAccountIdInput from "./useAccountIdInput";
 import usePasswordInput from "./usePasswordInput";
 
 const useLogin = () => {
   const navigate = useNavigate();
   const { showToast } = useContext(ToastContext);
-  const { handleIdChange, id, idWarningMessage } = useIdInput();
-  //  TODO: join과 다른역할인데 겹침
+  const { handleAccountIdChange, accountId, accountIdWarningMessage } =
+    useAccountIdInput();
   const { handlePasswordChange, password, passwordWarningMessage } =
     usePasswordInput();
 
@@ -25,7 +25,7 @@ const useLogin = () => {
 
   const handleSubmitClick = async () => {
     const { result, data, statusCode } = await postSignIn({
-      accountId: id,
+      accountId,
       password,
     });
 
@@ -50,11 +50,14 @@ const useLogin = () => {
     }
   };
 
-  const allInputValidated = [idWarningMessage, passwordWarningMessage].every(
-    (value) => value === ""
-  );
+  const allInputValidated = [
+    accountIdWarningMessage,
+    passwordWarningMessage,
+  ].every((value) => value === "");
 
-  const allInputHaveValue = [id, password].every((value) => value !== "");
+  const allInputHaveValue = [accountId, password].every(
+    (value) => value !== ""
+  );
 
   const canSubmit = allInputValidated && allInputHaveValue;
 
@@ -63,9 +66,9 @@ const useLogin = () => {
     handleJoinClick,
     handleFindAccountClick,
     handleSubmitClick,
-    handleIdChange,
-    id,
-    idWarningMessage,
+    handleAccountIdChange,
+    accountId,
+    accountIdWarningMessage,
     handlePasswordChange,
     password,
     passwordWarningMessage,

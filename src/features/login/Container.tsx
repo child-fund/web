@@ -18,9 +18,9 @@ const LoginContainer = () => {
     handleJoinClick,
     handleFindAccountClick,
     handleSubmitClick,
-    handleIdChange,
-    id,
-    idWarningMessage,
+    handleAccountIdChange,
+    accountId,
+    accountIdWarningMessage,
     handlePasswordChange,
     password,
     passwordWarningMessage,
@@ -43,11 +43,11 @@ const LoginContainer = () => {
         <StyledDescription text="로그인하고 내 꿈들을 확인할 수 있어요" />
         <InputArea>
           <Input
-            onValueChange={handleIdChange}
+            onValueChange={handleAccountIdChange}
             placeholder="아이디 기억하고 계시죠?"
             title="아이디"
-            value={id}
-            warningMessage={idWarningMessage}
+            value={accountId}
+            warningMessage={accountIdWarningMessage}
           />
           <Input
             onValueChange={handlePasswordChange}
