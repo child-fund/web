@@ -22,7 +22,7 @@ const useAccountIdInput = () => {
     if (!isValidateInput) {
       // TODO: & or 조건 확인 필요
       setAccountIdWarningMessage(
-        "영문과 숫자를 포함하여 20자 이내로, 띄어쓰기 없이 만들어주세요."
+        "띄어쓰기 없이, 20자 이하 영문과 숫자를 조합해주세요."
       );
       return;
     }

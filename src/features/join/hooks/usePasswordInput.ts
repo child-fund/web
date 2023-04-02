@@ -5,22 +5,24 @@ const usePasswordInput = () => {
   const [passwordWarningMessage, setPasswordWarningMessage] = useState("");
 
   const handlePasswordChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setPassword(e.target.value);
+    const inputValue = e.target.value;
+    setPassword(inputValue);
 
-    const result = checkValidity(e.target.value);
+    const isValidateInput = checkValidity(inputValue);
 
-    if (result) {
-      setPasswordWarningMessage("");
-    } else {
+    if (!isValidateInput) {
       setPasswordWarningMessage(
-        "8자리 이상 20자리 이하 영문, 숫자를 조합해주세요 :("
+        "띄어쓰기 없이, 8자리 이상 20자리 이하 영문과 숫자를 조합해주세요 :("
       );
+      return;
     }
+
+    setPasswordWarningMessage("");
   };
 
   const checkValidity = (value: string) => {
     const pattern =
-      /^(?!((?:[A-Za-z]+)|(?:[~!@#$%^&*()_+=]+)|(?:[0-9]+))$)[A-Za-z\d~!@#$%^&*()_+=]{8,19}$/;
+      /^(?!((?:[A-Za-z]+)|(?:[~!@#$%^&*()_+=]+)|(?:[0-9]+))$)[A-Za-z\d~!@#$%^&*()_+=]{8,20}$/;
     return pattern.test(value);
   };
 

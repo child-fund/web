@@ -6,10 +6,12 @@ const useRetypedPasswordInput = (password: string) => {
     useState("");
 
   useEffect(() => {
-    checkValidityAndSetResult();
+    if (retypedPassword.length > 0) {
+      checkValidity();
+    }
   }, [password, retypedPassword]);
 
-  const checkValidityAndSetResult = () => {
+  const checkValidity = () => {
     const result = password === retypedPassword;
 
     if (result) {
