@@ -10,14 +10,10 @@ import usePasswordInput from "./usePasswordInput";
 const useLogin = () => {
   const navigate = useNavigate();
   const { showToast } = useContext(ToastContext);
-  const { handleIdChange, id, idWarningMessage, idWrongInput } = useIdInput();
+  const { handleIdChange, id, idWarningMessage } = useIdInput();
   //  TODO: join과 다른역할인데 겹침
-  const {
-    handlePasswordChange,
-    password,
-    passwordWarningMessage,
-    passwordWrongInput,
-  } = usePasswordInput();
+  const { handlePasswordChange, password, passwordWarningMessage } =
+    usePasswordInput();
 
   const handleJoinClick = () => {
     navigate("/join");
@@ -54,8 +50,8 @@ const useLogin = () => {
     }
   };
 
-  const allInputValidated = [idWrongInput, passwordWrongInput].every(
-    (value) => value !== true
+  const allInputValidated = [idWarningMessage, passwordWarningMessage].every(
+    (value) => value === ""
   );
 
   const allInputHaveValue = [id, password].every((value) => value !== "");
@@ -70,11 +66,9 @@ const useLogin = () => {
     handleIdChange,
     id,
     idWarningMessage,
-    idWrongInput,
     handlePasswordChange,
     password,
     passwordWarningMessage,
-    passwordWrongInput,
   };
 };
 

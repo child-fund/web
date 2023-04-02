@@ -2,8 +2,6 @@ import { ChangeEvent, useState, useEffect } from "react";
 
 const useRetypedPasswordInput = (password: string) => {
   const [retypedPassword, setRetypedPassword] = useState("");
-  const [retypedPasswordWrongInput, setRetypedPasswordWrongInput] =
-    useState(false);
   const [retypePasswordWarningMessage, setRetypedPasswordWarningMessage] =
     useState("");
 
@@ -15,9 +13,8 @@ const useRetypedPasswordInput = (password: string) => {
     const result = password === retypedPassword;
 
     if (result) {
-      setRetypedPasswordWrongInput(false);
+      setRetypedPasswordWarningMessage("");
     } else {
-      setRetypedPasswordWrongInput(true);
       setRetypedPasswordWarningMessage("설정한 비밀번호랑 달라요 :(");
     }
   };
@@ -30,7 +27,6 @@ const useRetypedPasswordInput = (password: string) => {
     handleRetypedPasswordChange,
     retypedPassword,
     retypePasswordWarningMessage,
-    retypedPasswordWrongInput,
   };
 };
 

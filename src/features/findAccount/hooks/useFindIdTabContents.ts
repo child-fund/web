@@ -8,11 +8,10 @@ const useFindIdTabContents = () => {
   const [showResult, setShowResult] = useState(false);
   const [id, setId] = useState("");
   const [nickname, setNickname] = useState("");
-  const [nicknameWrongInput, setNicknameWrongInput] = useState(false);
   const [nicknameWarningMessage, setNicknameWarningMessage] = useState("");
 
   const handleNicknameChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setNicknameWrongInput(false);
+    setNicknameWarningMessage("");
     setNickname(e.target.value);
   };
 
@@ -26,7 +25,6 @@ const useFindIdTabContents = () => {
       return;
     }
 
-    setNicknameWrongInput(true);
     setNicknameWarningMessage("이 닉네임으로 가입된 계정은 없어요 :(");
   };
 
@@ -41,7 +39,6 @@ const useFindIdTabContents = () => {
     showResult,
     handleNicknameChange,
     nickname,
-    nicknameWrongInput,
     nicknameWarningMessage,
   };
 };

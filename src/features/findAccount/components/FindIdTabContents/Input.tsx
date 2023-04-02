@@ -10,7 +10,6 @@ interface FindIdContentsInputProps {
   onSearchIdClick: () => void;
   onNicknameChange: (e: ChangeEvent<HTMLInputElement>) => void;
   nickname: string;
-  nicknameWrongInput: boolean;
   nicknameWarningMessage?: string;
 }
 
@@ -24,10 +23,9 @@ const FindIdInput = (props: FindIdContentsInputProps) => {
           title="닉네임"
           value={props.nickname}
           warningMessage={props.nicknameWarningMessage}
-          wrongInput={props.nicknameWrongInput}
         />
       </InputArea>
-      {props.nickname && !props.nicknameWrongInput && (
+      {props.nickname && !props.nicknameWarningMessage && (
         <StyledButton
           onButtonClick={props.onSearchIdClick}
           text="아이디 찾아보기"

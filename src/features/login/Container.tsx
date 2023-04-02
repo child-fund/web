@@ -21,11 +21,9 @@ const LoginContainer = () => {
     handleIdChange,
     id,
     idWarningMessage,
-    idWrongInput,
     handlePasswordChange,
     password,
     passwordWarningMessage,
-    passwordWrongInput,
   } = useLogin();
 
   return (
@@ -50,7 +48,6 @@ const LoginContainer = () => {
             title="아이디"
             value={id}
             warningMessage={idWarningMessage}
-            wrongInput={idWrongInput}
           />
           <Input
             onValueChange={handlePasswordChange}
@@ -59,7 +56,6 @@ const LoginContainer = () => {
             type="password"
             value={password}
             warningMessage={passwordWarningMessage}
-            wrongInput={passwordWrongInput}
           />
         </InputArea>
         <FindAccountAnnouncement

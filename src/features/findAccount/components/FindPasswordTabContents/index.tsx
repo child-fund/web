@@ -11,11 +11,9 @@ const FindPasswordTabContents = () => {
     showResult,
     handleNicknameChange,
     nickname,
-    nicknameWrongInput,
     nicknameWarningMessage,
     handleIdChange,
     id,
-    idWrongInput,
     idWarningMessage,
   } = useFindPasswordTabContents();
 
@@ -30,11 +28,9 @@ const FindPasswordTabContents = () => {
       onSearchPasswordClick={handleFindPasswordClick}
       onNicknameChange={handleNicknameChange}
       nickname={nickname}
-      nicknameWrongInput={nicknameWrongInput}
       nicknameWarningMessage={nicknameWarningMessage}
       onIdChange={handleIdChange}
       id={id}
-      idWrongInput={idWrongInput}
       idWarningMessage={idWarningMessage}
     />
   );

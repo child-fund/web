@@ -2,7 +2,6 @@ import { ChangeEvent, useState } from "react";
 
 const usePasswordInput = () => {
   const [password, setPassword] = useState("");
-  const [passwordWrongInput, setPasswordWrongInput] = useState(false);
   const [passwordWarningMessage, setPasswordWarningMessage] = useState("");
 
   const handlePasswordChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -11,9 +10,8 @@ const usePasswordInput = () => {
     const result = checkValidity(e.target.value);
 
     if (result) {
-      setPasswordWrongInput(false);
+      setPasswordWarningMessage("");
     } else {
-      setPasswordWrongInput(true);
       setPasswordWarningMessage(
         "8자리 이상 20자리 이하 영문, 숫자를 조합해주세요 :("
       );
@@ -30,7 +28,6 @@ const usePasswordInput = () => {
     handlePasswordChange,
     password,
     passwordWarningMessage,
-    passwordWrongInput,
   };
 };
 

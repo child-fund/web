@@ -13,24 +13,15 @@ import useRetypedPasswordInput from "./useRetypedPasswordInput";
 const useJoin = () => {
   const { showToast } = useContext(ToastContext);
   const navigate = useNavigate();
-  const {
-    handleNicknameChange,
-    nickname,
-    nicknameWrongInput,
-    nicknameWarningMessage,
-  } = useNicknameInput();
-  const { handleIdChange, id, idWarningMessage, idWrongInput } = useIdInput();
-  const {
-    handlePasswordChange,
-    password,
-    passwordWarningMessage,
-    passwordWrongInput,
-  } = usePasswordInput();
+  const { handleNicknameChange, nickname, nicknameWarningMessage } =
+    useNicknameInput();
+  const { handleIdChange, id, idWarningMessage } = useIdInput();
+  const { handlePasswordChange, password, passwordWarningMessage } =
+    usePasswordInput();
   const {
     handleRetypedPasswordChange,
     retypedPassword,
     retypePasswordWarningMessage,
-    retypedPasswordWrongInput,
   } = useRetypedPasswordInput(password);
 
   const handleLoginClick = () => {
@@ -79,11 +70,11 @@ const useJoin = () => {
   };
 
   const allInputValidated = [
-    nicknameWrongInput,
-    idWrongInput,
-    passwordWrongInput,
-    retypedPasswordWrongInput,
-  ].every((value) => value !== true);
+    nicknameWarningMessage,
+    idWarningMessage,
+    passwordWarningMessage,
+    retypePasswordWarningMessage,
+  ].every((value) => value === "");
 
   const allInputHaveValue = [nickname, id, password, retypedPassword].every(
     (value) => value !== ""
@@ -97,20 +88,16 @@ const useJoin = () => {
     handleSubmitClick,
     handleNicknameChange,
     nickname,
-    nicknameWrongInput,
     nicknameWarningMessage,
     handleIdChange,
     id,
     idWarningMessage,
-    idWrongInput,
     handlePasswordChange,
     password,
     passwordWarningMessage,
-    passwordWrongInput,
     handleRetypedPasswordChange,
     retypedPassword,
     retypePasswordWarningMessage,
-    retypedPasswordWrongInput,
   };
 };
 

@@ -11,7 +11,6 @@ const FindIdTabContents = () => {
     showResult,
     handleNicknameChange,
     nickname,
-    nicknameWrongInput,
     nicknameWarningMessage,
   } = useFindIdTabContents();
 
@@ -22,7 +21,6 @@ const FindIdTabContents = () => {
       onSearchIdClick={handleFindIdClick}
       onNicknameChange={handleNicknameChange}
       nickname={nickname}
-      nicknameWrongInput={nicknameWrongInput}
       nicknameWarningMessage={nicknameWarningMessage}
     />
   );

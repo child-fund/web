@@ -10,11 +10,9 @@ interface FindPasswordInputProps {
   onSearchPasswordClick: () => void;
   onNicknameChange: (e: ChangeEvent<HTMLInputElement>) => void;
   nickname: string;
-  nicknameWrongInput: boolean;
   nicknameWarningMessage?: string;
   onIdChange: (e: ChangeEvent<HTMLInputElement>) => void;
   id: string;
-  idWrongInput: boolean;
   idWarningMessage?: string;
 }
 
@@ -28,7 +26,6 @@ const FindPasswordInput = (props: FindPasswordInputProps) => {
           title="닉네임"
           value={props.nickname}
           warningMessage={props.nicknameWarningMessage}
-          wrongInput={props.nicknameWrongInput}
         />
         <Input
           onValueChange={props.onIdChange}
@@ -36,10 +33,9 @@ const FindPasswordInput = (props: FindPasswordInputProps) => {
           title="아이디"
           value={props.id}
           warningMessage={props.idWarningMessage}
-          wrongInput={props.idWrongInput}
         />
       </InputArea>
-      {props.nickname && !props.nicknameWrongInput && (
+      {props.nickname && !props.nicknameWarningMessage && (
         <StyledButton
           onButtonClick={props.onSearchPasswordClick}
           text="비밀번호 찾아보기"

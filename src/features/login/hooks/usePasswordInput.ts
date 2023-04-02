@@ -2,7 +2,6 @@ import { ChangeEvent, useState } from "react";
 
 const usePasswordInput = () => {
   const [password, setPassword] = useState("");
-  const [passwordWrongInput, setPasswordWrongInput] = useState(false);
   const [passwordWarningMessage, setPasswordWarningMessage] = useState("");
 
   const handlePasswordChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -11,9 +10,8 @@ const usePasswordInput = () => {
     const result = checkValidity(e.target.value);
 
     if (result) {
-      setPasswordWrongInput(false);
+      setPasswordWarningMessage("");
     } else {
-      setPasswordWrongInput(true);
       setPasswordWarningMessage("이 비밀번호가 아닌거 같아요 :(");
     }
   };
@@ -28,7 +26,6 @@ const usePasswordInput = () => {
     handlePasswordChange,
     password,
     passwordWarningMessage,
-    passwordWrongInput,
   };
 };
 

@@ -2,7 +2,6 @@ import { ChangeEvent, useState } from "react";
 
 const useIdInput = () => {
   const [id, setId] = useState("");
-  const [idWrongInput, setIdWrongInput] = useState(false);
   const [idWarningMessage, setIdWarningMessage] = useState("");
 
   const handleIdChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -11,9 +10,8 @@ const useIdInput = () => {
     const result = checkValidity(e.target.value);
 
     if (result) {
-      setIdWrongInput(false);
+      setIdWarningMessage("");
     } else {
-      setIdWrongInput(true);
       setIdWarningMessage("띄어쓰기는 할 수 없어요 :(");
     }
   };
@@ -27,7 +25,6 @@ const useIdInput = () => {
     handleIdChange,
     id,
     idWarningMessage,
-    idWrongInput,
   };
 };
 
