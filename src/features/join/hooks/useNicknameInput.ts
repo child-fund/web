@@ -21,6 +21,7 @@ const useNicknameInput = () => {
 
     if (!isValidateInput) {
       // 기획을 여러번 요청했으나 응답이 없고, 필요성은 분명하여 임의로 WarningMessage를 넣음.
+      // TODO: & or 조건 확인 필요
       setNicknameWarningMessage(
         "국문 또는 영문 16자 이내로, 띄어쓰기 없이 만들어주세요."
       );
