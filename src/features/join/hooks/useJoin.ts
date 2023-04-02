@@ -37,18 +37,19 @@ const useJoin = () => {
     });
 
     if (result) {
-      handleLogin();
-
+      await handleLogin();
       return;
     }
 
     if (statusCode === 400) {
+      // 기획이 없어 임의로 추가함
       showToast("모든 영역이 잘 입력되었는지 확인해주세요.");
       return;
     }
 
     showToast(
-      "회원가입이 지연되고 있습니다. 이 메시지가 반복될 경우 고객센터로 연락해주세요."
+      `이용량 급증으로 인해 회원가입이 지연되고 있어요.
+      이 메시지가 반복된다면 1688-4272 고객센터로 연락주세요.`
     );
   };
 
@@ -58,15 +59,18 @@ const useJoin = () => {
       password,
     });
 
+    // console.log("accountId", accountId, "password", password, "data", data);
+
     if (result && data) {
       localStorage.setItem("accessToken", data.accessToken);
-      localStorage.setItem("nickname", data.nickname); // TODO: 글로벌로만 가지고 있기
+      localStorage.setItem("nickname", data.nickname); // TODO: 글로벌로만 가지고 있기 with jotai
       navigate("/selectairplane");
       return;
     }
 
     showToast(
-      "로그인이 지연되고 있습니다. 이 메시지가 반복될 경우 고객센터로 연락해주세요."
+      `이용량 급증으로 인해 로그인이 지연되고 있어요.
+      이 메시지가 반복된다면 1688-4272 고객센터로 연락주세요.`
     );
   };
 
