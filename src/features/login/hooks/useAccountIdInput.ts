@@ -1,9 +1,11 @@
-import { ChangeEvent, useState } from "react";
+import { ChangeEvent, useContext, useState } from "react";
 
 import getIsAccountIdDuplicate from "shared/apis/getIsAccountIdDuplicate";
+import { ToastContext } from "shared/components/Toast/ToastProvider";
 import useDebouncedCallback from "shared/utils/useDebouncedCallback";
 
 const useAccountIdInput = () => {
+  const { showToast } = useContext(ToastContext);
   const [accountId, setAccountId] = useState("");
   const [accountIdWarningMessage, setAccountIdWarningMessage] = useState("");
 
@@ -20,6 +22,8 @@ const useAccountIdInput = () => {
     });
 
     if (!result || !data) {
+      showToast(`이용량 급증으로 인해 아이디 확인이 지연되고 있어요.
+      이 메시지가 반복된다면 1688-4272 고객센터로 연락주세요.`);
       return;
     }
 

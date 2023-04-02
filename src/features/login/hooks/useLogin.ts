@@ -13,7 +13,7 @@ const useLogin = () => {
   const { handleAccountIdChange, accountId, accountIdWarningMessage } =
     useAccountIdInput();
   const { handlePasswordChange, password, passwordWarningMessage } =
-    usePasswordInput();
+    usePasswordInput({ accountId });
 
   const handleJoinClick = () => {
     navigate("/join");
@@ -24,14 +24,15 @@ const useLogin = () => {
   };
 
   const handleSubmitClick = async () => {
-    const { result, data, statusCode } = await postSignIn({
+    // TODO: 여기에는 swr이나 리액트 쿼리를 쓰면 좋겠다.
+    const { result, data } = await postSignIn({
       accountId,
       password,
     });
 
     if (result && data) {
       localStorage.setItem("accessToken", data.accessToken);
-      localStorage.setItem("nickname", data.nickname);
+      localStorage.setItem("nickname", data.nickname); // TODO: 전역변수로 with jotai
 
       // TODO: 참여여부에 따라 경로 다르게
       navigate("/");
@@ -39,15 +40,8 @@ const useLogin = () => {
       return;
     }
 
-    // TODO: 아이디/비밀번호가 틀렸을경우
-    if (statusCode === 404) {
-    }
-
-    if (statusCode === 500) {
-      showToast(
-        "로그인이 지연되고 있습니다. 이 메시지가 반복될 경우 고객센터로 연락해주세요."
-      );
-    }
+    showToast(`이용량 급증으로 인해 로그인이 지연되고 있어요.
+    이 메시지가 반복된다면 1688-4272 고객센터로 연락주세요.`);
   };
 
   const allInputValidated = [

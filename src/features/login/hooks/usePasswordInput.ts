@@ -1,26 +1,50 @@
-import { ChangeEvent, useState } from "react";
+import { ChangeEvent, useContext, useState } from "react";
 
-const usePasswordInput = () => {
+import useDebouncedCallback from "shared/utils/useDebouncedCallback";
+import { ToastContext } from "shared/components/Toast/ToastProvider";
+
+import postSignIn from "../apis/postSignIn";
+
+interface UsePasswordInputProps {
+  accountId: string;
+}
+
+const usePasswordInput = (props: UsePasswordInputProps) => {
+  const { showToast } = useContext(ToastContext);
   const [password, setPassword] = useState("");
   const [passwordWarningMessage, setPasswordWarningMessage] = useState("");
 
   const handlePasswordChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setPassword(e.target.value);
+    const inputValue = e.target.value;
+    setPassword(inputValue);
 
-    const result = checkValidity(e.target.value);
+    debouncedCheckLoginPossible();
+  };
 
-    if (result) {
+  const checkLoginPossible = async (inputValue: string) => {
+    const { result, data, statusCode } = await postSignIn({
+      accountId: props.accountId,
+      password: inputValue,
+    });
+
+    if (result && data) {
       setPasswordWarningMessage("");
-    } else {
-      setPasswordWarningMessage("이 비밀번호가 아닌거 같아요 :(");
+      return;
     }
+
+    if (statusCode === 400) {
+      setPasswordWarningMessage("이 비밀번호가 아닌거 같아요 :(");
+      return;
+    }
+
+    showToast(`이용량 급증으로 인해 로그인정보 확인이 지연되고 있어요.
+    이 메시지가 반복된다면 1688-4272 고객센터로 연락주세요.`);
   };
 
-  const checkValidity = (value: string) => {
-    const pattern =
-      /^(?!((?:[A-Za-z]+)|(?:[~!@#$%^&*()_+=]+)|(?:[0-9]+))$)[A-Za-z\d~!@#$%^&*()_+=]{8,19}$/;
-    return pattern.test(value);
-  };
+  const debouncedCheckLoginPossible = useDebouncedCallback(
+    checkLoginPossible,
+    225
+  );
 
   return {
     handlePasswordChange,
