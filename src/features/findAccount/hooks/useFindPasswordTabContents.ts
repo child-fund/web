@@ -1,7 +1,7 @@
 import { ChangeEvent, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-import getPassword from "../fetchers/getPassword";
+import getPassword from "../apis/getPassword";
 
 const useFindPasswordTabContents = () => {
   const navigate = useNavigate();

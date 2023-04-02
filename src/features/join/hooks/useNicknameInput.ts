@@ -1,6 +1,6 @@
 import { ChangeEvent, useContext, useState } from "react";
 
-import getIsNicknameDuplicate from "../fetchers/getIsNicknameDuplicate";
+import getIsNicknameDuplicate from "../apis/getIsNicknameDuplicate";
 import { ToastContext } from "shared/components/Toast/ToastProvider";
 import useDebouncedCallback from "shared/utils/useDebouncedCallback";
 

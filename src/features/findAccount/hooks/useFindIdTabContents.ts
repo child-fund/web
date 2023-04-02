@@ -1,7 +1,7 @@
 import { ChangeEvent, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-import getIdByNickname from "../fetchers/getIdByNickname";
+import getIdByNickname from "../apis/getIdByNickname";
 
 const useFindIdTabContents = () => {
   const navigate = useNavigate();

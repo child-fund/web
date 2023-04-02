@@ -2,8 +2,8 @@ import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 
 import { ToastContext } from "shared/components/Toast/ToastProvider";
-import postSignUp from "../fetchers/postSignUp";
-import postSignIn from "features/login/fetchers/postSignIn";
+import postSignUp from "../apis/postSignUp";
+import postSignIn from "features/login/apis/postSignIn";
 
 import useAccountIdInput from "./useAccountIdInput";
 import useNicknameInput from "./useNicknameInput";

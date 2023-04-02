@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 
 import { ToastContext } from "shared/components/Toast/ToastProvider";
-import postSignIn from "../fetchers/postSignIn";
+import postSignIn from "../apis/postSignIn";
 
 import useAccountIdInput from "./useAccountIdInput";
 import usePasswordInput from "./usePasswordInput";
