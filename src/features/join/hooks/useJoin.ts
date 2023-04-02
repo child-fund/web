@@ -5,7 +5,7 @@ import { ToastContext } from "shared/components/Toast/ToastProvider";
 import postSignUp from "../fetchers/postSignUp";
 import postSignIn from "features/login/fetchers/postSignIn";
 
-import useIdInput from "./useIdInput";
+import useAccountIdInput from "./useAccountIdInput";
 import useNicknameInput from "./useNicknameInput";
 import usePasswordInput from "./usePasswordInput";
 import useRetypedPasswordInput from "./useRetypedPasswordInput";
@@ -15,7 +15,8 @@ const useJoin = () => {
   const navigate = useNavigate();
   const { handleNicknameChange, nickname, nicknameWarningMessage } =
     useNicknameInput();
-  const { handleIdChange, id, idWarningMessage } = useIdInput();
+  const { handleAccountIdChange, accountId, accountIdWarningMessage } =
+    useAccountIdInput();
   const { handlePasswordChange, password, passwordWarningMessage } =
     usePasswordInput();
   const {
@@ -31,7 +32,7 @@ const useJoin = () => {
   const handleSubmitClick = async () => {
     const { result, statusCode } = await postSignUp({
       nickname,
-      accountId: id,
+      accountId,
       password,
     });
 
@@ -53,7 +54,7 @@ const useJoin = () => {
 
   const handleLogin = async () => {
     const { result, data } = await postSignIn({
-      accountId: id,
+      accountId,
       password,
     });
 
@@ -71,14 +72,17 @@ const useJoin = () => {
 
   const allInputValidated = [
     nicknameWarningMessage,
-    idWarningMessage,
+    accountIdWarningMessage,
     passwordWarningMessage,
     retypePasswordWarningMessage,
   ].every((value) => value === "");
 
-  const allInputHaveValue = [nickname, id, password, retypedPassword].every(
-    (value) => value !== ""
-  );
+  const allInputHaveValue = [
+    nickname,
+    accountId,
+    password,
+    retypedPassword,
+  ].every((value) => value !== "");
 
   const canSubmit = allInputValidated && allInputHaveValue;
 
@@ -89,9 +93,9 @@ const useJoin = () => {
     handleNicknameChange,
     nickname,
     nicknameWarningMessage,
-    handleIdChange,
-    id,
-    idWarningMessage,
+    handleAccountIdChange,
+    accountId,
+    accountIdWarningMessage,
     handlePasswordChange,
     password,
     passwordWarningMessage,

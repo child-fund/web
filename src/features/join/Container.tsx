@@ -19,9 +19,9 @@ const JoinContainer = () => {
     handleNicknameChange,
     nickname,
     nicknameWarningMessage,
-    handleIdChange,
-    id,
-    idWarningMessage,
+    handleAccountIdChange,
+    accountId,
+    accountIdWarningMessage,
     handlePasswordChange,
     password,
     passwordWarningMessage,
@@ -55,10 +55,10 @@ const JoinContainer = () => {
           />
           <Input
             placeholder="사용할 아이디를 만들어주세요!"
-            onValueChange={handleIdChange}
+            onValueChange={handleAccountIdChange}
             title="아이디"
-            value={id}
-            warningMessage={idWarningMessage}
+            value={accountId}
+            warningMessage={accountIdWarningMessage}
           />
           <Input
             placeholder="8자 이상 20자 이하로 영문, 숫자를 조합해야해요!"
