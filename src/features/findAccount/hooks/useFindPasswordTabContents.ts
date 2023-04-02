@@ -1,7 +1,7 @@
 import { ChangeEvent, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-import findPasswordFetcher from "../fetchers/findPasswordFetcher";
+import getPassword from "../fetchers/getPassword";
 
 const useFindPasswordTabContents = () => {
   const navigate = useNavigate();
@@ -25,7 +25,7 @@ const useFindPasswordTabContents = () => {
   };
 
   const handleFindPasswordClick = async () => {
-    const { result, data, statusCode } = await findPasswordFetcher({
+    const { result, data, statusCode } = await getPassword({
       nickname,
       accountId: id,
     });

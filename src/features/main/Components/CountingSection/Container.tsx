@@ -1,4 +1,4 @@
-import NumberCards from "features/main/Components/NumberCards/Container";
+import NumberCards from "features/main/Components/CountingSection/NumberCards/Container";
 
 import { Container, CountTitle, EscalPrintLogo } from "./Container.style";
 

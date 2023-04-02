@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 
 import { ToastContext } from "shared/components/Toast/ToastProvider";
-import loginFetcher from "../fetchers/loginFetcher";
+import postSignIn from "../fetchers/postSignIn";
 
 import useIdInput from "./useIdInput";
 import usePasswordInput from "./usePasswordInput";
@@ -28,7 +28,7 @@ const useLogin = () => {
   };
 
   const handleSubmitClick = async () => {
-    const { result, data, statusCode } = await loginFetcher({
+    const { result, data, statusCode } = await postSignIn({
       accountId: id,
       password,
     });

@@ -1,7 +1,7 @@
 import { ChangeEvent, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-import findIdFetcher from "../fetchers/findIdFetcher";
+import getIdByNickname from "../fetchers/getIdByNickname";
 
 const useFindIdTabContents = () => {
   const navigate = useNavigate();
@@ -17,7 +17,7 @@ const useFindIdTabContents = () => {
   };
 
   const handleFindIdClick = async () => {
-    const { result, data } = await findIdFetcher({ nickname });
+    const { result, data } = await getIdByNickname({ nickname });
 
     if (result && data) {
       setId(data.accountId);

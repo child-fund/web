@@ -1,4 +1,3 @@
-// TODO: 이건 이 위치에 있는게 맞을지
 import AirplaneKey from "../types/airplaneKey";
 
 import paperAirplaneGreen from "shared/assets/imgs/paperAirplaneGreen.png";

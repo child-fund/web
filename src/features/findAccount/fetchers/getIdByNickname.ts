@@ -1,24 +1,17 @@
 import axios, { AxiosError } from "axios";
 
-interface LoginFetcherProps {
-  accountId: string;
-  password: string;
-}
-
-interface Data {
-  accessToken: string;
+interface GetIdByNicknameProps {
   nickname: string;
 }
 
-const loginFetcher = async (props: LoginFetcherProps) => {
+const getIdByNickname = async (props: GetIdByNicknameProps) => {
   try {
     const API_URI = process.env.REACT_APP_API_URI;
-    const res = await axios.post(`${API_URI}/signin`, {
+    const res = await axios.get(`${API_URI}/account/${props.nickname}`, {
       headers: { "Content-Type": "application/json" },
-      ...props,
     });
 
-    return { result: true, data: res.data as Data };
+    return { result: true, data: res.data as { accountId: string } };
   } catch (e) {
     const error = e as AxiosError;
     const statusCode = error.response?.status;
@@ -27,4 +20,4 @@ const loginFetcher = async (props: LoginFetcherProps) => {
   }
 };
 
-export default loginFetcher;
+export default getIdByNickname;

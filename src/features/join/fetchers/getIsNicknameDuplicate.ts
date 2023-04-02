@@ -1,16 +1,14 @@
 import axios, { AxiosError } from "axios";
 
-interface CheckAccountIdDuplicateFetcherProps {
-  accountId: string;
+interface GetIsNicknameDuplicateProps {
+  nickname: string;
 }
 
-const checkAccountIdDuplicateFetcher = async (
-  props: CheckAccountIdDuplicateFetcherProps
-) => {
+const getIsNicknameDuplicate = async (props: GetIsNicknameDuplicateProps) => {
   try {
     const API_URI = process.env.REACT_APP_API_URI;
     const res = await axios.get(
-      `${API_URI}/duplication/account-id/${props.accountId}`,
+      `${API_URI}/duplication/nickname/${props.nickname}`,
       {
         headers: { "Content-Type": "application/json" },
       }
@@ -25,4 +23,4 @@ const checkAccountIdDuplicateFetcher = async (
   }
 };
 
-export default checkAccountIdDuplicateFetcher;
+export default getIsNicknameDuplicate;

@@ -1,14 +1,12 @@
-// TODO: fetcher 디렉토리 이런식으로?
-
 import axios, { AxiosError } from "axios";
 
-interface JoinFetcherProps {
+interface PostSignUpProps {
   nickname: string;
   accountId: string;
   password: string;
 }
 
-const joinFetcher = async (props: JoinFetcherProps) => {
+const postSignUp = async (props: PostSignUpProps) => {
   try {
     const API_URI = process.env.REACT_APP_API_URI;
     await axios.post(`${API_URI}/signup`, {
@@ -25,4 +23,4 @@ const joinFetcher = async (props: JoinFetcherProps) => {
   }
 };
 
-export default joinFetcher;
+export default postSignUp;

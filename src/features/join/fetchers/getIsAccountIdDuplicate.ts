@@ -1,21 +1,20 @@
 import axios, { AxiosError } from "axios";
 
-interface FindPasswordFetcherProps {
-  nickname: string;
+interface GetIsAccountIdDuplicateProps {
   accountId: string;
 }
 
-const findPasswordFetcher = async (props: FindPasswordFetcherProps) => {
+const getIsAccountIdDuplicate = async (props: GetIsAccountIdDuplicateProps) => {
   try {
     const API_URI = process.env.REACT_APP_API_URI;
     const res = await axios.get(
-      `${API_URI}/account/${props.nickname}/${props.accountId}`,
+      `${API_URI}/duplication/account-id/${props.accountId}`,
       {
         headers: { "Content-Type": "application/json" },
       }
     );
 
-    return { result: true, data: res.data as { password: string } };
+    return { result: true, data: res.data as { isDuplicate: boolean } };
   } catch (e) {
     const error = e as AxiosError;
     const statusCode = error.response?.status;
@@ -24,4 +23,4 @@ const findPasswordFetcher = async (props: FindPasswordFetcherProps) => {
   }
 };
 
-export default findPasswordFetcher;
+export default getIsAccountIdDuplicate;
