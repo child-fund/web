@@ -13,7 +13,9 @@ const useAccountIdInput = () => {
     const inputValue = e.target.value;
     setAccountId(inputValue);
 
-    debouncedCheckDuplication(inputValue);
+    if (inputValue.length > 0) {
+      debouncedCheckDuplication(inputValue);
+    }
   };
 
   const checkIsDuplicate = async (inputValue: string) => {

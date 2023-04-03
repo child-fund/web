@@ -18,7 +18,9 @@ const usePasswordInput = (props: UsePasswordInputProps) => {
     const inputValue = e.target.value;
     setPassword(inputValue);
 
-    debouncedCheckLoginPossible();
+    if (inputValue.length > 0) {
+      debouncedCheckLoginPossible(inputValue);
+    }
   };
 
   const checkLoginPossible = async (inputValue: string) => {
