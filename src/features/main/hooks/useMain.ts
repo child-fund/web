@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import shareUrlByWebShareApi from "../../../shared/utils/shareUrlByWebShareApi";
@@ -8,14 +8,34 @@ import copyTextByExecCommand from "../../../shared/utils/copyTextByExecCommand";
 import { ToastContext } from "shared/components/Toast/ToastProvider";
 
 import { ToastTheme } from "shared/components/Toast/Container";
+import getDonationSummary from "../apis/getDonationSummary";
 
-const total = 1000;
+const total = 10000;
 const isParticipated = false;
 
 const useMain = () => {
   const navigate = useNavigate();
   const { showToast } = useContext(ToastContext);
+  const [totalAirplaneCount, setTotalAirplaneCount] = useState(0);
+  const [totalDonation, setTotalDonation] = useState(0);
   const [loginStatus, setLoginStatus] = useState(false);
+
+  useEffect(() => {
+    initDonationSummary();
+  }, []);
+
+  const initDonationSummary = async () => {
+    const { result, data } = await getDonationSummary();
+
+    if (result && data) {
+      setTotalAirplaneCount(data.totalAirplaneCount);
+      setTotalDonation(data.totalDonation);
+      return;
+    }
+
+    showToast(`이용량 급증으로 인해 데이터 로드가 지연되고 있어요.
+    이 메시지가 반복된다면 1688-4272 고객센터로 연락주세요.`);
+  };
 
   const handleNoticeClick = () => {
     window.open(
@@ -120,6 +140,8 @@ const useMain = () => {
     handleJoinClick,
     handleHistoryClick,
     handleDonateClick,
+    totalAirplaneCount,
+    totalDonation,
   };
 };
 
