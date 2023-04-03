@@ -1,6 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 
 import ToastProvider from "shared/components/Toast/ToastProvider";
+import useApp from "./hooks/useApp";
 
 import HomeContainer from "features/main/Container";
 import JoinContainer from "features/join/Container";
@@ -12,9 +13,11 @@ import DonationCertificateContainer from "features/donationCertificate/Container
 import DonationHistoryContainer from "features/donationHistory/Container";
 import DonationHistoryDetailContainer from "features/donationHistory/detail/Container";
 
-import { Container } from "App.style";
+import { Container } from "features/App/Container.style";
 
 const App = () => {
+  const {} = useApp();
+
   return (
     <Container>
       <ToastProvider>
