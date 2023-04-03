@@ -18,14 +18,12 @@ const LoginContainer = () => {
     handleJoinClick,
     handleFindAccountClick,
     handleSubmitClick,
-    handleIdChange,
-    id,
-    idWarningMessage,
-    idWrongInput,
+    handleAccountIdChange,
+    accountId,
+    accountIdWarningMessage,
     handlePasswordChange,
     password,
     passwordWarningMessage,
-    passwordWrongInput,
   } = useLogin();
 
   return (
@@ -45,12 +43,11 @@ const LoginContainer = () => {
         <StyledDescription text="로그인하고 내 꿈들을 확인할 수 있어요" />
         <InputArea>
           <Input
-            onValueChange={handleIdChange}
+            onValueChange={handleAccountIdChange}
             placeholder="아이디 기억하고 계시죠?"
             title="아이디"
-            value={id}
-            warningMessage={idWarningMessage}
-            wrongInput={idWrongInput}
+            value={accountId}
+            warningMessage={accountIdWarningMessage}
           />
           <Input
             onValueChange={handlePasswordChange}
@@ -59,7 +56,6 @@ const LoginContainer = () => {
             type="password"
             value={password}
             warningMessage={passwordWarningMessage}
-            wrongInput={passwordWrongInput}
           />
         </InputArea>
         <FindAccountAnnouncement

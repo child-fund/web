@@ -2,7 +2,7 @@ import NavigationBar from "shared/components/NavigationBar/Container";
 import SubtitleBar from "shared/components/SubtitleBar/Container";
 
 import { Container, ContentContainer, DreamText } from "./Container.style";
-import useDonationHistoryDetail from "../hooks/useDonationHistoryDetail";
+import useDonationHistoryDetail from "./hooks/useDonationHistoryDetail";
 
 const DonationHistoryDetailContainer = () => {
   const { data } = useDonationHistoryDetail();

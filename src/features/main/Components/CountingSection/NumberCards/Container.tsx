@@ -7,7 +7,6 @@ interface NumberCardsProps {
   upperColor: string;
 }
 
-// TODO: CountingArea 컴포넌트 디렉토리 안으로 들어가야 할까요?
 const NumberCards = (props: NumberCardsProps) => {
   const { numberArrayWithComma } = useNumberCards({
     number: props.number,

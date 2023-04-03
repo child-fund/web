@@ -19,7 +19,6 @@ interface InputProps {
   type?: InputType;
   value: string;
   warningMessage?: string;
-  wrongInput: boolean;
 }
 
 const Input = (props: InputProps) => {
@@ -27,7 +26,7 @@ const Input = (props: InputProps) => {
 
   return (
     <Container className={props.className}>
-      <Title isFocused={isFocused} wrongInput={props.wrongInput}>
+      <Title isFocused={isFocused} wrongInput={Boolean(props.warningMessage)}>
         {props.title}
       </Title>
       <InputField
@@ -37,9 +36,9 @@ const Input = (props: InputProps) => {
         onFocus={handleInputFieldFocus}
         value={props.value}
         type={props.type}
-        wrongInput={props.wrongInput}
+        wrongInput={Boolean(props.warningMessage)}
       />
-      {props.wrongInput && (
+      {props.warningMessage && (
         <WarningMessage>{props.warningMessage}</WarningMessage>
       )}
     </Container>

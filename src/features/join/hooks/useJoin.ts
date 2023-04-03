@@ -1,50 +1,92 @@
+import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 
-import useIdInput from "./useIdInput";
+import { ToastContext } from "shared/components/Toast/ToastProvider";
+import postSignUp from "../apis/postSignUp";
+import postSignIn from "features/login/apis/postSignIn";
+
+import useAccountIdInput from "./useAccountIdInput";
 import useNicknameInput from "./useNicknameInput";
 import usePasswordInput from "./usePasswordInput";
 import useRetypedPasswordInput from "./useRetypedPasswordInput";
 
 const useJoin = () => {
+  const { showToast } = useContext(ToastContext);
   const navigate = useNavigate();
-  const {
-    handleNicknameChange,
-    nickname,
-    nicknameWrongInput,
-    nicknameWarningMessage,
-  } = useNicknameInput();
-  const { handleIdChange, id, idWarningMessage, idWrongInput } = useIdInput();
-  const {
-    handlePasswordChange,
-    password,
-    passwordWarningMessage,
-    passwordWrongInput,
-  } = usePasswordInput();
+  const { handleNicknameChange, nickname, nicknameWarningMessage } =
+    useNicknameInput();
+  const { handleAccountIdChange, accountId, accountIdWarningMessage } =
+    useAccountIdInput();
+  const { handlePasswordChange, password, passwordWarningMessage } =
+    usePasswordInput();
   const {
     handleRetypedPasswordChange,
     retypedPassword,
     retypePasswordWarningMessage,
-    retypedPasswordWrongInput,
   } = useRetypedPasswordInput(password);
 
   const handleLoginClick = () => {
     navigate("/login");
   };
 
-  const handleSubmitClick = () => {
-    navigate("/selectairplane");
+  const handleSubmitClick = async () => {
+    const { result, statusCode } = await postSignUp({
+      nickname,
+      accountId,
+      password,
+    });
+
+    if (result) {
+      await handleLogin();
+      return;
+    }
+
+    if (statusCode === 400) {
+      // 기획이 없어 임의로 추가함
+      showToast("모든 영역이 잘 입력되었는지 확인해주세요.");
+      return;
+    }
+
+    showToast(
+      `이용량 급증으로 인해 회원가입이 지연되고 있어요.
+      이 메시지가 반복된다면 1688-4272 고객센터로 연락주세요.`
+    );
+  };
+
+  const handleLogin = async () => {
+    const { result, data } = await postSignIn({
+      accountId,
+      password,
+    });
+
+    // console.log("accountId", accountId, "password", password, "data", data);
+
+    if (result && data) {
+      localStorage.setItem("accessToken", data.accessToken);
+      localStorage.setItem("nickname", data.nickname); // TODO: 글로벌로만 가지고 있기 with jotai
+      navigate("/selectairplane");
+      return;
+    }
+
+    showToast(
+      `이용량 급증으로 인해 로그인이 지연되고 있어요.
+      이 메시지가 반복된다면 1688-4272 고객센터로 연락주세요.`
+    );
   };
 
   const allInputValidated = [
-    nicknameWrongInput,
-    idWrongInput,
-    passwordWrongInput,
-    retypedPasswordWrongInput,
-  ].every((value) => value !== true);
+    nicknameWarningMessage,
+    accountIdWarningMessage,
+    passwordWarningMessage,
+    retypePasswordWarningMessage,
+  ].every((value) => value === "");
 
-  const allInputHaveValue = [nickname, id, password, retypedPassword].every(
-    (value) => value !== ""
-  );
+  const allInputHaveValue = [
+    nickname,
+    accountId,
+    password,
+    retypedPassword,
+  ].every((value) => value !== "");
 
   const canSubmit = allInputValidated && allInputHaveValue;
 
@@ -54,20 +96,16 @@ const useJoin = () => {
     handleSubmitClick,
     handleNicknameChange,
     nickname,
-    nicknameWrongInput,
     nicknameWarningMessage,
-    handleIdChange,
-    id,
-    idWarningMessage,
-    idWrongInput,
+    handleAccountIdChange,
+    accountId,
+    accountIdWarningMessage,
     handlePasswordChange,
     password,
     passwordWarningMessage,
-    passwordWrongInput,
     handleRetypedPasswordChange,
     retypedPassword,
     retypePasswordWarningMessage,
-    retypedPasswordWrongInput,
   };
 };
 
