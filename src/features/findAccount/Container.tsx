@@ -1,7 +1,7 @@
 import useFindAccount from "./hooks/useFindAccount";
 
-import FindIdTabContents from "features/findAccount/components/FindIdTabContents/Container";
-import FindPasswordTabContents from "./components/FindPasswordTabContents";
+import FindIdTabContents from "features/findAccount/components/FindAccountIdTabContents/Container";
+import FindPasswordTabContents from "./components/FindPasswordTabContents/Container";
 
 import {
   ContentContainer,

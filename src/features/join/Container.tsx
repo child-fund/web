@@ -18,20 +18,16 @@ const JoinContainer = () => {
     handleSubmitClick,
     handleNicknameChange,
     nickname,
-    nicknameWrongInput,
     nicknameWarningMessage,
-    handleIdChange,
-    id,
-    idWarningMessage,
-    idWrongInput,
+    handleAccountIdChange,
+    accountId,
+    accountIdWarningMessage,
     handlePasswordChange,
     password,
     passwordWarningMessage,
-    passwordWrongInput,
     handleRetypedPasswordChange,
     retypedPassword,
     retypePasswordWarningMessage,
-    retypedPasswordWrongInput,
   } = useJoin();
 
   return (
@@ -52,20 +48,17 @@ const JoinContainer = () => {
         <InputArea>
           <Input
             placeholder="닉네임을 하나 만들어볼까요?"
-            // placeholder="한글 혹은 영문으로 만들어주세요"
             onValueChange={handleNicknameChange}
             title="닉네임"
             value={nickname}
-            wrongInput={nicknameWrongInput}
             warningMessage={nicknameWarningMessage}
           />
           <Input
             placeholder="사용할 아이디를 만들어주세요!"
-            onValueChange={handleIdChange}
+            onValueChange={handleAccountIdChange}
             title="아이디"
-            value={id}
-            wrongInput={idWrongInput}
-            warningMessage={idWarningMessage}
+            value={accountId}
+            warningMessage={accountIdWarningMessage}
           />
           <Input
             placeholder="8자 이상 20자 이하로 영문, 숫자를 조합해야해요!"
@@ -73,7 +66,6 @@ const JoinContainer = () => {
             title="비밀번호"
             type="password"
             value={password}
-            wrongInput={passwordWrongInput}
             warningMessage={passwordWarningMessage}
           />
           <Input
@@ -82,7 +74,6 @@ const JoinContainer = () => {
             title="비밀번호 확인"
             type="password"
             value={retypedPassword}
-            wrongInput={retypedPasswordWrongInput}
             warningMessage={retypePasswordWarningMessage}
           />
         </InputArea>

@@ -22,6 +22,7 @@ export const InputField = styled.input<{ wrongInput: boolean }>`
   border-radius: 0.5rem;
   color: ${colors.gray900};
   font-size: 1.4rem;
+  caret-color: #17cc10;
 
   ::placeholder {
     color: ${colors.gray400};

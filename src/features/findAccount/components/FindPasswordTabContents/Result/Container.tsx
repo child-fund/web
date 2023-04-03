@@ -6,7 +6,7 @@ import {
   ResultValue,
   PsNote,
   StyledButton,
-} from "./index.style";
+} from "./Container.style";
 
 interface FindPasswordResultProps {
   nickname: string;

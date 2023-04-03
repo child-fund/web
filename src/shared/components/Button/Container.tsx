@@ -1,6 +1,5 @@
 import { Container } from "./Container.style";
 
-// TODO: 이 친구의 위치는 어디로 가는 것이 좋을까
 export enum ButtonTheme {
   DARK = "dark",
   LIGHT = "light",

@@ -18,15 +18,12 @@ const useMain = () => {
   const [loginStatus, setLoginStatus] = useState(false);
 
   const handleNoticeClick = () => {
-    // TODO: 이런 url은 어떻게 관리하는 것이 좋을까
     window.open(
       "https://escal-print.notion.site/X-25392410e8b04c10b17b66d7cd413b54"
     );
   };
 
   const handleShareClick = () => {
-    // TODO: 이 함수를 더 잘 짤 수 있을까욤
-    // TODO: 이런 함수들은 utils 에 넣는게 맞을까욤
     const firstTrial = shareUrlByWebShareApi({
       title: "에스칼프린트x초록우산 종이비행기 기부이벤트",
       url: window.location.href,
