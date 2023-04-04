@@ -1,6 +1,8 @@
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
+import { useAtom } from "jotai";
 
+import nicknameAtom from "shared/atoms/nicknameAtom";
 import { ToastContext } from "shared/components/Toast/ToastProvider";
 import postSignUp from "../apis/postSignUp";
 import postSignIn from "features/login/apis/postSignIn";
@@ -11,6 +13,7 @@ import usePasswordInput from "./usePasswordInput";
 import useRetypedPasswordInput from "./useRetypedPasswordInput";
 
 const useJoin = () => {
+  const [, setNickname] = useAtom(nicknameAtom);
   const { showToast } = useContext(ToastContext);
   const navigate = useNavigate();
   const { handleNicknameChange, nickname, nicknameWarningMessage } =
@@ -63,7 +66,7 @@ const useJoin = () => {
 
     if (result && data) {
       localStorage.setItem("accessToken", data.accessToken);
-      localStorage.setItem("nickname", data.nickname); // TODO: 글로벌로만 가지고 있기 with jotai
+      setNickname(data.nickname);
       navigate("/selectairplane");
       return;
     }

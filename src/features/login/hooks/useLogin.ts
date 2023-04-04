@@ -1,6 +1,9 @@
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
+import { useAtom } from "jotai";
 
+import nicknameAtom from "shared/atoms/nicknameAtom";
+import participatedAtom from "shared/atoms/participatedAtom";
 import { ToastContext } from "shared/components/Toast/ToastProvider";
 import postSignIn from "../apis/postSignIn";
 import getParticipation from "shared/apis/getParticipation";
@@ -11,6 +14,8 @@ import usePasswordInput from "./usePasswordInput";
 const useLogin = () => {
   const navigate = useNavigate();
   const { showToast } = useContext(ToastContext);
+  const [, setNickname] = useAtom(nicknameAtom);
+  const [, setParticipated] = useAtom(participatedAtom);
   const { handleAccountIdChange, accountId, accountIdWarningMessage } =
     useAccountIdInput();
   const { handlePasswordChange, password, passwordWarningMessage } =
@@ -33,7 +38,7 @@ const useLogin = () => {
 
     if (result && data) {
       localStorage.setItem("accessToken", data.accessToken);
-      localStorage.setItem("nickname", data.nickname); // TODO: 전역변수로 with jotai
+      setNickname(data.nickname);
 
       await checkParticipationAndMoveNext();
       return;
@@ -59,7 +64,7 @@ const useLogin = () => {
       navigate("/");
     }
 
-    localStorage.setItem("participated", String(data.isParticipate));
+    setParticipated(data.isParticipate);
   };
 
   const allInputValidated = [
