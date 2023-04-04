@@ -1,9 +1,15 @@
+import AirplaneColor from "features/selectAirplane/constants/airplaneColor";
 import { ChangeEvent, useContext, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 import { ToastContext } from "shared/components/Toast/ToastProvider";
 
 const useWriteDream = () => {
+  const location = useLocation();
+  const state = location.state as
+    | { selectedAirplaneColor: AirplaneColor }
+    | undefined;
+
   const navigate = useNavigate();
   const { showToast } = useContext(ToastContext);
   const [dream, setDream] = useState("");
@@ -13,6 +19,10 @@ const useWriteDream = () => {
   };
 
   const handleSubmitClick = () => {
+    if (!state) {
+      return;
+    }
+
     if (dream.length === 0) {
       showToast(`이루고 싶은 꿈이나 소원을 적어주세요!
       작성 완료 후에 다음 단계로 넘어갈 수 있어요 :)`);
@@ -25,7 +35,9 @@ const useWriteDream = () => {
       return;
     }
 
-    navigate("/certificate");
+    navigate("/certificate", {
+      state: { selectedAirplaneColor: state.selectedAirplaneColor },
+    });
   };
 
   return { dream, handleTextChange, handleSubmitClick };

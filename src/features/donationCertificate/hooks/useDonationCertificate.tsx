@@ -1,5 +1,5 @@
 import { useContext, useRef, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import html2canvas from "html2canvas";
 
 import { ToastTheme } from "shared/components/Toast/Container";
@@ -8,11 +8,18 @@ import copyImageByClipboardApi from "shared/utils/copyImageByClipboardApi";
 import copyImageByExecCommand from "shared/utils/copyImageByExecCommand";
 import shareUrlByWebShareApi from "shared/utils/shareUrlByWebShareApi";
 
+import AirplaneColor from "features/selectAirplane/constants/airplaneColor";
+import airplaneList from "features/selectAirplane/constants/airplaneList";
+
 const useDonationCertificate = () => {
+  const location = useLocation();
+  const state = location.state as
+    | { selectedAirplaneColor: AirplaneColor }
+    | undefined;
+
   const navigate = useNavigate();
   const { showToast } = useContext(ToastContext);
   const certificateAreaRef = useRef<HTMLDivElement>(null);
-  const [nickname, setNickname] = useState("");
 
   const handleBackToMainClick = () => {
     navigate("/");
@@ -99,13 +106,18 @@ const useDonationCertificate = () => {
     }
   };
 
+  const airplaneImage =
+    airplaneList.find(
+      (airplane) => airplane.key === state?.selectedAirplaneColor
+    )?.certificate || airplaneList[0].certificate;
+
   return {
     certificateAreaRef,
     handleBackToMainClick,
     handleSaveImageClick,
     handleHistoryClick,
     handleShareClick,
-    nickname,
+    airplaneImage,
   };
 };
 

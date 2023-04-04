@@ -27,7 +27,7 @@ const useApp = () => {
     }
 
     if (data.isLogin) {
-      setNickname(data.nickname);
+      setNickname(data.nickname || ""); // TODO: 기본값 없애야
       return;
     } else {
       localStorage.removeItem("accessToken");
