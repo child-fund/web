@@ -20,7 +20,7 @@ import {
 import escalPrintSeal from "shared/assets/imgs/escalPrintSeal.png";
 import escalPrintLogo from "shared/assets/imgs/escalPrintLogo.png";
 import childFundLogo from "shared/assets/imgs/childFundLogo.png";
-import selectPaperAirplaneGreen from "shared/assets/imgs/selectPaperAirplaneGreen.png";
+import certificatePaperAirplaneGreen from "shared/assets/imgs/certificatePaperAirplaneGreen.png";
 
 const DonationCertificateContainer = () => {
   const {
@@ -42,8 +42,8 @@ const DonationCertificateContainer = () => {
           <Description>{`꿈이 이루어질 수 있도록 에스칼프린트가 함께할게요!
         저소득층 기부에 함께 동참해주셔서 너무 고마워요!`}</Description>
           <AirplaneImage
-            src={selectPaperAirplaneGreen}
-            alt="selectPaperAirplaneGreen"
+            src={certificatePaperAirplaneGreen}
+            alt="certificatePaperAirplaneGreen"
           />
           <Phrase>위 자는 저소득층 기부에 동참하였음을 인증합니다.</Phrase>
           <Signature>
