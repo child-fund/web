@@ -1,6 +1,6 @@
 import axios, { AxiosError } from "axios";
 
-const getParticipation = async () => {
+const getAutoLoginAvailable = async () => {
   try {
     const API_URI = process.env.REACT_APP_API_URI;
     const accessToken = localStorage.getItem("accessToken");
@@ -9,14 +9,17 @@ const getParticipation = async () => {
       return { result: false };
     }
 
-    const res = await axios.get(`${API_URI}/participation`, {
+    const res = await axios.get(`${API_URI}/account`, {
       headers: {
         "Content-Type": "application/json",
         Authorization: accessToken,
       },
     });
 
-    return { result: true, data: res.data as { isParticipate: boolean } };
+    return {
+      result: true,
+      data: res.data as { isLogin: boolean; nickname: string },
+    };
   } catch (e) {
     const error = e as AxiosError;
     const statusCode = error.response?.status;
@@ -25,4 +28,4 @@ const getParticipation = async () => {
   }
 };
 
-export default getParticipation;
+export default getAutoLoginAvailable;
