@@ -13,10 +13,13 @@ interface Data {
 const postSignIn = async (props: PostSignInProps) => {
   try {
     const API_URI = process.env.REACT_APP_API_URI;
-    const res = await axios.post(`${API_URI}/signin`, {
-      headers: { "Content-Type": "application/json" },
-      ...props,
-    });
+    const res = await axios.post(
+      `${API_URI}/signin`,
+      { ...props },
+      {
+        headers: { "Content-Type": "application/json" },
+      }
+    );
 
     return { result: true, data: res.data as Data };
   } catch (e) {
