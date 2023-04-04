@@ -21,6 +21,8 @@ const MainContainer = () => {
     handleJoinClick,
     handleHistoryClick,
     handleDonateClick,
+    totalAirplaneCount,
+    totalDonation,
   } = useMain();
 
   return (
@@ -53,8 +55,8 @@ const MainContainer = () => {
           alt="holdPaperAirplane"
         />
         <CountingSectionContainer
-          numberOfDonations={12201}
-          donationAmount={122010}
+          numberOfDonations={totalAirplaneCount}
+          donationAmount={totalDonation}
         />
         <NoticeSectionContainer onNoticeClick={handleNoticeClick} />
       </ContentContainer>

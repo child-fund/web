@@ -1,21 +1,41 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useAtom } from "jotai";
 
 import shareUrlByWebShareApi from "../../../shared/utils/shareUrlByWebShareApi";
 import copyTextByClipboardApi from "../../../shared/utils/copyTextByClipboardApi";
 import copyTextByExecCommand from "../../../shared/utils/copyTextByExecCommand";
 
 import { ToastContext } from "shared/components/Toast/ToastProvider";
+import participatedAtom from "shared/atoms/participatedAtom";
+import getDonationSummary from "../apis/getDonationSummary";
 
 import { ToastTheme } from "shared/components/Toast/Container";
-
-const total = 1000;
-const isParticipated = false;
 
 const useMain = () => {
   const navigate = useNavigate();
   const { showToast } = useContext(ToastContext);
+  const [participated] = useAtom(participatedAtom);
+  const [totalAirplaneCount, setTotalAirplaneCount] = useState(0);
+  const [totalDonation, setTotalDonation] = useState(0);
   const [loginStatus, setLoginStatus] = useState(false);
+
+  useEffect(() => {
+    initDonationSummary();
+  }, []);
+
+  const initDonationSummary = async () => {
+    const { result, data } = await getDonationSummary();
+
+    if (result && data) {
+      setTotalAirplaneCount(data.totalAirplaneCount);
+      setTotalDonation(data.totalDonation);
+      return;
+    }
+
+    showToast(`이용량 급증으로 인해 데이터 로드가 지연되고 있어요.
+    이 메시지가 반복된다면 1688-4272 고객센터로 연락주세요.`);
+  };
 
   const handleNoticeClick = () => {
     window.open(
@@ -79,7 +99,7 @@ const useMain = () => {
       return false;
     }
 
-    if (total >= 10000) {
+    if (totalAirplaneCount >= 10000) {
       showToast(
         `많은 분들의 성원으로 조기 마감되었어요!
         다음 참여기간에 다시 만나요!`,
@@ -88,7 +108,7 @@ const useMain = () => {
       return false;
     }
 
-    if (isParticipated) {
+    if (participated) {
       showToast(
         `해당 참여기간 동안에는 한 번만 참여 가능해요!
         다음 참여기간에 다시 참여해주세요 :)`,
@@ -120,6 +140,8 @@ const useMain = () => {
     handleJoinClick,
     handleHistoryClick,
     handleDonateClick,
+    totalAirplaneCount,
+    totalDonation,
   };
 };
 

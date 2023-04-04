@@ -1,3 +1,4 @@
+// TODO: 이거 jotai로 어떻게 바꾸는거라고 했더라...?
 import { createContext, PropsWithChildren, useRef, useState } from "react";
 import Toast, { ToastTheme } from "shared/components/Toast/Container";
 
