@@ -15,13 +15,11 @@ const NumberCards = (props: NumberCardsProps) => {
 
   return (
     <Container>
-      {numberArrayWithComma.map((value, index) =>
+      {numberArrayWithComma.map((value) =>
         value === "," ? (
-          <Comma key={index}>,</Comma>
+          <Comma>,</Comma>
         ) : (
-          <Card key={index} upperColor={props.upperColor}>
-            {value}
-          </Card>
+          <Card upperColor={props.upperColor}>{value}</Card>
         )
       )}
     </Container>

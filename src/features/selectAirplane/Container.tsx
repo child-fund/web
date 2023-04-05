@@ -45,7 +45,7 @@ const SelectAirplaneContainer = () => {
           <AirplaneSlider
             list={airplaneList}
             onAirplaneClick={handleAirplaneClick}
-            airplaneColor={selectedAirplane.key}
+            selectedAirplaneKey={selectedAirplane.key}
           />
         </WhiteBoard>
       </ContentContainer>

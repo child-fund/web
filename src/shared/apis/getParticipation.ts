@@ -12,7 +12,7 @@ const getParticipation = async () => {
     const res = await axios.get(`${API_URI}/participation`, {
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${accessToken}`,
+        Authorization: accessToken,
       },
     });
 
