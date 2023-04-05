@@ -9,10 +9,13 @@ interface PostSignUpProps {
 const postSignUp = async (props: PostSignUpProps) => {
   try {
     const API_URI = process.env.REACT_APP_API_URI;
-    await axios.post(`${API_URI}/signup`, {
-      headers: { "Content-Type": "application/json" },
-      ...props,
-    });
+    await axios.post(
+      `${API_URI}/signup`,
+      { ...props },
+      {
+        headers: { "Content-Type": "application/json" },
+      }
+    );
 
     return { result: true };
   } catch (e) {

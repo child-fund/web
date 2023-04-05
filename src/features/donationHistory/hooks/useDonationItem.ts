@@ -1,18 +1,22 @@
 import { useNavigate } from "react-router-dom";
-import { DummyData } from "../dummyData";
+import { Donation } from "../apis/useDonationHistoryData";
 
-const id = 123;
-
-const useDonationItem = () => {
+const useDonationItem = (donation: Donation) => {
   const navigate = useNavigate();
 
   const handleCertificateClick = () => {
-    navigate(`/certificate`);
+    navigate(`/certificate`, {
+      state: {
+        airplaneColor: donation.color,
+        airplaneImage: donation.imageUrl,
+      },
+    });
   };
 
-  const handleDetailClick = (item: DummyData) => {
-    navigate(`/history/${id}`, { state: { item } });
+  const handleDetailClick = () => {
+    navigate(`/history/${donation.donationId}`);
   };
+
   return {
     handleCertificateClick,
     handleDetailClick,
