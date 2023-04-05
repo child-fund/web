@@ -57,7 +57,10 @@ const useWriteDream = () => {
 
     if (result) {
       navigate("/certificate", {
-        state: { selectedAirplaneColor: state.selectedAirplaneColor },
+        state: {
+          selectedAirplaneColor: state.selectedAirplaneColor,
+          airplaneImage: imageUrl,
+        },
       });
     } else {
       showToast(`이용량 급증으로 인해 기부하기가 지연되고 있어요.

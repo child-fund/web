@@ -13,7 +13,9 @@ import {
 } from "./Container.style";
 
 const DonationItem = (props: { item: Donation }) => {
-  const { handleDetailClick, handleCertificateClick } = useDonationItem();
+  const { handleDetailClick, handleCertificateClick } = useDonationItem(
+    props.item
+  );
 
   return (
     <Container>
@@ -26,9 +28,7 @@ const DonationItem = (props: { item: Donation }) => {
         <img src={props.item.imageUrl} alt="paperAirplane" />
       </TextSection>
       <ButtonSection>
-        <DetailButton onClick={() => handleDetailClick(props.item)}>
-          내 꿈 보러가기
-        </DetailButton>
+        <DetailButton onClick={handleDetailClick}>내 꿈 보러가기</DetailButton>
         <CertificateButton onClick={handleCertificateClick}>
           내 후원증서 확인하기
         </CertificateButton>

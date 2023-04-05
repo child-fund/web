@@ -14,7 +14,7 @@ import airplaneList from "features/selectAirplane/constants/airplaneList";
 const useDonationCertificate = () => {
   const location = useLocation();
   const state = location.state as
-    | { selectedAirplaneColor: AirplaneColor }
+    | { selectedAirplaneColor: AirplaneColor; airplaneImage: string }
     | undefined;
 
   const navigate = useNavigate();
@@ -106,10 +106,7 @@ const useDonationCertificate = () => {
     }
   };
 
-  const airplaneImage =
-    airplaneList.find(
-      (airplane) => airplane.key === state?.selectedAirplaneColor
-    )?.certificate || airplaneList[0].certificate;
+  const airplaneImage = state?.airplaneImage || airplaneList[0].certificate;
 
   return {
     certificateAreaRef,

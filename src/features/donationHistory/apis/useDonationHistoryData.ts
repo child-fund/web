@@ -7,6 +7,7 @@ export interface Donation {
   date: string; // TODO: 데이터 타입 확인. date: "2023.04.25",
   season: string;
   imageUrl: string;
+  color: string;
 }
 
 interface Data {
