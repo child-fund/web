@@ -1,3 +1,6 @@
+import { useAtom } from "jotai";
+
+import nicknameAtom from "shared/atoms/nicknameAtom";
 import useDonationCertificate from "./hooks/useDonationCertificate";
 
 import Button, { ButtonTheme } from "shared/components/Button/Container";
@@ -20,28 +23,38 @@ import {
 import escalPrintSeal from "shared/assets/imgs/escalPrintSeal.png";
 import escalPrintLogo from "shared/assets/imgs/escalPrintLogo.png";
 import childFundLogo from "shared/assets/imgs/childFundLogo.png";
-import paperAirplaneGreen from "shared/assets/imgs/paperAirplaneGreen.png";
 
 const DonationCertificateContainer = () => {
+  const [nickname] = useAtom(nicknameAtom);
   const {
+    airplaneImage,
+    certificateColor,
     certificateAreaRef,
     handleBackToMainClick,
     handleSaveImageClick,
     handleHistoryClick,
     handleShareClick,
-    nickname,
   } = useDonationCertificate();
 
   return (
-    <Container>
+    <Container pageBackgroundImage={certificateColor.pageBackgroundImage}>
       <ContentContainer>
         <ShareButton onClick={handleShareClick}>공유하기</ShareButton>
-        <CertificateArea ref={certificateAreaRef}>
-          <Title>{`${nickname}님!
-        기부에 동참해주셔서 감사해요 :)`}</Title>
+        <CertificateArea
+          ref={certificateAreaRef}
+          borderColor={certificateColor.borderColor}
+          certificateBackgroundImage={
+            certificateColor.certificateBackgroundImage
+          }
+        >
+          <Title>
+            {nickname.length > 0
+              ? `${nickname}님! 기부에 동참해주셔서 감사해요 :)`
+              : `기부에 동참해주셔서 감사해요 :)`}
+          </Title>
           <Description>{`꿈이 이루어질 수 있도록 에스칼프린트가 함께할게요!
         저소득층 기부에 함께 동참해주셔서 너무 고마워요!`}</Description>
-          <AirplaneImage src={paperAirplaneGreen} alt="paperAirplaneGreen" />
+          <AirplaneImage src={airplaneImage} alt="PaperAirplane" />
           <Phrase>위 자는 저소득층 기부에 동참하였음을 인증합니다.</Phrase>
           <Signature>
             <span>에스칼디렉션 대표인</span>
