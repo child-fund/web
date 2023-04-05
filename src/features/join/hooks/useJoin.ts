@@ -66,7 +66,7 @@ const useJoin = () => {
 
     if (result && data) {
       localStorage.setItem("accessToken", data.accessToken);
-      setNickname(data.nickname || ""); // TODO: 기본값 없애야
+      setNickname(data.nickname);
       navigate("/selectairplane");
       return;
     }

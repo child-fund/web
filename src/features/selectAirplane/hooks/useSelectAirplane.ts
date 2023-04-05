@@ -1,20 +1,20 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-import AirplaneColor from "../constants/airplaneColor";
+import AirplaneKey from "../types/airplaneKey";
 import airplaneList from "../constants/airplaneList";
 
 const useSelectAirplane = () => {
   const navigate = useNavigate();
-  const [airplaneColor, setAirplaneColor] = useState<AirplaneColor>(
-    AirplaneColor.GREEN
-  );
+  const [selectedAirplaneKey, setSelectedAirplaneKey] =
+    useState<AirplaneKey>("green");
 
   const selectedAirplane =
-    airplaneList.find((item) => item.key === airplaneColor) || airplaneList[0];
+    airplaneList.find((item) => item.key === selectedAirplaneKey) ||
+    airplaneList[0];
 
-  const handleAirplaneClick = (value: AirplaneColor) => {
-    setAirplaneColor(value);
+  const handleAirplaneClick = (value: AirplaneKey) => {
+    setSelectedAirplaneKey(value);
   };
 
   const handleMainClick = () => {
@@ -22,9 +22,8 @@ const useSelectAirplane = () => {
   };
 
   const handleWriteClick = () => {
-    navigate("/writedream", { state: { airplaneColor } });
+    navigate("/writedream");
   };
-
   return {
     handleAirplaneClick,
     handleMainClick,
