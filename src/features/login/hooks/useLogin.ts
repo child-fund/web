@@ -19,7 +19,7 @@ const useLogin = () => {
   const { handleAccountIdChange, accountId, accountIdWarningMessage } =
     useAccountIdInput();
   const { handlePasswordChange, password, passwordWarningMessage } =
-    usePasswordInput({ accountId });
+    usePasswordInput();
 
   const handleJoinClick = () => {
     navigate("/join");

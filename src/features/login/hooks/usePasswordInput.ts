@@ -3,13 +3,9 @@ import { ChangeEvent, useContext, useState } from "react";
 import useDebouncedCallback from "shared/utils/useDebouncedCallback";
 import { ToastContext } from "shared/components/Toast/ToastProvider";
 
-import postSignIn from "../apis/postSignIn";
+import getPasswordExist from "../apis/getPasswordExist";
 
-interface UsePasswordInputProps {
-  accountId: string;
-}
-
-const usePasswordInput = (props: UsePasswordInputProps) => {
+const usePasswordInput = () => {
   const { showToast } = useContext(ToastContext);
   const [password, setPassword] = useState("");
   const [passwordWarningMessage, setPasswordWarningMessage] = useState("");
@@ -19,13 +15,12 @@ const usePasswordInput = (props: UsePasswordInputProps) => {
     setPassword(inputValue);
 
     if (inputValue.length > 0) {
-      debouncedCheckLoginPossible(inputValue);
+      debouncedCheckPasswordExist(inputValue);
     }
   };
 
-  const checkLoginPossible = async (inputValue: string) => {
-    const { result, data, statusCode } = await postSignIn({
-      accountId: props.accountId,
+  const checkPasswordExist = async (inputValue: string) => {
+    const { result, data, statusCode } = await getPasswordExist({
       password: inputValue,
     });
 
@@ -43,8 +38,8 @@ const usePasswordInput = (props: UsePasswordInputProps) => {
     이 메시지가 반복된다면 1688-4272 고객센터로 연락주세요.`);
   };
 
-  const debouncedCheckLoginPossible = useDebouncedCallback(
-    checkLoginPossible,
+  const debouncedCheckPasswordExist = useDebouncedCallback(
+    checkPasswordExist,
     225
   );
 
