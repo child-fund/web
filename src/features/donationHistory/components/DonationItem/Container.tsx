@@ -1,5 +1,6 @@
-import { DummyData } from "features/donationHistory/dummyData";
 import useDonationItem from "features/donationHistory/hooks/useDonationItem";
+import { Donation } from "features/donationHistory/apis/useDonationHistoryData";
+
 import {
   DetailButton,
   CertificateButton,
@@ -11,18 +12,18 @@ import {
   TextSection,
 } from "./Container.style";
 
-const DonationItem = (props: { item: DummyData }) => {
+const DonationItem = (props: { item: Donation }) => {
   const { handleDetailClick, handleCertificateClick } = useDonationItem();
 
   return (
     <Container>
       <TextSection>
         <div>
-          <Quarter>{props.item.quarter}</Quarter>
-          <Purpose>{props.item.purpose}</Purpose>
+          <Quarter>{props.item.season}</Quarter>
+          <Purpose>{props.item.donationSubject}</Purpose>
           <Date>{props.item.date}</Date>
         </div>
-        <img src={props.item.image} alt="paperAirplane" />
+        <img src={props.item.imageUrl} alt="paperAirplane" />
       </TextSection>
       <ButtonSection>
         <DetailButton onClick={() => handleDetailClick(props.item)}>

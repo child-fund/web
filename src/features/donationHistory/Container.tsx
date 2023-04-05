@@ -1,7 +1,8 @@
 import { useAtom } from "jotai";
 
-import useDonationHistory from "./hooks/useDonationHistory";
 import nicknameAtom from "shared/atoms/nicknameAtom";
+import useDonationHistoryData from "./apis/useDonationHistoryData";
+import useDonationHistory from "./hooks/useDonationHistory";
 
 import DonationItem from "features/donationHistory/components/DonationItem/Container";
 import Announcement from "shared/components/Announcement/Container";
@@ -19,10 +20,10 @@ import {
   Subtitle,
   SubtitleArea,
 } from "./Container.style";
-import dummyData from "./dummyData";
 
 const DonationHistoryContainer = () => {
   const [nickname] = useAtom(nicknameAtom);
+  const { donationList, totalDonation, totalCount } = useDonationHistoryData();
   const { handleLoadMoreClick, handleNoticeClick } = useDonationHistory();
 
   return (
@@ -49,15 +50,17 @@ const DonationHistoryContainer = () => {
           </Subtitle>
           <DonationTotal>
             <p>꿈으로 기부한 금액</p>
-            <span>{`${"600"}원`}</span>
+            <span>{`${totalDonation}원`}</span>
           </DonationTotal>
         </SubtitleArea>
         <DonationList>
-          {dummyData.map((item, index) => (
+          {donationList.map((item, index) => (
             <DonationItem key={index} item={item} />
           ))}
         </DonationList>
-        <LoadMoreButton onClick={handleLoadMoreClick}>더보기</LoadMoreButton>
+        {totalCount > donationList.length && (
+          <LoadMoreButton onClick={handleLoadMoreClick}>더보기</LoadMoreButton>
+        )}
       </ContentContainer>
       <AnnouncementContainer>
         <Announcement

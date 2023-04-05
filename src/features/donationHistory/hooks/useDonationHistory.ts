@@ -1,5 +1,11 @@
+import useDonationHistoryData from "../apis/useDonationHistoryData";
+
 const useDonationHistory = () => {
-  const handleLoadMoreClick = () => {};
+  const { size, setSize } = useDonationHistoryData();
+
+  const handleLoadMoreClick = () => {
+    setSize(size + 1);
+  };
 
   const handleNoticeClick = () => {
     window.open(

@@ -16,7 +16,7 @@ const DonationHistoryDetailContainer = () => {
       <NavigationBar title="나의 꿈 기부내역" />
       <ContentContainer>
         <SubtitleBar subtitle={`${data.date} 나의 꿈`} />
-        <DreamText>{data.text}</DreamText>
+        {/* <DreamText>{data.text}</DreamText> */}
       </ContentContainer>
     </Container>
   );
