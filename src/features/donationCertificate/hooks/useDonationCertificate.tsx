@@ -10,14 +10,14 @@ import shareUrlByWebShareApi from "shared/utils/shareUrlByWebShareApi";
 
 import AirplaneColor from "features/selectAirplane/constants/airplaneColor";
 import airplaneList from "features/selectAirplane/constants/airplaneList";
+import certificateColorList from "../constants/certificateColorList";
 
 const useDonationCertificate = () => {
+  const navigate = useNavigate();
   const location = useLocation();
   const state = location.state as
     | { airplaneColor: AirplaneColor; airplaneImage: string }
     | undefined;
-  console.log(state?.airplaneColor);
-  const navigate = useNavigate();
   const { showToast } = useContext(ToastContext);
   const certificateAreaRef = useRef<HTMLDivElement>(null);
 
@@ -106,15 +106,21 @@ const useDonationCertificate = () => {
     }
   };
 
+  const airplaneColor = state?.airplaneColor || airplaneList[0].key;
+  const certificateColor =
+    certificateColorList.find((item) => item.key === airplaneColor) ||
+    certificateColorList[0];
+
   const airplaneImage = state?.airplaneImage || airplaneList[0].certificate;
 
   return {
+    airplaneImage,
     certificateAreaRef,
+    certificateColor,
     handleBackToMainClick,
     handleSaveImageClick,
     handleHistoryClick,
     handleShareClick,
-    airplaneImage,
   };
 };
 

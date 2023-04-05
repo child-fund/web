@@ -28,6 +28,7 @@ const DonationCertificateContainer = () => {
   const [nickname] = useAtom(nicknameAtom);
   const {
     airplaneImage,
+    certificateColor,
     certificateAreaRef,
     handleBackToMainClick,
     handleSaveImageClick,
@@ -36,10 +37,16 @@ const DonationCertificateContainer = () => {
   } = useDonationCertificate();
 
   return (
-    <Container>
+    <Container pageBackgroundImage={certificateColor.pageBackgroundImage}>
       <ContentContainer>
         <ShareButton onClick={handleShareClick}>공유하기</ShareButton>
-        <CertificateArea ref={certificateAreaRef}>
+        <CertificateArea
+          ref={certificateAreaRef}
+          borderColor={certificateColor.borderColor}
+          certificateBackgroundImage={
+            certificateColor.certificateBackgroundImage
+          }
+        >
           <Title>
             {nickname.length > 0
               ? `${nickname}님! 기부에 동참해주셔서 감사해요 :)`

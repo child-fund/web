@@ -4,9 +4,11 @@ import ScrollableContainer from "shared/components/ScrollableContainer/Container
 
 import colors from "shared/assets/colors";
 
-export const Container = styled(ScrollableContainer)`
+export const Container = styled(ScrollableContainer)<{
+  pageBackgroundImage: string;
+}>`
   padding-top: 2rem;
-  background-image: linear-gradient(205deg, #38cc5f, #27e24b);
+  background-image: ${({ pageBackgroundImage }) => pageBackgroundImage};
 `;
 
 export const ContentContainer = styled.div`
@@ -24,15 +26,19 @@ export const ShareButton = styled.button`
   font-weight: bold;
 `;
 
-export const CertificateArea = styled.div`
+export const CertificateArea = styled.div<{
+  borderColor: string;
+  certificateBackgroundImage: string;
+}>`
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-bottom: 13.5rem;
   padding: 3.6rem 3.4rem 1.6rem 3.4rem;
-  border: 0.2rem solid #36e017;
+  border: 0.2rem solid ${({ borderColor }) => borderColor};
   border-radius: 2rem;
-  background-image: linear-gradient(to bottom, #d8fee8, #b2feca); ;
+  background-image: ${({ certificateBackgroundImage }) =>
+    certificateBackgroundImage};
 `;
 
 export const Title = styled.p`
