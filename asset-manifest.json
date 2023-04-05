@@ -1,21 +1,29 @@
 {
   "files": {
-    "main.js": "/web/static/js/main.05616650.js",
+    "main.js": "/web/static/js/main.ae1a9703.js",
     "static/js/787.319da3e8.chunk.js": "/web/static/js/787.319da3e8.chunk.js",
-    "static/media/paperAirplanePink.png": "/web/static/media/paperAirplanePink.f81b8244683e04e4cbcf.png",
-    "static/media/paperAirplaneOrange.png": "/web/static/media/paperAirplaneOrange.691edcb2d5de1d39f350.png",
-    "static/media/paperAirplaneRed.png": "/web/static/media/paperAirplaneRed.e949f31b9f06d2461750.png",
-    "static/media/paperAirplanePurple.png": "/web/static/media/paperAirplanePurple.e215789d009ae3be33b3.png",
-    "static/media/paperAirplaneYellowGreen.png": "/web/static/media/paperAirplaneYellowGreen.88ea1cdf79c99bca7451.png",
-    "static/media/paperAirplaneGreen.png": "/web/static/media/paperAirplaneGreen.ee9f9d999fe5845f27e9.png",
-    "static/media/paperAirplaneBeige.png": "/web/static/media/paperAirplaneBeige.bfe1673bfff86447ff6f.png",
-    "static/media/paperAirplaneSky.png": "/web/static/media/paperAirplaneSky.c1fe54970cf3725911c5.png",
-    "static/media/holdPaperAirplane.png": "/web/static/media/holdPaperAirplane.c7bfad9509d6e9da7017.png",
+    "static/media/holdPaperAirplane.png": "/web/static/media/holdPaperAirplane.5ad6350f19fcd682b499.png",
+    "static/media/selectPaperAirplanePink.png": "/web/static/media/selectPaperAirplanePink.0ad33a29be0ab188ef0e.png",
+    "static/media/selectPaperAirplaneRed.png": "/web/static/media/selectPaperAirplaneRed.4312f121876da08eadfe.png",
+    "static/media/selectPaperAirplaneYellowGreen.png": "/web/static/media/selectPaperAirplaneYellowGreen.a77260df39c04f372561.png",
+    "static/media/selectPaperAirplaneOrange.png": "/web/static/media/selectPaperAirplaneOrange.668599ac6cadcc1944e8.png",
+    "static/media/selectPaperAirplaneBeige.png": "/web/static/media/selectPaperAirplaneBeige.7adc906cb437858ea90c.png",
+    "static/media/selectPaperAirplaneGreen.png": "/web/static/media/selectPaperAirplaneGreen.660165c0f2c4ee37def1.png",
+    "static/media/selectPaperAirplanePurple.png": "/web/static/media/selectPaperAirplanePurple.68b8422e61a2276dce19.png",
+    "static/media/selectPaperAirplaneSky.png": "/web/static/media/selectPaperAirplaneSky.30162401d0a264fd3045.png",
+    "static/media/certificatePaperAirplanePink.png": "/web/static/media/certificatePaperAirplanePink.2804b06a4df8c558426a.png",
+    "static/media/certificatePaperAirplaneYellowGreen.png": "/web/static/media/certificatePaperAirplaneYellowGreen.c8bcba7cac99e0bae836.png",
+    "static/media/certificatePaperAirplaneRed.png": "/web/static/media/certificatePaperAirplaneRed.5fb4fc1317be4d75d2ab.png",
+    "static/media/certificatePaperAirplaneOrange.png": "/web/static/media/certificatePaperAirplaneOrange.809742f2226a229132ac.png",
+    "static/media/certificatePaperAirplaneBeige.png": "/web/static/media/certificatePaperAirplaneBeige.df5b4634186afaae2194.png",
+    "static/media/certificatePaperAirplaneGreen.png": "/web/static/media/certificatePaperAirplaneGreen.4965c87880ccc00638a1.png",
+    "static/media/certificatePaperAirplanePurple.png": "/web/static/media/certificatePaperAirplanePurple.6ce1e1d84280a171da48.png",
+    "static/media/certificatePaperAirplaneSky.png": "/web/static/media/certificatePaperAirplaneSky.574d2b2b384d39f04694.png",
     "index.html": "/web/index.html",
-    "main.05616650.js.map": "/web/static/js/main.05616650.js.map",
+    "main.ae1a9703.js.map": "/web/static/js/main.ae1a9703.js.map",
     "787.319da3e8.chunk.js.map": "/web/static/js/787.319da3e8.chunk.js.map"
   },
   "entrypoints": [
-    "static/js/main.05616650.js"
+    "static/js/main.ae1a9703.js"
   ]
 }
