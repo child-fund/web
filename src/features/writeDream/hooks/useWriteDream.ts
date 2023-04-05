@@ -3,6 +3,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 
 import { ToastContext } from "shared/components/Toast/ToastProvider";
 import postAirplane from "../apis/postAirplane";
+import postImage from "../apis/postImage";
 import AirplaneColor from "features/selectAirplane/constants/airplaneColor";
 
 import airplaneList from "features/selectAirplane/constants/airplaneList";
@@ -40,13 +41,17 @@ const useWriteDream = () => {
 
     const airplaneColor = state?.selectedAirplaneColor || AirplaneColor.GREEN;
 
-    const airplaneImage =
-      airplaneList.find((airplane) => airplane.key === airplaneColor)
-        ?.certificate || airplaneList[0].certificate;
+    const imageUrl = await getImageUrl(airplaneColor);
+
+    if (!imageUrl) {
+      showToast(`이용량 급증으로 인해 기부하기가 지연되고 있어요.
+      이 메시지가 반복된다면 1688-4272 고객센터로 연락주세요.`);
+      return;
+    }
 
     const { result } = await postAirplane({
       // airplaneColor,
-      imageUrl: airplaneImage,
+      imageUrl,
       content: dream,
     });
 
@@ -57,6 +62,20 @@ const useWriteDream = () => {
     } else {
       showToast(`이용량 급증으로 인해 기부하기가 지연되고 있어요.
       이 메시지가 반복된다면 1688-4272 고객센터로 연락주세요.`);
+    }
+  };
+
+  const getImageUrl = async (airplaneColor: AirplaneColor) => {
+    const airplaneImage =
+      airplaneList.find((airplane) => airplane.key === airplaneColor)
+        ?.certificate || airplaneList[0].certificate;
+
+    const { result, data } = await postImage({ imageUrl: airplaneImage });
+
+    if (result && data?.imageUrl) {
+      return data.imageUrl;
+    } else {
+      return undefined;
     }
   };
 
