@@ -14,7 +14,7 @@ import {
 interface AirplaneSliderProps {
   list: Airplane[];
   onAirplaneClick: (value: AirplaneColor) => void;
-  selectedAirplaneColor: AirplaneColor;
+  airplaneColor: AirplaneColor;
 }
 
 const AirplaneSlider = (props: AirplaneSliderProps) => {
@@ -27,7 +27,7 @@ const AirplaneSlider = (props: AirplaneSliderProps) => {
           <Item
             key={item.key}
             onClick={() => props.onAirplaneClick(item.key)}
-            selected={item.key === props.selectedAirplaneColor}
+            selected={item.key === props.airplaneColor}
           >
             <img src={item.image} alt={`${item.key} airplane`} />
           </Item>

@@ -6,15 +6,15 @@ import airplaneList from "../constants/airplaneList";
 
 const useSelectAirplane = () => {
   const navigate = useNavigate();
-  const [selectedAirplaneColor, setSelectedAirplaneKey] =
-    useState<AirplaneColor>(AirplaneColor.GREEN);
+  const [airplaneColor, setAirplaneColor] = useState<AirplaneColor>(
+    AirplaneColor.GREEN
+  );
 
   const selectedAirplane =
-    airplaneList.find((item) => item.key === selectedAirplaneColor) ||
-    airplaneList[0];
+    airplaneList.find((item) => item.key === airplaneColor) || airplaneList[0];
 
   const handleAirplaneClick = (value: AirplaneColor) => {
-    setSelectedAirplaneKey(value);
+    setAirplaneColor(value);
   };
 
   const handleMainClick = () => {
@@ -22,7 +22,7 @@ const useSelectAirplane = () => {
   };
 
   const handleWriteClick = () => {
-    navigate("/writedream", { state: { selectedAirplaneColor } });
+    navigate("/writedream", { state: { airplaneColor } });
   };
 
   return {

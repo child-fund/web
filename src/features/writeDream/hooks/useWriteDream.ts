@@ -10,9 +10,7 @@ import airplaneList from "features/selectAirplane/constants/airplaneList";
 
 const useWriteDream = () => {
   const location = useLocation();
-  const state = location.state as
-    | { selectedAirplaneColor: AirplaneColor }
-    | undefined;
+  const state = location.state as { airplaneColor: AirplaneColor } | undefined;
 
   const navigate = useNavigate();
   const { showToast } = useContext(ToastContext);
@@ -39,7 +37,7 @@ const useWriteDream = () => {
       return;
     }
 
-    const airplaneColor = state?.selectedAirplaneColor || AirplaneColor.GREEN;
+    const airplaneColor = state?.airplaneColor || AirplaneColor.GREEN;
 
     const imageUrl = await getImageUrl(airplaneColor);
 
@@ -58,7 +56,7 @@ const useWriteDream = () => {
     if (result) {
       navigate("/certificate", {
         state: {
-          selectedAirplaneColor: state.selectedAirplaneColor,
+          airplaneColor,
           airplaneImage: imageUrl,
         },
       });

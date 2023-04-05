@@ -14,7 +14,7 @@ import airplaneList from "features/selectAirplane/constants/airplaneList";
 const useDonationCertificate = () => {
   const location = useLocation();
   const state = location.state as
-    | { selectedAirplaneColor: AirplaneColor; airplaneImage: string }
+    | { airplaneColor: AirplaneColor; airplaneImage: string }
     | undefined;
 
   const navigate = useNavigate();

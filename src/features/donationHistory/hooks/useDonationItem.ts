@@ -7,7 +7,7 @@ const useDonationItem = (donation: Donation) => {
   const handleCertificateClick = () => {
     navigate(`/certificate`, {
       state: {
-        selectedAirplaneColor: donation.color,
+        airplaneColor: donation.color,
         airplaneImage: donation.imageUrl,
       },
     });
