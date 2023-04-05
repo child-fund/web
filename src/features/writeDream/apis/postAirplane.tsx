@@ -22,7 +22,7 @@ const postAirplane = async (props: PostAirplaneProps) => {
       {
         headers: {
           "Content-Type": "application/json",
-          Authorization: accessToken,
+          Authorization: `Bearer ${accessToken}`,
         },
       }
     );
