@@ -16,7 +16,7 @@ const useDonationCertificate = () => {
   const state = location.state as
     | { airplaneColor: AirplaneColor; airplaneImage: string }
     | undefined;
-
+  console.log(state?.airplaneColor);
   const navigate = useNavigate();
   const { showToast } = useContext(ToastContext);
   const certificateAreaRef = useRef<HTMLDivElement>(null);

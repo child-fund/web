@@ -43,7 +43,13 @@ const fetcher = async (url: string) => {
       },
     });
 
-    return res.data as Data;
+    const donationList = res.data.donationList.map((item: Donation) => {
+      return { ...item, color: refineColor(item.color) };
+    });
+
+    const data = { ...res.data, donationList };
+
+    return data as Data;
   } catch (e) {
     console.log(e);
     return undefined;
@@ -75,6 +81,10 @@ const useDonationHistoryData = () => {
     size,
     setSize,
   };
+};
+
+const refineColor = (color: string) => {
+  return color.charAt(0).toUpperCase() + color.slice(1).toLowerCase();
 };
 
 export default useDonationHistoryData;
