@@ -5,18 +5,18 @@ import { Container, ContentContainer, DreamText } from "./Container.style";
 import useDonationHistoryDetail from "./hooks/useDonationHistoryDetail";
 
 const DonationHistoryDetailContainer = () => {
-  const { data } = useDonationHistoryDetail();
-
-  if (!data) {
-    return null;
-  }
+  const { donationDetail } = useDonationHistoryDetail();
 
   return (
     <Container>
       <NavigationBar title="나의 꿈 기부내역" />
       <ContentContainer>
-        <SubtitleBar subtitle={`${data.date} 나의 꿈`} />
-        {/* <DreamText>{data.text}</DreamText> */}
+        {donationDetail && (
+          <>
+            <SubtitleBar subtitle={`${donationDetail.date} 나의 꿈`} />
+            <DreamText>{donationDetail.content}</DreamText>
+          </>
+        )}
       </ContentContainer>
     </Container>
   );

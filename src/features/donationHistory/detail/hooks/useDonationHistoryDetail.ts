@@ -1,11 +1,19 @@
 import { useLocation } from "react-router-dom";
-import { Donation } from "features/donationHistory/apis/useDonationHistoryData";
+import useSWR from "swr";
+
+import getDonationDetail from "../apis/getDonationDetail";
 
 const useDonationHistoryDetail = () => {
   const location = useLocation();
-  const state = location.state as { item: Donation } | undefined;
+  const donationId = location.pathname.split("/")[2];
 
-  return { data: state?.item };
+  const { data } = useSWR(
+    `/mypage/airplane/${donationId}`,
+    (key) => getDonationDetail(key, donationId),
+    { revalidateIfStale: false, revalidateOnFocus: false }
+  );
+
+  return { donationDetail: data ? data.data : undefined };
 };
 
 export default useDonationHistoryDetail;

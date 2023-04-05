@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { Donation } from "../apis/useDonationHistoryData";
 
-const id = 123;
+const donationId = 2;
 
 const useDonationItem = () => {
   const navigate = useNavigate();
@@ -11,8 +11,9 @@ const useDonationItem = () => {
   };
 
   const handleDetailClick = (item: Donation) => {
-    navigate(`/history/${id}`, { state: { item } });
+    navigate(`/history/${donationId}`, { state: { item } });
   };
+
   return {
     handleCertificateClick,
     handleDetailClick,
