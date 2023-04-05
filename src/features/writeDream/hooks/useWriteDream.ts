@@ -48,9 +48,9 @@ const useWriteDream = () => {
     }
 
     const { result } = await postAirplane({
-      // airplaneColor,
       imageUrl,
       content: dream,
+      color: airplaneColor,
     });
 
     if (result) {

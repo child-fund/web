@@ -2,9 +2,9 @@ import axios, { AxiosError } from "axios";
 import AirplaneColor from "features/selectAirplane/constants/airplaneColor";
 
 interface PostAirplaneProps {
-  // airplaneColor: AirplaneColor;
   imageUrl: string;
   content: string;
+  color: AirplaneColor;
 }
 
 const postAirplane = async (props: PostAirplaneProps) => {
