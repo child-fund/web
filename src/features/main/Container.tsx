@@ -1,3 +1,6 @@
+import { useAtom } from "jotai";
+
+import nicknameAtom from "shared/atoms/nicknameAtom";
 import useMain from "./hooks/useMain";
 
 import ScrollableContainer from "shared/components/ScrollableContainer/Container";
@@ -14,8 +17,8 @@ import {
 import holdPaperAirplane from "shared/assets/imgs/holdPaperAirplane.png";
 
 const MainContainer = () => {
+  const [nickname] = useAtom(nicknameAtom);
   const {
-    loginStatus,
     handleNoticeClick,
     handleShareClick,
     handleJoinClick,
@@ -28,7 +31,7 @@ const MainContainer = () => {
   return (
     <ScrollableContainer
       bottomButtons={
-        loginStatus
+        nickname
           ? {
               leftButtonText: "내 꿈 기부내역 보기",
               onLeftButtonClick: handleHistoryClick,

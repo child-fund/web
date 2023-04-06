@@ -18,7 +18,7 @@ const getAutoLoginAvailable = async () => {
 
     return {
       result: true,
-      data: res.data as { isLogin: boolean; nickname: string },
+      data: res.data as { nickname: string },
     };
   } catch (e) {
     const error = e as AxiosError;

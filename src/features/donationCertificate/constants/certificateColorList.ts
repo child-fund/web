@@ -24,7 +24,7 @@ const certificateColorList: CertificateColor[] = [
     key: AirplaneColor.SKY,
     pageBackgroundImage: "linear-gradient(205deg, #77d6eb, #2bacc9)",
     borderColor: "#31d8ff",
-    certificateBackgroundImage: "linear-gradient(to bottom, ##f1ffff, #d3fbfe)",
+    certificateBackgroundImage: "linear-gradient(to bottom, #f1ffff, #d3fbfe)",
   },
   {
     key: AirplaneColor.PINK,
