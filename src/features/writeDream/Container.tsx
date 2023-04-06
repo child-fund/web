@@ -31,10 +31,10 @@ const WriteDreamContainer = () => {
           onChange={handleTextChange}
           wrap="soft"
         />
-        <LetterCounter overwritten={dream.length > 300}>
-          <span>{dream.length}</span>/300
-        </LetterCounter>
       </WritingArea>
+      <LetterCounter overwritten={dream.length > 300}>
+        <span>{dream.length}</span>/300
+      </LetterCounter>
     </Container>
   );
 };

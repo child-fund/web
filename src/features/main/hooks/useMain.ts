@@ -18,7 +18,6 @@ const useMain = () => {
   const [participated] = useAtom(participatedAtom);
   const [totalAirplaneCount, setTotalAirplaneCount] = useState(0);
   const [totalDonation, setTotalDonation] = useState(0);
-  const [loginStatus, setLoginStatus] = useState(false);
 
   useEffect(() => {
     initDonationSummary();
@@ -121,8 +120,28 @@ const useMain = () => {
   };
 
   const handleJoinClick = () => {
-    if (checkDonationAvailability()) {
+    const today = new Date(2023, 3, 15); // TODO: 나중에 빈값으로 수정해줘야함
+    const eventStartDate = new Date(2023, 3, 10);
+    const timeDifference = eventStartDate.getTime() - today.getTime();
+
+    if (timeDifference > 0) {
+      const seconds = timeDifference / 1000;
+      const minutes = seconds / 60;
+      const hours = minutes / 60;
+      const days = Math.floor(hours / 24);
+
+      const remainingHours = Math.floor(hours % 24);
+      const remainingMinutes = Math.floor(minutes % 60);
+
+      showToast(
+        `아직 서비스를 준비하고 있어요!
+        ${days}일 ${remainingHours}시간 ${remainingMinutes}분 뒤에 만나기로 해요!`,
+        ToastTheme.GRAY
+      );
+      return;
+    } else {
       navigate("/join");
+      return;
     }
   };
 
@@ -131,10 +150,12 @@ const useMain = () => {
   };
 
   const handleDonateClick = () => {
-    navigate("/selectairplane");
+    if (checkDonationAvailability()) {
+      navigate("/selectairplane");
+    }
   };
+
   return {
-    loginStatus,
     handleNoticeClick,
     handleShareClick,
     handleJoinClick,
