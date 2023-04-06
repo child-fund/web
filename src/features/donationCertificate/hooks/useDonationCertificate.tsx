@@ -1,12 +1,14 @@
 import { useContext, useRef, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import html2canvas from "html2canvas";
+import { useAtom } from "jotai";
 
 import { ToastTheme } from "shared/components/Toast/Container";
 import { ToastContext } from "shared/components/Toast/ToastProvider";
 import copyImageByClipboardApi from "shared/utils/copyImageByClipboardApi";
 import copyImageByExecCommand from "shared/utils/copyImageByExecCommand";
 import shareUrlByWebShareApi from "shared/utils/shareUrlByWebShareApi";
+import nicknameAtom from "shared/atoms/nicknameAtom";
 
 import AirplaneColor from "features/selectAirplane/constants/airplaneColor";
 import airplaneList from "features/selectAirplane/constants/airplaneList";
@@ -20,6 +22,7 @@ const useDonationCertificate = () => {
     | undefined;
   const { showToast } = useContext(ToastContext);
   const certificateAreaRef = useRef<HTMLDivElement>(null);
+  const [nickname] = useAtom(nicknameAtom);
 
   const handleBackToMainClick = () => {
     navigate("/");
@@ -32,27 +35,10 @@ const useDonationCertificate = () => {
   const handleSaveImageClick = async () => {
     if (!certificateAreaRef.current) return;
 
-    const images = certificateAreaRef.current.querySelectorAll("img");
-    const imagesLoadedPromise = Promise.all(
-      Array.from(images).map(
-        (img) =>
-          new Promise((resolve) => {
-            if (img.complete) {
-              resolve(null);
-            } else {
-              img.addEventListener("load", () => resolve(null));
-              img.addEventListener("error", () => resolve(null));
-            }
-          })
-      )
-    );
-
-    await imagesLoadedPromise;
-
     const imageElement = await html2canvas(certificateAreaRef.current);
     const link = document.createElement("a");
     link.href = imageElement.toDataURL();
-    link.download = "donation-certificate.png";
+    link.download = `${nickname}님의 종이비행기 후원인증서.png`;
     link.click();
   };
 
