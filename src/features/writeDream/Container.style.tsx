@@ -47,6 +47,7 @@ export const WritingText = styled.textarea`
   }
   width: 100%;
   height: 100%;
+  margin-bottom: 2rem;
   caret-color: #55ad1e;
   color: ${colors.gray700};
   font-size: 1.8rem;
@@ -60,9 +61,7 @@ export const WritingText = styled.textarea`
 `;
 
 export const LetterCounter = styled.p<{ overwritten: boolean }>`
-  position: absolute;
-  right: 0;
-  bottom: 0;
+  align-self: end;
   color: #c7c7c7;
   font-size: 1.4rem;
 
