@@ -18,7 +18,6 @@ const useMain = () => {
   const [participated] = useAtom(participatedAtom);
   const [totalAirplaneCount, setTotalAirplaneCount] = useState(0);
   const [totalDonation, setTotalDonation] = useState(0);
-  const [loginStatus, setLoginStatus] = useState(false);
 
   useEffect(() => {
     initDonationSummary();
@@ -134,7 +133,6 @@ const useMain = () => {
     navigate("/selectairplane");
   };
   return {
-    loginStatus,
     handleNoticeClick,
     handleShareClick,
     handleJoinClick,
