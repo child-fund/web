@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAtom } from "jotai";
 
-import shareUrlByWebShareApi from "../../../shared/utils/shareUrlByWebShareApi";
+import shareByWebShareApi from "../../../shared/utils/shareByWebShareApi";
 import copyTextByClipboardApi from "../../../shared/utils/copyTextByClipboardApi";
 import copyTextByExecCommand from "../../../shared/utils/copyTextByExecCommand";
 
@@ -43,7 +43,7 @@ const useMain = () => {
   };
 
   const handleShareClick = async () => {
-    const firstTrial = await shareUrlByWebShareApi({
+    const firstTrial = await shareByWebShareApi({
       url: window.location.href,
     });
 
