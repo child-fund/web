@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.js": "/web/static/js/main.ae1a9703.js",
+    "main.js": "/web/static/js/main.46960743.js",
     "static/js/787.319da3e8.chunk.js": "/web/static/js/787.319da3e8.chunk.js",
     "static/media/holdPaperAirplane.png": "/web/static/media/holdPaperAirplane.5ad6350f19fcd682b499.png",
     "static/media/selectPaperAirplanePink.png": "/web/static/media/selectPaperAirplanePink.0ad33a29be0ab188ef0e.png",
@@ -20,10 +20,10 @@
     "static/media/certificatePaperAirplanePurple.png": "/web/static/media/certificatePaperAirplanePurple.6ce1e1d84280a171da48.png",
     "static/media/certificatePaperAirplaneSky.png": "/web/static/media/certificatePaperAirplaneSky.574d2b2b384d39f04694.png",
     "index.html": "/web/index.html",
-    "main.ae1a9703.js.map": "/web/static/js/main.ae1a9703.js.map",
+    "main.46960743.js.map": "/web/static/js/main.46960743.js.map",
     "787.319da3e8.chunk.js.map": "/web/static/js/787.319da3e8.chunk.js.map"
   },
   "entrypoints": [
-    "static/js/main.ae1a9703.js"
+    "static/js/main.46960743.js"
   ]
 }
