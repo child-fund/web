@@ -21,7 +21,7 @@ const useDonationCertificate = () => {
     | { airplaneColor: AirplaneColor; airplaneImage: string }
     | undefined;
   const { showToast } = useContext(ToastContext);
-  const certificateAreaRef = useRef<HTMLDivElement>(null);
+  const contentContainerRef = useRef<HTMLDivElement>(null);
   const [nickname] = useAtom(nicknameAtom);
 
   const handleBackToMainClick = () => {
@@ -33,9 +33,9 @@ const useDonationCertificate = () => {
   };
 
   const handleSaveImageClick = async () => {
-    if (!certificateAreaRef.current) return;
+    if (!contentContainerRef.current) return;
 
-    const imageElement = await html2canvas(certificateAreaRef.current);
+    const imageElement = await html2canvas(contentContainerRef.current);
     const link = document.createElement("a");
     link.href = imageElement.toDataURL();
     link.download = `${nickname}님의 종이비행기 후원인증서.png`;
@@ -73,11 +73,11 @@ const useDonationCertificate = () => {
   };
 
   const convertHtmlToImage = async () => {
-    const certificateArea = certificateAreaRef.current;
+    const certificateArea = contentContainerRef.current;
 
     if (certificateArea) {
       try {
-        const imageElement = await html2canvas(certificateAreaRef.current);
+        const imageElement = await html2canvas(contentContainerRef.current);
         const dataURL = imageElement.toDataURL();
 
         return dataURL;
@@ -97,7 +97,7 @@ const useDonationCertificate = () => {
 
   return {
     airplaneImage,
-    certificateAreaRef,
+    contentContainerRef,
     certificateColor,
     handleBackToMainClick,
     handleSaveImageClick,
