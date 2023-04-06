@@ -42,26 +42,28 @@ const useMain = () => {
     );
   };
 
-  const handleShareClick = () => {
-    const firstTrial = shareUrlByWebShareApi({
-      title: "에스칼프린트x초록우산 종이비행기 기부이벤트",
+  const handleShareClick = async () => {
+    const firstTrial = await shareUrlByWebShareApi({
       url: window.location.href,
     });
 
-    if (!firstTrial) {
-      const secondTrial = copyTextByClipboardApi();
+    if (firstTrial) {
+      return;
+    }
 
-      if (secondTrial) {
-        showToast(`링크가 복사되었어요!`, ToastTheme.GREEN);
-      } else {
-        const lastTrial = copyTextByExecCommand();
+    const secondTrial = copyTextByClipboardApi();
 
-        if (lastTrial) {
-          showToast(`링크가 복사되었어요!`, ToastTheme.GREEN);
-        } else {
-          showToast("공유하기가 지원되지 않는 환경입니다.");
-        }
-      }
+    if (secondTrial) {
+      showToast(`링크를 복사했어요!`, ToastTheme.GREEN);
+      return;
+    }
+
+    const lastTrial = copyTextByExecCommand();
+
+    if (lastTrial) {
+      showToast(`링크를 복사했어요!`, ToastTheme.GREEN);
+    } else {
+      showToast("공유하기가 지원되지 않는 환경입니다.");
     }
   };
 
