@@ -20,22 +20,22 @@ const usePasswordInput = () => {
   };
 
   const checkPasswordExist = async (inputValue: string) => {
-    const { result, data, statusCode } = await getPasswordExist({
+    const { result, data } = await getPasswordExist({
       password: inputValue,
     });
 
-    if (result && data) {
+    if (!result || !data) {
+      showToast(`이용량 급증으로 인해 로그인정보 확인이 지연되고 있어요.
+      이 메시지가 반복된다면 1688-4272 고객센터로 연락주세요.`);
+      return;
+    }
+
+    if (data.isExist) {
       setPasswordWarningMessage("");
       return;
-    }
-
-    if (statusCode === 400) {
+    } else {
       setPasswordWarningMessage("이 비밀번호가 아닌거 같아요 :(");
-      return;
     }
-
-    showToast(`이용량 급증으로 인해 로그인정보 확인이 지연되고 있어요.
-    이 메시지가 반복된다면 1688-4272 고객센터로 연락주세요.`);
   };
 
   const debouncedCheckPasswordExist = useDebouncedCallback(
