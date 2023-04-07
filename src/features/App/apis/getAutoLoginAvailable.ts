@@ -3,7 +3,7 @@ import axios, { AxiosError } from "axios";
 const getAutoLoginAvailable = async () => {
   try {
     const API_URI = process.env.REACT_APP_API_URI;
-    const accessToken = localStorage.getItem("accessToken");
+    const accessToken = localStorage.getItem("escalAccessToken");
 
     if (!accessToken) {
       return { result: false };
