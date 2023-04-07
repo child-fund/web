@@ -65,7 +65,7 @@ const useJoin = () => {
     // console.log("accountId", accountId, "password", password, "data", data);
 
     if (result && data) {
-      localStorage.setItem("accessToken", data.accessToken);
+      localStorage.setItem("escalAccessToken", data.accessToken);
       setNickname(data.nickname);
       navigate("/selectairplane");
       return;

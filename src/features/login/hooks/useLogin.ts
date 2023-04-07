@@ -37,7 +37,7 @@ const useLogin = () => {
     });
 
     if (result && data) {
-      localStorage.setItem("accessToken", data.accessToken);
+      localStorage.setItem("escalAccessToken", data.accessToken);
       setNickname(data.nickname);
 
       await checkParticipationAndMoveNext();

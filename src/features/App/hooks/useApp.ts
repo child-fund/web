@@ -18,7 +18,7 @@ const useApp = () => {
   }, []);
 
   const checkAutoLoginAvailable = async () => {
-    const accessToken = localStorage.getItem("accessToken");
+    const accessToken = localStorage.getItem("escalAccessToken");
 
     if (!accessToken) {
       return;
@@ -36,13 +36,13 @@ const useApp = () => {
       setNickname(data.nickname);
       return;
     } else {
-      localStorage.removeItem("accessToken");
+      localStorage.removeItem("escalAccessToken");
       return;
     }
   };
 
   const checkParticipated = async () => {
-    const accessToken = localStorage.getItem("accessToken");
+    const accessToken = localStorage.getItem("escalAccessToken");
 
     if (!accessToken) {
       return;

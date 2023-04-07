@@ -30,7 +30,7 @@ const getKey = (pageIndex: number, previousPageData: Data | null) => {
 
 const fetcher = async (url: string) => {
   try {
-    const accessToken = localStorage.getItem("accessToken");
+    const accessToken = localStorage.getItem("escalAccessToken");
 
     if (!accessToken) {
       return undefined;
