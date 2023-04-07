@@ -37,8 +37,8 @@ const useLogin = () => {
     });
 
     if (result && data) {
-      localStorage.setItem("accessToken", data.accessToken);
-      setNickname(data.nickname || ""); // TODO: 기본값 없애야
+      localStorage.setItem("escalAccessToken", data.accessToken);
+      setNickname(data.nickname);
 
       await checkParticipationAndMoveNext();
       return;
