@@ -35,7 +35,9 @@ const useDonationCertificate = () => {
   const handleSaveImageClick = async () => {
     if (!contentContainerRef.current) return;
 
-    const imageElement = await html2canvas(contentContainerRef.current);
+    const imageElement = await html2canvas(contentContainerRef.current, {
+      scale: 2,
+    });
     const link = document.createElement("a");
     link.href = imageElement.toDataURL();
     link.download = `${nickname}님의 종이비행기 후원인증서.png`;
@@ -58,7 +60,7 @@ const useDonationCertificate = () => {
       return;
     }
 
-    const secondTrial = await copyImageByClipboardApi(imageUrl);
+    const secondTrial = await copyImageByClipboardApi(imageUrl, 3);
     if (secondTrial) {
       showToast("인증서가 클립보드에 저장되었어요!", ToastTheme.GREEN);
       return;
