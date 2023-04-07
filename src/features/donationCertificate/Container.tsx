@@ -29,7 +29,7 @@ const DonationCertificateContainer = () => {
   const {
     airplaneImage,
     certificateColor,
-    certificateAreaRef,
+    contentContainerRef,
     handleBackToMainClick,
     handleSaveImageClick,
     handleHistoryClick,
@@ -38,10 +38,12 @@ const DonationCertificateContainer = () => {
 
   return (
     <Container pageBackgroundImage={certificateColor.pageBackgroundImage}>
-      <ContentContainer>
-        <ShareButton onClick={handleShareClick}>공유하기</ShareButton>
+      <ShareButton onClick={handleShareClick}>공유하기</ShareButton>
+      <ContentContainer
+        ref={contentContainerRef}
+        pageBackgroundImage={certificateColor.pageBackgroundImage}
+      >
         <CertificateArea
-          ref={certificateAreaRef}
           borderColor={certificateColor.borderColor}
           certificateBackgroundImage={
             certificateColor.certificateBackgroundImage

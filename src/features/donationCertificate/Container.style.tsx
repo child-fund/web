@@ -7,23 +7,28 @@ import colors from "shared/assets/colors";
 export const Container = styled(ScrollableContainer)<{
   pageBackgroundImage: string;
 }>`
+  position: relative;
   padding-top: 2rem;
   background-image: ${({ pageBackgroundImage }) => pageBackgroundImage};
 `;
 
-export const ContentContainer = styled.div`
+export const ShareButton = styled.button`
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  color: ${colors.white};
+  font-size: 1.6rem;
+  font-weight: bold;
+`;
+
+export const ContentContainer = styled.div<{
+  pageBackgroundImage: string;
+}>`
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 100%;
-`;
-
-export const ShareButton = styled.button`
-  align-self: flex-end;
-  margin-bottom: 5rem;
-  color: ${colors.white};
-  font-size: 1.6rem;
-  font-weight: bold;
+  background-image: ${({ pageBackgroundImage }) => pageBackgroundImage};
 `;
 
 export const CertificateArea = styled.div<{
@@ -33,6 +38,7 @@ export const CertificateArea = styled.div<{
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: 7rem;
   margin-bottom: 13.5rem;
   padding: 3.6rem 3.4rem 1.6rem 3.4rem;
   border: 0.2rem solid ${({ borderColor }) => borderColor};

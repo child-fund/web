@@ -29,6 +29,8 @@ export const ContentContainer = styled.div`
 `;
 
 export const StyledNavigationBar = styled(NavigationBar)`
+  width: calc(100% + 4rem);
+  margin-left: -2rem;
   margin-bottom: 2rem;
 `;
 
