@@ -3,7 +3,6 @@ import useWriteDream from "./hooks/useWriteDream";
 import {
   Container,
   LetterCounter,
-  WritingArea,
   WritingText,
   StyledDescription,
   StyledTitle,
@@ -25,13 +24,11 @@ const WriteDreamContainer = () => {
         onButtonClick={handleSubmitClick}
         subtitle="꿈 작성하기"
       />
-      <WritingArea>
-        <WritingText
-          placeholder="이루고 싶은 꿈이나 소원을 적어주세요."
-          onChange={handleTextChange}
-          wrap="soft"
-        />
-      </WritingArea>
+      <WritingText
+        placeholder="이루고 싶은 꿈이나 소원을 적어주세요."
+        onChange={handleTextChange}
+        wrap="soft"
+      />
       <LetterCounter overwritten={dream.length > 300}>
         <span>{dream.length}</span>/300
       </LetterCounter>

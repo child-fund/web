@@ -34,20 +34,16 @@ export const StyledSubtitleBar = styled(SubtitleBar)`
   margin-bottom: 2rem;
 `;
 
-export const WritingArea = styled.div`
-  flex-grow: 1;
-  position: relative;
-`;
-
 export const WritingText = styled.textarea`
+  flex-grow: 1;
+  width: 100%;
+  height: 100%;
+  margin-bottom: 2rem;
   overflow-x: hidden;
   overflow-y: scroll;
   ::-webkit-scrollbar {
     display: none;
   }
-  width: 100%;
-  height: 100%;
-  margin-bottom: 2rem;
   caret-color: #55ad1e;
   color: ${colors.gray700};
   font-size: 1.8rem;
