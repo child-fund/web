@@ -27,7 +27,7 @@ export const ContentContainer = styled.div<{
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100%;
+  width: calc(100% + 4rem);
   background-image: ${({ pageBackgroundImage }) => pageBackgroundImage};
 `;
 

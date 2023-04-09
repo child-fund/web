@@ -57,7 +57,7 @@ const useWriteDream = () => {
       navigate("/certificate", {
         state: {
           airplaneColor,
-          airplaneImage: imageUrl,
+          // airplaneImage: imageUrl,
         },
       });
     } else {

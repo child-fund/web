@@ -51,7 +51,8 @@ const DonationCertificateContainer = () => {
         >
           <Title>
             {nickname.length > 0
-              ? `${nickname}님! 기부에 동참해주셔서 감사해요 :)`
+              ? `${nickname}님!
+              기부에 동참해주셔서 감사해요 :)`
               : `기부에 동참해주셔서 감사해요 :)`}
           </Title>
           <Description>{`꿈이 이루어질 수 있도록 에스칼프린트가 함께할게요!
