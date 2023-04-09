@@ -7,7 +7,11 @@ const useNavigationBar = () => {
     navigate(-1);
   };
 
-  return { handleGoBackClick };
+  const handleGoHomeClick = () => {
+    navigate("/");
+  };
+
+  return { handleGoBackClick, handleGoHomeClick };
 };
 
 export default useNavigationBar;
