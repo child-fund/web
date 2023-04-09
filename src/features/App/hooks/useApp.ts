@@ -20,7 +20,12 @@ const useApp = () => {
       return;
     }
 
-    const { result, data } = await getAutoLoginAvailable();
+    const { result, data, statusCode } = await getAutoLoginAvailable();
+
+    if (statusCode === 401) {
+      localStorage.removeItem("escalAccessToken");
+      return;
+    }
 
     if (!result || !data) {
       showToast(`에러가 발생했어요.

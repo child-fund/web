@@ -45,7 +45,12 @@ const useMain = () => {
       return;
     }
 
-    const { result, data } = await getParticipation();
+    const { result, data, statusCode } = await getParticipation();
+
+    if (statusCode === 401) {
+      localStorage.removeItem("escalAccessToken");
+      return;
+    }
 
     if (result && data) {
       setParticipated(data.isParticipate);
