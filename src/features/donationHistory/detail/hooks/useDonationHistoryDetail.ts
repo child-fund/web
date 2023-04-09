@@ -10,13 +10,13 @@ const useDonationHistoryDetail = () => {
   const donationId = location.pathname.split("/")[2];
   const { showToast } = useContext(ToastContext);
 
-  const { data } = useSWR(
+  const { data, isLoading } = useSWR(
     `/mypage/airplane/${donationId}`,
     (key) => getDonationDetail(key, donationId),
     { revalidateIfStale: false, revalidateOnFocus: false }
   );
 
-  if (!data) {
+  if (!isLoading && !data) {
     showToast(`에러가 발생했어요.
     이 메시지가 반복된다면 1688-4272 고객센터로 연락주세요.`);
   }

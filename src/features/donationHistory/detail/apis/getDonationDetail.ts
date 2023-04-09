@@ -14,7 +14,6 @@ const getDonationDetail = async (key: string, donationId?: string) => {
   const API_URI = process.env.REACT_APP_API_URI;
   const accessToken = localStorage.getItem("escalAccessToken");
 
-  console.log("accessToken ,donationId", accessToken, donationId);
   if (!accessToken || !donationId) {
     return undefined;
   }
