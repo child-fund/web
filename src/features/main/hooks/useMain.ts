@@ -9,18 +9,20 @@ import copyTextByExecCommand from "../../../shared/utils/copyTextByExecCommand";
 import { ToastContext } from "shared/components/Toast/ToastProvider";
 import participatedAtom from "shared/atoms/participatedAtom";
 import getDonationSummary from "../apis/getDonationSummary";
+import getParticipation from "shared/apis/getParticipation";
 
 import { ToastTheme } from "shared/components/Toast/Container";
 
 const useMain = () => {
   const navigate = useNavigate();
   const { showToast } = useContext(ToastContext);
-  const [participated] = useAtom(participatedAtom);
+  const [participated, setParticipated] = useAtom(participatedAtom);
   const [totalAirplaneCount, setTotalAirplaneCount] = useState(0);
   const [totalDonation, setTotalDonation] = useState(0);
 
   useEffect(() => {
     initDonationSummary();
+    checkParticipated();
   }, []);
 
   const initDonationSummary = async () => {
@@ -33,6 +35,24 @@ const useMain = () => {
     }
 
     showToast(`이용량 급증으로 인해 데이터 로드가 지연되고 있어요.
+    이 메시지가 반복된다면 1688-4272 고객센터로 연락주세요.`);
+  };
+
+  const checkParticipated = async () => {
+    const accessToken = localStorage.getItem("escalAccessToken");
+
+    if (!accessToken) {
+      return;
+    }
+
+    const { result, data } = await getParticipation();
+
+    if (result && data) {
+      setParticipated(data.isParticipate);
+      return;
+    }
+
+    showToast(`에러가 발생했어요.
     이 메시지가 반복된다면 1688-4272 고객센터로 연락주세요.`);
   };
 

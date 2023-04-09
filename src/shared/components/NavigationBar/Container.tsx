@@ -1,7 +1,8 @@
 import useNavigationBar from "./hooks/useNavigationBar";
 
-import { BackButton, Container, Title } from "./Container.style";
+import { HomeButton, BackButton, Container, Title } from "./Container.style";
 import caretLeft from "shared/assets/imgs/caretLeft.png";
+import home from "shared/assets/imgs/home.png";
 
 interface NavigationBarProps {
   className?: string;
@@ -9,7 +10,7 @@ interface NavigationBarProps {
 }
 
 const NavigationBar = (props: NavigationBarProps) => {
-  const { handleGoBackClick } = useNavigationBar();
+  const { handleGoBackClick, handleGoHomeClick } = useNavigationBar();
 
   return (
     <Container className={props.className}>
@@ -17,6 +18,9 @@ const NavigationBar = (props: NavigationBarProps) => {
         <img src={caretLeft} alt="caretLeft" />
       </BackButton>
       <Title>{props.title}</Title>
+      <HomeButton onClick={handleGoHomeClick}>
+        <img src={home} alt="home" />
+      </HomeButton>
     </Container>
   );
 };

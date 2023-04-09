@@ -13,6 +13,12 @@ export const Container = styled.div`
   background-color: ${colors.white};
 `;
 
+export const Title = styled.span`
+  color: #454545;
+  font-size: 1.4rem;
+  font-weight: 600;
+`;
+
 export const BackButton = styled.button`
   position: absolute;
   left: 0rem;
@@ -24,8 +30,13 @@ export const BackButton = styled.button`
   }
 `;
 
-export const Title = styled.span`
-  color: #454545;
-  font-size: 1.4rem;
-  font-weight: 600;
+export const HomeButton = styled.button`
+  position: absolute;
+  right: 0rem;
+  padding: 1rem 2rem;
+  line-height: 0;
+
+  > img {
+    width: 2.4rem;
+  }
 `;
