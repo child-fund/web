@@ -20,6 +20,7 @@ export const TextSection = styled.div`
 
   > img {
     width: 5rem;
+    height: 5rem;
   }
 `;
 
