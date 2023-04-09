@@ -20,8 +20,6 @@ const useNicknameInput = () => {
     const isValidateInput = checkValidity(inputValue);
 
     if (!isValidateInput) {
-      // 기획을 여러번 요청했으나 응답이 없고, 필요성은 분명하여 임의로 WarningMessage를 넣음.
-      // TODO: & or 조건 확인 필요
       setNicknameWarningMessage(
         "띄어쓰기 없이, 16자 이하 국문 또는 영문 사용해주세요."
       );
@@ -46,7 +44,7 @@ const useNicknameInput = () => {
   };
 
   const checkValidity = (value: string) => {
-    const pattern = /^[ㄱ-ㅎㅏ-ㅣ가-힣a-zA-Z]{1,16}$/;
+    const pattern = /^(?=.*[a-zA-Zㄱ-ㅎㅏ-ㅣ가-힣])[\wㄱ-ㅎㅏ-ㅣ가-힣]{1,16}$/;
     return pattern.test(value);
   };
 
