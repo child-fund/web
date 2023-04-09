@@ -20,7 +20,6 @@ const useAccountIdInput = () => {
     const isValidateInput = checkValidity(inputValue);
 
     if (!isValidateInput) {
-      // TODO: & or 조건 확인 필요
       setAccountIdWarningMessage(
         "띄어쓰기 없이, 20자 이하 영문과 숫자를 조합해주세요."
       );
@@ -46,8 +45,7 @@ const useAccountIdInput = () => {
   };
 
   const checkValidity = (value: string) => {
-    const pattern = /^[a-zA-Z0-9]{1,20}$/;
-    // const pattern = /^(?=.*[a-zA-Z])(?=.*[0-9])[a-zA-Z0-9]{1,20}$/;
+    const pattern = /^(?=.*[a-zA-Z])(?=.*[0-9])[a-zA-Z0-9]{1,20}$/;
     return pattern.test(value);
   };
 
