@@ -62,8 +62,6 @@ const useJoin = () => {
       password,
     });
 
-    // console.log("accountId", accountId, "password", password, "data", data);
-
     if (result && data) {
       localStorage.setItem("escalAccessToken", data.accessToken);
       setNickname(data.nickname);

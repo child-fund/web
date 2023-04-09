@@ -95,7 +95,10 @@ const useDonationCertificate = () => {
     certificateColorList.find((item) => item.key === airplaneColor) ||
     certificateColorList[0];
 
-  const airplaneImage = state?.airplaneImage || airplaneList[0].certificate;
+  const airplaneImage =
+    airplaneList.find((airplane) => airplane.key === airplaneColor)
+      ?.certificate || airplaneList[0].certificate;
+  // const airplaneImage = state?.airplaneImage || airplaneList[0].certificate;
 
   return {
     airplaneImage,
