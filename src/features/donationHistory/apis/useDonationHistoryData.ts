@@ -61,7 +61,7 @@ const useDonationHistoryData = () => {
   const { data, size, setSize } = useSWRInfinite(getKey, fetcher, {
     revalidateAll: false,
     revalidateFirstPage: false,
-    revalidateIfStale: false,
+    // revalidateIfStale: false,
     revalidateOnFocus: false,
   });
 
