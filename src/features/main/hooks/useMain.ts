@@ -93,7 +93,7 @@ const useMain = () => {
   };
 
   const checkDonationAvailability = () => {
-    const today = new Date(2023, 3, 15); // TODO: 나중에 빈값으로 수정해줘야함
+    const today = new Date();
     const eventStartDate = new Date(2023, 3, 10);
     const eventEndDate = new Date(2023, 3, 30);
 
@@ -147,7 +147,7 @@ const useMain = () => {
   };
 
   const handleJoinClick = () => {
-    const today = new Date(2023, 3, 15); // TODO: 나중에 빈값으로 수정해줘야함
+    const today = new Date();
     const eventStartDate = new Date(2023, 3, 10);
     const timeDifference = eventStartDate.getTime() - today.getTime();
 
